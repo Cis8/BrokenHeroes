@@ -176,29 +176,30 @@ public class Unit : ScriptableObject, ISerializationCallbackReceiver
     public int NumberOfTargetsBaseAttack { get => numberOfTargetsBaseAttack;}
     public int CurrentMagicalAttackBonusPerc { get => currentMagicalAttackBonusPerc; }
     public int CurrentPhysicalAttackBonusPerc { get => currentPhysicalAttackBonusPerc; }
-    public float CurrentLifesteal { get => currentLifesteal; set => currentLifesteal = value; }
-    public int CurrentMagicalDefenseBonusPerc { get => currentMagicalDefenseBonusPerc; set => currentMagicalDefenseBonusPerc = value; }
-    public int CurrentArmorBonusPerc { get => currentArmorBonusPerc; set => currentArmorBonusPerc = value; }
-    public int CurrentEnergyPerAtk { get => currentEnergyPerAtk; set => currentEnergyPerAtk = value; }
-    public int CurrentMagicalAttack { get => CurrentMagicalAttack1; set => CurrentMagicalAttack1 = value; }
-    public int CurrentHealBonusPerc { get => currentHealBonusPerc; set => currentHealBonusPerc = value; }
+    public float CurrentLifesteal { get { if (currentLifesteal < 0f) return 0f; return currentLifesteal; } set => currentLifesteal = value; }
+    public int CurrentMagicalDefenseBonusPerc { get { if (currentMagicalDefenseBonusPerc < -100) return -100; return currentMagicDefensePenetration; } set => currentMagicalDefenseBonusPerc = value; }
+    public int CurrentArmorBonusPerc { get { if (currentArmorBonusPerc < -100) return -100; return currentArmorBonusPerc; } set => currentArmorBonusPerc = value; }
+    public int CurrentEnergyPerAtk { get { if (currentEnergyPerAtk < 0) return 0; return currentEnergyPerAtk; } set => currentEnergyPerAtk = value; }
+    public int CurrentHealBonusPerc { get { if (currentHealBonusPerc < -100) return -100; return currentHealBonusPerc; } set => currentHealBonusPerc = value; }
+
     //public List<float> AttackScalingRate { get => attackScalingRates; set => attackScalingRates = value; }
     //public List<ScalingTypeEnum> AttackScaleType { get => attackScaleTypes; set => attackScaleTypes = value; }
     //public List<ScalingTypeEnum> AbilityScaleTypes { get => abilityScaleTypes; set => abilityScaleTypes = value; }
     //public List<float> AbilityScalingRates { get => abilityScalingRates; set => abilityScalingRates = value; }
     public DmgTypeEnum AttackDamageType { get => attackDamageType; set => attackDamageType = value; }
     public DmgTypeEnum AbilityDamageType { get => abilityDamageType; set => abilityDamageType = value; }
-    public int CurrentArmorPenetration { get => currentArmorPenetration; set => currentArmorPenetration = value; }
-    public int CurrentMagicDefensePenetration { get => currentMagicDefensePenetration; set => currentMagicDefensePenetration = value; }
-    public int CurrentThorns { get => currentThorns; set => currentThorns = value; }
-    public float CurrentCriticalChance { get => currentCriticalChance; set => currentCriticalChance = value; }
-    public float CurrentCriticalMultiplier { get => currentCriticalMultiplier; set => currentCriticalMultiplier = value; }
+    public int CurrentArmorPenetration { get { if (currentArmorPenetration < 0) return 0; return currentArmorPenetration; } set => currentArmorPenetration = value; }
+    public int CurrentMagicDefensePenetration { get { if (currentMagicDefensePenetration < 0) return 0; return currentMagicDefensePenetration; } set => currentMagicDefensePenetration = value; }
+    public int CurrentThorns { get { if (currentThorns < 0) return 0; return currentThorns; } set => currentThorns = value; }
+    public float CurrentCriticalChance { get { if (currentCriticalChance > 1) return 1; else if (currentCriticalChance < 0) return 0; return currentCriticalChance; } set => currentCriticalChance = value; }
+    public float CurrentCriticalMultiplier { get { if (currentCriticalMultiplier < 1.0f) return 1.0f; return currentCriticalMultiplier; } set => currentCriticalMultiplier = value; }
     public int Position { get => position; set => position = value; }
     public int CurrentPhysicalAttack { get => currentPhysicalAttack; set => currentPhysicalAttack = value; }
-    public int CurrentMagicalAttack1 { get => currentMagicalAttack; set => currentMagicalAttack = value; }
-    public int CurrentArmor { get => currentArmor; set => currentArmor = value; }
-    public int CurrentMagicalDefense { get => currentMagicalDefense; set => currentMagicalDefense = value; }
+    public int CurrentMagicalAttack { get => currentMagicalAttack; set => currentMagicalAttack = value; }
+    public int CurrentArmor { get { if (currentArmor < 0) return 0; return currentArmor; } set => currentArmor = value; }
+    public int CurrentMagicalDefense { get { if (currentMagicalDefense < 0) return 0; return currentMagicalDefense; } set => currentMagicalDefense = value; }
     public int CurrentSpeed { get => currentSpeed; set => currentSpeed = value; }
+
     public int CurrentRemainingResurrections { get => currentRemainingResurrections; set => currentRemainingResurrections = value; }
 
 	public int AD { get => GetComplessivePhysicalAtk(); }
@@ -293,12 +294,10 @@ public class Unit : ScriptableObject, ISerializationCallbackReceiver
 		return currentHP;
 	}
 
-	public int SubtractArmor(int amount)
+	public void SubtractArmor(int amount)
 	{
 		CurrentArmor -= amount;
-		if (CurrentArmor < 0)
-			CurrentArmor = 0;
-		return CurrentArmor;
+
 	}
 
 	public void AddArmor(int amount)
@@ -306,12 +305,9 @@ public class Unit : ScriptableObject, ISerializationCallbackReceiver
 		CurrentArmor += amount;
     }
 
-	public int SubtractMagicalDefense(int amount)
+	public void SubtractMagicalDefense(int amount)
 	{
 		CurrentMagicalDefense -= amount;
-		if (CurrentMagicalDefense < 0)
-			CurrentMagicalDefense = 0;
-		return CurrentMagicalDefense;
 		
 	}
 
@@ -350,12 +346,9 @@ public class Unit : ScriptableObject, ISerializationCallbackReceiver
 		CurrentPoisonResist -= amount;
 	}
 
-	public int SubtractMagicalDefensePenetration(int amount)
+	public void SubtractMagicalDefensePenetration(int amount)
 	{
 		CurrentMagicDefensePenetration -= amount;
-		if (CurrentMagicDefensePenetration < 0)
-			CurrentMagicDefensePenetration = 0;
-		return CurrentMagicDefensePenetration;
 
 	}
 
@@ -364,12 +357,9 @@ public class Unit : ScriptableObject, ISerializationCallbackReceiver
 		CurrentMagicDefensePenetration += amount;
 	}
 
-	public int SubtractArmorPenetration(int amount)
+	public void SubtractArmorPenetration(int amount)
 	{
 		CurrentArmorPenetration -= amount;
-		if (CurrentArmorPenetration < 0)
-			CurrentArmorPenetration = 0;
-		return CurrentArmorPenetration;
 
 	}
 
@@ -381,8 +371,6 @@ public class Unit : ScriptableObject, ISerializationCallbackReceiver
 	public void SubtractMagicalDefenseBonusPerc(int amount)
     {
 		currentMagicalDefenseBonusPerc -= amount;
-		if (currentMagicalDefenseBonusPerc < -100)
-			currentMagicalDefenseBonusPerc = -100;
 	}
 
 	public void AddMagicalDefenseBonusPerc(int amount)
@@ -393,8 +381,6 @@ public class Unit : ScriptableObject, ISerializationCallbackReceiver
 	public void SubtractArmorBonusPerc(int amount)
 	{
 		currentArmorBonusPerc -= amount;
-		if (currentArmorBonusPerc < -100)
-			currentArmorBonusPerc = -100;
 	}
 
 	public void AddArmorBonusPerc(int amount)
@@ -410,16 +396,11 @@ public class Unit : ScriptableObject, ISerializationCallbackReceiver
 	public void SubtractHealBonusPerc(int amount)
 	{
 		CurrentHealBonusPerc -= amount;
-		if (CurrentHealBonusPerc < -100)
-			CurrentHealBonusPerc = -100;
 	}
 
-	public int SubtractSpeed(int amount)
+	public void SubtractSpeed(int amount)
 	{
 		CurrentSpeed -= amount;
-		if (CurrentSpeed < 0)
-			CurrentSpeed = 0;
-		return CurrentSpeed;
 	}
 
 	public void AddSpeed(int amount)
@@ -480,12 +461,17 @@ public class Unit : ScriptableObject, ISerializationCallbackReceiver
 		return currentEnergy;
 	}
 
+	// returns the excess of the energy gained that can't be stored
 	public int AddEnergy(int amount)
 	{
 		currentEnergy += amount;
+		int extraEnergy = 0;
 		if (currentEnergy > 100)
+        {
+			extraEnergy = currentEnergy - 100;
 			currentEnergy = 100;
-		return currentEnergy;
+		}
+		return extraEnergy;
 	}
 
 	public void ZeroEnergy()
@@ -493,32 +479,23 @@ public class Unit : ScriptableObject, ISerializationCallbackReceiver
 		currentEnergy = 0;
     }
 
-	public float AddCriticalChance(float amount)
+	public void AddCriticalChance(float amount)
     {
 		CurrentCriticalChance += amount;
-		if (CurrentCriticalChance > 1)
-			CurrentCriticalChance = 1;
-		return CurrentCriticalChance;
 	}
 
-	public float SubtractCriticalChance(float amount)
+	public void SubtractCriticalChance(float amount)
 	{
 		CurrentCriticalChance -= amount;
-		if (CurrentCriticalChance < 0)
-			CurrentCriticalChance = 0;
-		return CurrentCriticalChance;
 	}
 	public void AddCriticalMultiplier(float amount)
 	{
 		CurrentCriticalMultiplier += amount;
 	}
 
-	public float SubtractCriticalMultiplier(float amount)
+	public void SubtractCriticalMultiplier(float amount)
 	{
 		CurrentCriticalMultiplier -= amount;
-		if (CurrentCriticalMultiplier < 1.0f)
-			CurrentCriticalMultiplier = 1.0f;
-		return CurrentCriticalMultiplier;
 	}
 
 	public void AddLifesteal(float amount)
@@ -526,12 +503,9 @@ public class Unit : ScriptableObject, ISerializationCallbackReceiver
 		currentLifesteal += amount;
 	}
 
-	public float SubtractLifesteal(float amount)
+	public void SubtractLifesteal(float amount)
 	{
 		currentLifesteal -= amount;
-		if (currentLifesteal < 0f)
-			currentLifesteal = 0f;
-		return currentLifesteal;
 	}
 
 	public void DecrementRemainingResurrections()
@@ -549,12 +523,9 @@ public class Unit : ScriptableObject, ISerializationCallbackReceiver
 		CurrentThorns += amount;
 	}
 
-	public int SubtractThorns(int amount)
+	public void SubtractThorns(int amount)
 	{
 		CurrentThorns -= amount;
-		if (CurrentThorns < 0)
-			CurrentThorns = 0;
-		return CurrentThorns;
 	}
 
 	public void AddEnergyPerAtk(int amount)
@@ -562,12 +533,9 @@ public class Unit : ScriptableObject, ISerializationCallbackReceiver
 		currentEnergyPerAtk += amount;
 	}
 
-	public float SubtractEnergyPerAtk(int amount)
+	public void SubtractEnergyPerAtk(int amount)
 	{
 		currentEnergyPerAtk -= amount;
-		if (currentEnergyPerAtk < 0)
-			currentEnergyPerAtk = 0;
-		return currentEnergyPerAtk;
 	}
 	/*public int GetPosition()
     {
