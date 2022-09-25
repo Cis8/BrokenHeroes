@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581cf72747c6cbf48bfe439a504e3d91, type: 3}
+  m_Name: NoraHitImageSO
+  m_EditorClassIdentifier: 
+  target: {fileID: 21300000, guid: 916aa516b47977c4f9c5af9f1e96d338, type: 3}
+  self: {fileID: 21300000, guid: 995ac113f5a657a43884c7149e5df953, type: 3}

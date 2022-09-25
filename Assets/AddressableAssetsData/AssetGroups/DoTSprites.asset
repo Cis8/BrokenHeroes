@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: DoTSprites
+  m_EditorClassIdentifier: 
+  m_GroupName: DoTSprites
+  m_Data:
+    m_SerializedData: []
+  m_GUID: ce314d9463b7e234698fe0555dc10276
+  m_SerializeEntries:
+  - m_GUID: f8a6323c50bca4f4fbb73095a16c92cd
+    m_Address: Bleed
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DoTSprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9fd94afd0150144ab1a69bae2910d39
+    m_Address: Burn
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DoTSprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 514254a86cab3d74c9665ccef9c2c68b
+    m_Address: Poison
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DoTSprites
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 004e967950dbfda4ca9c83b255375171, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: ef2dae2c791e75748ae7c0743517e87b, type: 2}
+    - {fileID: 11400000, guid: bd3fc1b45528338419b8b8c2da8b253e, type: 2}

@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: FightersPortraits
+  m_EditorClassIdentifier: 
+  m_GroupName: FightersPortraits
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 3378623575067bc4fb2fc64866046ab3
+  m_SerializeEntries:
+  - m_GUID: b3b16ce5f5cf3b34f978721bd6e8bc99
+    m_Address: VIPortrait
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Portrait
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6593e0268cea8a241b71d044ded2dc23
+    m_Address: DoombotPortrait
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Portrait
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1a666b53a4a47f84182aa9a6da52a01e
+    m_Address: Assets/PortraitAndSpritesLibraryOfFighters/Fighters/Nora/Nora.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Portrait
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 004e967950dbfda4ca9c83b255375171, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: d69d0aba4682bae47875ab9c8e7d7bd3, type: 2}
+    - {fileID: 11400000, guid: e7fb55b9cdd1c7147adbba1ccb1adb26, type: 2}

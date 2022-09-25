@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e6fedc2472449cead18ef23b5cb30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library:
+  - m_Name: Stances
+    m_Hash: 996046675
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: idle
+      m_Hash: 472167701
+      m_Sprite: {fileID: 21300000, guid: f2618e8e101e0fe4b80b8577728b36ff, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: f2618e8e101e0fe4b80b8577728b36ff, type: 3}
+    - m_Name: movingForward
+      m_Hash: 482837025
+      m_Sprite: {fileID: 21300000, guid: e34eccb446cf73b4db2d00f92f2456e5, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: e34eccb446cf73b4db2d00f92f2456e5, type: 3}
+    - m_Name: attacking
+      m_Hash: 60754182
+      m_Sprite: {fileID: 21300000, guid: 11aab6c3dcd4b0643ba85027e8d878f5, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 11aab6c3dcd4b0643ba85027e8d878f5, type: 3}
+    - m_Name: movingBack
+      m_Hash: 84692096
+      m_Sprite: {fileID: 21300000, guid: b206eadb2cbfff34ea4110d938713acc, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: b206eadb2cbfff34ea4110d938713acc, type: 3}
+    - m_Name: damaged
+      m_Hash: 482914283
+      m_Sprite: {fileID: 21300000, guid: 74e56c6dade3b014fa26742a290cc1fb, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 74e56c6dade3b014fa26742a290cc1fb, type: 3}
+    - m_Name: dead
+      m_Hash: 757418276
+      m_Sprite: {fileID: 21300000, guid: 977858569f16797499492a6c977ae364, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 977858569f16797499492a6c977ae364, type: 3}
+    - m_Name: loadingAbility
+      m_Hash: 160004485
+      m_Sprite: {fileID: 21300000, guid: 807e6d3bb429e7a48a733d723c81787c, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 807e6d3bb429e7a48a733d723c81787c, type: 3}
+    - m_Name: slashingAbility
+      m_Hash: 136273508
+      m_Sprite: {fileID: 21300000, guid: c1d75e34810fbe34c8be17c0ccc5ad75, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: c1d75e34810fbe34c8be17c0ccc5ad75, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 8
+  m_PrimaryLibraryGUID: 
+  m_ModificationHash: 0
+  m_Version: 1

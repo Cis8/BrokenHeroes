@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: StateModifiers
+  m_EditorClassIdentifier: 
+  m_GroupName: StateModifiers
+  m_Data:
+    m_SerializedData: []
+  m_GUID: c03982a64ccf4134ba80c33e9ba87a92
+  m_SerializeEntries:
+  - m_GUID: 309fe1e799c49e24087a035b3f0a23c2
+    m_Address: StateModifiers/Silence
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - StateModifier
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 18b43c780b3214542b04967782339eb2
+    m_Address: StateModifiers/Stun
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - StateModifier
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eedb36cdc9daf8245bc871f5af40990c
+    m_Address: StateModifiers/Terror
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - StateModifier
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 004e967950dbfda4ca9c83b255375171, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 57418e04733d46a449215dd80bfbcf17, type: 2}
+    - {fileID: 11400000, guid: 1803001d18916c742ae9b03fd0472c7b, type: 2}
