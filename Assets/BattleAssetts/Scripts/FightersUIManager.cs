@@ -15,11 +15,17 @@ public class FightersUIManager : MonoBehaviour
     public StateModifierIcon stateModifierIconTerror;
     [SerializeField]
     private HitImage hitImagePrefab;
+    [SerializeField]
     private Sprite stunSprite;
+    [SerializeField]
     private Sprite silenceSprite;
+    [SerializeField]
     private Sprite terrorSprite;
+    [SerializeField]
     private Sprite bleedSprite;
+    [SerializeField]
     private Sprite burnSprite;
+    [SerializeField]
     private Sprite poisonSprite;
     UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle<IList<Sprite>> callback;
 
@@ -46,7 +52,7 @@ public class FightersUIManager : MonoBehaviour
 
     private void Start()
     {
-        callback = Addressables.LoadAssetsAsync<Sprite>("StateModifier", null);
+        /*callback = Addressables.LoadAssetsAsync<Sprite>("StateModifier", null);
         callback.Completed += handle =>
         {
             foreach(Sprite s in handle.Result)
@@ -72,7 +78,7 @@ public class FightersUIManager : MonoBehaviour
                 stateModifierIconStun.gameObject.GetComponent<Image>().enabled = true;
                 stateModifierIconStun.gameObject.GetComponent<Image>().sprite = handle.Result;
                 stateModifierIconStun.gameObject.GetComponent<Image>().enabled = oldState;*/
-        };
+        /*};
 
         callback = Addressables.LoadAssetsAsync<Sprite>("DoTSprites", null);
         callback.Completed += handle =>
@@ -92,12 +98,15 @@ public class FightersUIManager : MonoBehaviour
                         break;
                 }
             }
-        };
+        };*/
     }
 
     private void AddStateModifiersIcons(Fighter f)
     {
-        if (stunSprite != null)
+        InstantiateStun(f);
+        InstantiateSilence(f);
+        InstantiateTerror(f);
+        /*if (stunSprite != null)
         {
             InstantiateStun(f);
         }
@@ -118,7 +127,7 @@ public class FightersUIManager : MonoBehaviour
             InstantiateTerror(f);
         else
             callback.Completed += handle =>
-                InstantiateTerror(f);
+                InstantiateTerror(f);*/
     }
 
     private void InstantiateStun(Fighter f)
@@ -176,7 +185,7 @@ public class FightersUIManager : MonoBehaviour
         HitImage hitImage;
         if (info.Source.DmgSourceEnum == DmgSourceEnum.Attack || info.Source.DmgSourceEnum == DmgSourceEnum.Ability)
         {
-            /*if (f != null)
+            if (f != null && info.DealerFighter.fighterGraphic.HitImageSO.Target != null)
             {
                 hitImage = Instantiate<HitImage>(hitImagePrefab, f.transform.position, Quaternion.identity, gameObject.transform);
                 hitImage.SetSprite(info.DealerFighter.fighterGraphic.HitImageSO.Target);
@@ -187,7 +196,7 @@ public class FightersUIManager : MonoBehaviour
                 hitImage = Instantiate<HitImage>(hitImagePrefab, info.DealerFighter.transform.position, Quaternion.identity, gameObject.transform);
                 hitImage.SetSprite(info.DealerFighter.fighterGraphic.HitImageSO.Self);
                 hitImage.SetFighter(info.DealerFighter);
-            }*/
+            }
         }
         else
         {
