@@ -20,6 +20,8 @@ public class FightersList
 
     public FightersList()
     {
+        BattleEventSystem.current.OnModifierApplied += SortFightersBySpeed;
+
         playerFightersBySpeed = new List<Fighter>();
         enemyFightersBySpeed = new List<Fighter>();
         allFightersBySpeed = new List<Fighter>();
@@ -168,6 +170,22 @@ public class FightersList
         else
         {
             return enemyFightersBySpeed.Exists((f) => f.fighterLogic.IsAlive());
+        }
+    }
+
+    public void SortFightersBySpeed(Modifier m)
+    {
+        if(m.GetType() == typeof(StatModifier) && ((StatModifierData)(m.Modifier_Data)).Statistic == StatEnum.Speed)
+        {
+            if (m.Target.tag == "PlayerTeam")
+            {
+                playerFightersBySpeed.OrderBy(f => f.GetUnit().CurrentSpeed);
+            }
+            else
+            {
+                enemyFightersBySpeed.OrderBy(f => f.GetUnit().CurrentSpeed);
+            }
+            allFightersBySpeed.OrderBy(f => f.GetUnit().CurrentSpeed);
         }
     }
 }
