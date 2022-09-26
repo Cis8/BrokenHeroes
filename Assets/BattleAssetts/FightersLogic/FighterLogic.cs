@@ -104,7 +104,7 @@ public abstract class FighterLogic
     {
         List<Fighter> enemiesToAttack = baseAtkStrategy.ChooseTargets(Unit.NumberOfTargetsBaseAttack, team);
         AttackLogic(enemiesToAttack);
-        unit.AddEnergy(unit.CurrentEnergyPerAtk);
+        unit.AddEnergy((int)((float)unit.CurrentEnergyPerAtk * GetFloatMultiplier(Unit.CurrentBonusEnergyGainedFromAttack)));
     }
 
     public void ExecuteAbility()
@@ -124,7 +124,7 @@ public abstract class FighterLogic
         if (Unit.CurrentThorns > 0 && info.Source.DmgSourceEnum == DmgSourceEnum.Attack)
         {
             info.DealerFighter.TakeDamage(new DmgInfo(
-                (int)(GetPercMultiplier(Unit.CurrentThorns, false) * info.Amount),
+                (int)(GetFloatMultiplier(Unit.CurrentThorns, false) * info.Amount),
                 DmgTypeEnum.True,
                 new DmgSource(DmgSourceEnum.Thorns, false),
                 Parent,
@@ -132,7 +132,13 @@ public abstract class FighterLogic
                 false,
                 Unit.CurrentCriticalMultiplier));
         }
-        alive = Unit.SubtractLife(info.Amount) > 0;
+        Unit.SubtractLife(info.Amount);
+        if(info.Source.IsReactable)
+        {
+            int percentEnergyGainedFromDmg = (int)(((float)info.Amount / (float)Unit.MaxHp) * 100);
+            Unit.AddEnergy(percentEnergyGainedFromDmg);
+        }
+        alive = Unit.CurrentHP > 0;
         BattleEventSystem.current.FighterTookDamage(Parent, info);
         if (!alive)
             ResetState();
@@ -163,9 +169,9 @@ public abstract class FighterLogic
         if (DoTResistance > 100)
             info.Amount = 0;
         else if(DoTResistance > 0)
-            info.Amount = (int)((float)info.Amount * (1f - GetPercMultiplier(DoTResistance, false)));
+            info.Amount = (int)((float)info.Amount * (1f - GetFloatMultiplier(DoTResistance, false)));
         else if(DoTResistance < 0)
-            info.Amount = (int)((float)info.Amount * (1f + GetPercMultiplier(-DoTResistance, false)));
+            info.Amount = (int)((float)info.Amount * (1f + GetFloatMultiplier(-DoTResistance, false)));
     }
 
     DmgInfo ApplyDefensiveStatisticReduction(DmgInfo info)
@@ -189,11 +195,11 @@ public abstract class FighterLogic
         int defensiveStatisticStat;
         if (info.Type == DmgTypeEnum.Physical)
         {
-            defensiveStatisticStat = (int)((1f - GetPercMultiplier(info.DealerFighter.GetUnit().CurrentArmorPenetration, false)) * Unit.ARM);
+            defensiveStatisticStat = (int)((1f - GetFloatMultiplier(info.DealerFighter.GetUnit().CurrentArmorPenetration, false)) * Unit.ARM);
         }
         else if (info.Type == DmgTypeEnum.Magical)
         {
-            defensiveStatisticStat = (int)((1f - GetPercMultiplier(info.DealerFighter.GetUnit().CurrentMagicDefensePenetration, false)) * Unit.MDEF);
+            defensiveStatisticStat = (int)((1f - GetFloatMultiplier(info.DealerFighter.GetUnit().CurrentMagicDefensePenetration, false)) * Unit.MDEF);
         }
         else
         {
@@ -308,7 +314,7 @@ public abstract class FighterLogic
     }
 
 
-    protected float GetPercMultiplier(int stat, bool addHundredPercent = true)
+    protected float GetFloatMultiplier(int stat, bool addHundredPercent = true)
     {
         return Unit.GetPercMultiplier(stat, addHundredPercent);
     }
@@ -434,7 +440,7 @@ public abstract class FighterLogic
 
     protected int ModifyHealAmountBonusPerc(float healBase)
     {
-        return (int)(healBase * GetPercMultiplier(Unit.CurrentHealBonusPerc));
+        return (int)(healBase * GetFloatMultiplier(Unit.CurrentHealBonusPerc));
     }
 
     protected void ResetState()

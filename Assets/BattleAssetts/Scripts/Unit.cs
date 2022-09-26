@@ -143,6 +143,10 @@ public class Unit : ScriptableObject, ISerializationCallbackReceiver
 	[System.NonSerialized]
 	int currentEnergyPerAtk;
 	[System.NonSerialized]
+	int currentBonusEnergyGainedOnDamageTaken = 0;
+	[System.NonSerialized]
+	int currentBonusEnergyGainedFromAttack = 0;
+	[System.NonSerialized]
 	int currentArmor;
 	[System.NonSerialized]
 	int currentMagicalDefense;
@@ -218,6 +222,8 @@ public class Unit : ScriptableObject, ISerializationCallbackReceiver
     public int AttacksPerAction { get => attacksPerAction; set => attacksPerAction = value; }
     public int CurrentAttacksPerAction { get => currentAttacksPerAction; set => currentAttacksPerAction = value; }
     public int CurrentRemainingAttacks { get => currentRemainingAttacks; set => currentRemainingAttacks = value; }
+    public int CurrentBonusEnergyGainedOnDamageTaken { get { if (currentBonusEnergyGainedOnDamageTaken < -100) return -100; return currentBonusEnergyGainedOnDamageTaken; } set => currentBonusEnergyGainedOnDamageTaken = value; }
+    public int CurrentBonusEnergyGainedFromAttack { get { if (currentBonusEnergyGainedFromAttack < -100) return -100; return currentBonusEnergyGainedFromAttack; }  set => currentBonusEnergyGainedFromAttack = value; }
 
     private int GetComplessiveArmor()
     {
@@ -537,6 +543,27 @@ public class Unit : ScriptableObject, ISerializationCallbackReceiver
 	{
 		currentEnergyPerAtk -= amount;
 	}
+
+	public void AddBonusEnergyPerAtk(int amount)
+    {
+		CurrentBonusEnergyGainedFromAttack += amount;
+    }
+
+	public void SubtractBonusEnergyPerAtk(int amount)
+	{
+		CurrentBonusEnergyGainedFromAttack -= amount;
+	}
+
+	public void AddBonusEnergyOnDmgTaken(int amount)
+	{
+		CurrentBonusEnergyGainedOnDamageTaken += amount;
+	}
+
+	public void SubtractBonusEnergyOnDmgTaken(int amount)
+	{
+		CurrentBonusEnergyGainedOnDamageTaken -= amount;
+	}
+
 	/*public int GetPosition()
     {
 		return position;
