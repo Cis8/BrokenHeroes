@@ -72,6 +72,7 @@
     <Compile Include="Assets\HomeAssets\Scripts\HeroesList.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\DmgInfo.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\UniqueMarks\ConcreteClasses\RisingHate.cs" />
+    <Compile Include="Assets\UISwitch.cs" />
     <Compile Include="Assets\BattleAssetts\Popups\DmgPopup.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\Modifier.cs" />
     <Compile Include="Assets\HomeAssets\Scripts\AddButtonHandler.cs" />
@@ -84,11 +85,13 @@
     <Compile Include="Assets\HomeAssets\Scripts\InventoryPanel.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\Unit.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\ModifiersIconLibrary.cs" />
+    <Compile Include="Assets\SpeedUpButton.cs" />
     <Compile Include="Assets\BattleAssetts\Popups\HitImageSO.cs" />
     <Compile Include="Assets\Scripts\GameAssets.cs" />
     <Compile Include="Assets\Data\Runtime\DoombotScalingsData.cs" />
     <Compile Include="Assets\HomeAssets\Scripts\FightersLibrary.cs" />
     <Compile Include="Assets\HomeAssets\Scripts\PlayerHeroes.cs" />
+    <Compile Include="Assets\PauseButton.cs" />
     <Compile Include="Assets\BattleAssetts\Gameplay\AttackStrategies\AttackStrategy.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\EnergyBar.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\DoTModifier.cs" />
@@ -100,6 +103,7 @@
     <Compile Include="Assets\BattleAssetts\Scripts\PassiveAbilities\Nora\NoraAttack.cs" />
     <Compile Include="Assets\HomeAssets\Scripts\HomeEventSystem.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\LostFillScript.cs" />
+    <Compile Include="Assets\PreciseImageColliderButtons.cs" />
     <Compile Include="Assets\HomeAssets\Scripts\ToTheBattleButton.cs" />
     <Compile Include="Assets\QuickSheet\Example\Data\Runtime\ExcelExampleData.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\HpBarColorSetter.cs" />

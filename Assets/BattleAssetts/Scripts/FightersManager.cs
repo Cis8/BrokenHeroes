@@ -37,7 +37,7 @@ public class FightersManager : MonoBehaviour
         GameObject enemyFromLibrary = FightersLibrary.current.GetBattleFighter("VI", enemy1BattleStation);
         Fighter e = enemyFromLibrary.GetComponent<Fighter>();
         e.GetUnit().Position =0;
-        e.GetComponent<SpriteRenderer>().sortingOrder = 2;
+        e.GetComponent<SpriteRenderer>().sortingOrder = 6;
         e.transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
         BattleEventSystem.current.FighterInstantiated(e);
         fighters.AddFighter(e);
@@ -46,7 +46,7 @@ public class FightersManager : MonoBehaviour
         GameObject enemy1FromLibrary = FightersLibrary.current.GetBattleFighter("Doombot", enemy2BattleStation);
         Fighter e1 = enemy1FromLibrary.GetComponent<Fighter>();
         e1.GetUnit().Position = 1;
-        e1.GetComponent<SpriteRenderer>().sortingOrder = 1;
+        e1.GetComponent<SpriteRenderer>().sortingOrder = 4;
         e1.transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
         BattleEventSystem.current.FighterInstantiated(e1);
         fighters.AddFighter(e1);
@@ -64,7 +64,7 @@ public class FightersManager : MonoBehaviour
         GameObject heroFromLibrary = FightersLibrary.current.GetBattleFighter(name, parent);
         Fighter f = heroFromLibrary.GetComponent<Fighter>();
         f.GetUnit().Position = position;
-        f.GetComponent<SpriteRenderer>().sortingOrder = 3 - ((position + 1) % 3);
+        f.GetComponent<SpriteRenderer>().sortingOrder = 2 * (3 - ((position) % 3));
         fighters.AddFighter(f);
         BattleEventSystem.current.FighterInstantiated(f);
     }
