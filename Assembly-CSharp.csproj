@@ -64,6 +64,7 @@
     <Compile Include="Assets\BattleAssetts\Scripts\BattleEventSystem.cs" />
     <Compile Include="Assets\HomeAssets\Scripts\InventoryUI.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\HealthBar.cs" />
+    <Compile Include="Assets\BattleAssetts\Scripts\PassiveAbilities\FactionPassives\BronzeSoullessPassive.cs" />
     <Compile Include="Assets\HomeAssets\Scripts\ChosenHeroSlot.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\ModifierData.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\FightersList.cs" />
@@ -131,6 +132,7 @@
     <Compile Include="Assets\HomeAssets\Scripts\AddButton.cs" />
     <Compile Include="Assets\QuickSheet\Example\Data\Runtime\ExcelExample.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\StatModifier.cs" />
+    <Compile Include="Assets\BattleAssetts\Scripts\PassiveAbilities\FactionPassives\FactionPassiveAbility.cs" />
     <Compile Include="Assets\QuickSheet\Runtime\ExposePropertyAttribute.cs" />
     <Compile Include="Assets\BattleAssetts\FightersLogic\NoraLogic.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\PassiveAbilities\PassiveAbility.cs" />
@@ -138,6 +140,7 @@
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\UniqueMarks\ConcreteClasses\HateMark.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\FighterGraphic.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\PassiveAbilities\VI\VIlifeStealOnTurnStart.cs" />
+    <Compile Include="Assets\AurasHolder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\BattleAssetts\TextMesh Pro\Shaders\TMPro.cginc" />

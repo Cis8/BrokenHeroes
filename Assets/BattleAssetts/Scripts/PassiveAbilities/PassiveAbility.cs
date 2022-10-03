@@ -16,4 +16,6 @@ public abstract class PassiveAbility
     public Fighter Parent { get => parent; set => parent = value; }
 
     public abstract void InitializeAbility();
+
+    public abstract void TerminateAbility();
 }

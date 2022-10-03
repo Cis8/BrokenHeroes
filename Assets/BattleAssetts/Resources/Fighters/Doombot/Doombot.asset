@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Doombot
   m_EditorClassIdentifier: 
   fighterName: 1
+  faction: 0
   lvl: 1
   maxHP: 2700
   initialEnergy: 0
@@ -30,7 +31,7 @@ MonoBehaviour:
   abilitySelfFormula: AP
   abilityTargetFormula: 0.1 * LostHp
   numberOfTargetsAbility: 2
-  speed: 2
+  speed: 22
   armor: 0
   magicalDefense: 0
   bleedResist: 0

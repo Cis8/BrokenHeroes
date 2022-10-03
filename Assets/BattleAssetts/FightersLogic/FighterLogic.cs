@@ -39,7 +39,7 @@ public abstract class FighterLogic
     public List<Modifier> Modifiers { get => modifiers; set => modifiers = value; }
     protected Fighter Parent { get => parent; set => parent = value; }
     public Unit Unit { get => unit; set => unit = value; }
-    protected List<PassiveAbility> PassiveAbilities { get => passiveAbilities; set => passiveAbilities = value; }
+    public List<PassiveAbility> PassiveAbilities { get => passiveAbilities; set => passiveAbilities = value; }
     public int ResurrectionCounter { get => resurrectionCounter; set => resurrectionCounter = value; }
     public StateModifiers StateModifs { get => stateModifiers; set => stateModifiers = value; }
     public CalcEngine.CalcEngine DmgCalculator { get => dmgCalculator; set => dmgCalculator = value; }
@@ -62,6 +62,18 @@ public abstract class FighterLogic
         BattleEventSystem.current.OnFighterTookDamage += HealFromLifeSteal;
         BattleEventSystem.current.OnTurnStarted += TryResurrect;
         BattleEventSystem.current.OnFighterTurnEnded += ResetCanCastAbilityAndStartedAndActionNotStarted;
+        BattleEventSystem.current.OnFighterRemoved += ClearPassivesSubscriptions;
+    }
+
+    private void ClearPassivesSubscriptions(Fighter f)
+    {
+        if(f == Parent)
+        {
+            foreach (PassiveAbility pa in PassiveAbilities)
+            {
+                pa.TerminateAbility();
+            }
+        }
     }
 
     private void ResetCanCastAbilityAndStartedAndActionNotStarted(Fighter f)

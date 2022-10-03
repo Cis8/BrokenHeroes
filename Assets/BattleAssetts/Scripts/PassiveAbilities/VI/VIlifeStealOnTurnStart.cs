@@ -16,6 +16,11 @@ public class VIlifeStealOnTurnStart : PassiveAbility
         BattleEventSystem.current.OnTurnStarted += IncrementLifestealOnTurnStart;
     }
 
+    public override void TerminateAbility()
+    {
+        BattleEventSystem.current.OnTurnStarted -= IncrementLifestealOnTurnStart;
+    }
+
     private void IncrementLifestealOnTurnStart(int turn)
     {
         lifestealOnTurnStart.InitializeModifier(Parent, Parent).Apply();

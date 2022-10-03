@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: FactionPassives
+  m_EditorClassIdentifier: 
+  m_GroupName: FactionPassives
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 02e9a7a0efed6554cafabb8a49fd52a5
+  m_SerializeEntries:
+  - m_GUID: c4d7f9f98cc16104e8cabd9f0b3312f8
+    m_Address: BronzeSoullessSpeedBuff
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 004e967950dbfda4ca9c83b255375171, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 47c5c0d8b08c1a749b37e6fbe0edb18b, type: 2}
+    - {fileID: 11400000, guid: 8fa05d916a7b5ee429425464aeae7063, type: 2}

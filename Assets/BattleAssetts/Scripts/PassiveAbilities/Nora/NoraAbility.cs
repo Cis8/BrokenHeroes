@@ -23,6 +23,11 @@ namespace Assets.BattleAssetts.Scripts.PassiveAbilities.Nora
             BattleEventSystem.current.OnFighterTookDamage += CheckAbilityResult;
         }
 
+        public override void TerminateAbility()
+        {
+            BattleEventSystem.current.OnFighterTookDamage -= CheckAbilityResult;
+        }
+
         private void CheckAbilityResult(Fighter damagedFighter, DmgInfo info)
         {
             if(info.DealerFighter == Parent && info.Source.DmgSourceEnum == DmgSourceEnum.Ability)

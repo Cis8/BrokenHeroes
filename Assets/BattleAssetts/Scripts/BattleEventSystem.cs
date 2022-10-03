@@ -15,12 +15,21 @@ public class BattleEventSystem : MonoBehaviour
 
 
     // FIGHTER INSTANTIATED
-    public delegate void Action(Fighter f);
-    public event Action OnFighterInstantiated;
-    public void FighterInstantiated(Fighter f)
+    public delegate void FighterInstantiated(Fighter f);
+    public event FighterInstantiated OnFighterInstantiated;
+    public void FighterHasBeenInstantiated(Fighter f)
     {
         OnFighterInstantiated?.Invoke(f);
     }
+
+    // ALL FIGHTERS HAVE BEEN INSTANTIATED
+    public delegate void AllFightersInstantiated();
+    public event AllFightersInstantiated OnAllFightersInstantiated;
+    public void AllFighterInstantiated()
+    {
+        OnAllFightersInstantiated?.Invoke();
+    }
+
 
     // FIGHTER PRE TOOK DAMAGE
     public delegate void DamageToBeTaken(Fighter f, DmgInfo info);
@@ -85,8 +94,9 @@ public class BattleEventSystem : MonoBehaviour
         OnTeamEnemyDied?.Invoke();
     }
 
-    // FIGHTER DIED
-    public event Action OnFighterRemoved;
+    // FIGHTER REMOVED
+    public delegate void FighterRemoved(Fighter f);
+    public event FighterRemoved OnFighterRemoved;
     public void RemovedFighter(Fighter f)
     {
         OnFighterRemoved?.Invoke(f);

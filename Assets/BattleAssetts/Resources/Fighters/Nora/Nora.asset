@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Nora
   m_EditorClassIdentifier: 
   fighterName: 2
+  faction: 0
   lvl: 1
   maxHP: 600
   initialEnergy: 0
@@ -30,7 +31,7 @@ MonoBehaviour:
   abilitySelfFormula: 3 * AP
   abilityTargetFormula: 
   numberOfTargetsAbility: 1
-  speed: 3
+  speed: 20
   armor: 30
   magicalDefense: 40
   bleedResist: 0

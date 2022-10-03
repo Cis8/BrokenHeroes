@@ -39,7 +39,7 @@ public class FightersManager : MonoBehaviour
         e.GetUnit().Position =0;
         e.GetComponent<SpriteRenderer>().sortingOrder = 6;
         e.transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
-        BattleEventSystem.current.FighterInstantiated(e);
+        BattleEventSystem.current.FighterHasBeenInstantiated(e);
         fighters.AddFighter(e);
 
 
@@ -48,7 +48,7 @@ public class FightersManager : MonoBehaviour
         e1.GetUnit().Position = 1;
         e1.GetComponent<SpriteRenderer>().sortingOrder = 4;
         e1.transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
-        BattleEventSystem.current.FighterInstantiated(e1);
+        BattleEventSystem.current.FighterHasBeenInstantiated(e1);
         fighters.AddFighter(e1);
 
         /*GameObject heroFromLibrary = FightersLibrary.current.GetBattleFighter("VI", heroesBattleStations[0]);
@@ -66,7 +66,7 @@ public class FightersManager : MonoBehaviour
         f.GetUnit().Position = position;
         f.GetComponent<SpriteRenderer>().sortingOrder = 2 * (3 - ((position) % 3));
         fighters.AddFighter(f);
-        BattleEventSystem.current.FighterInstantiated(f);
+        BattleEventSystem.current.FighterHasBeenInstantiated(f);
     }
     public void AddFightersToTheBattle(List<string> names, List<Transform> parents)
     {
@@ -75,6 +75,7 @@ public class FightersManager : MonoBehaviour
         for (int i = 0; i < parents.Count && i < names.Count; i++) {
             AddFighterToTheBattle(names[i], parents[i], i);
         }
+        BattleEventSystem.current.AllFighterInstantiated();
     }
 
     private void CheckIfFighterIsStillAlive(Fighter f, DmgInfo info)
@@ -84,7 +85,9 @@ public class FightersManager : MonoBehaviour
         {
             //////////Disabled.Log("Added " + f.name + " to the be removed list.");
             if (f.GetUnit().CurrentRemainingResurrections == 0)
+            {
                 fighters.ToBeRemoved(f);
+            }
             if (!fighters.IsAnyoneAlive(f.tag))
             {
                 if (f.tag == "PlayerTeam")

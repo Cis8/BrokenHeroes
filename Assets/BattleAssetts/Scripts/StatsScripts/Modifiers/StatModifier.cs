@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum StatEnum { PhysicalAtk, PhysicalAtkPercentual, MagicalAtk, MagicalAtkPercentual, Armor, ArmorPercentual,
-    MagicDefense, MagicDefensePercentual, Speed, Lifesteal, EnergyPerAtk, CriticalChance, CriticalMultiplier,
+    MagicDefense, MagicDefensePercentual, Speed, SpeedBonusPerc, Lifesteal, EnergyPerAtk, CriticalChance, CriticalMultiplier,
     ArmorPenetration, MagicalDefensePenetration, BleedResist, BurnResist, PoisonResist, Thorns, EnergyBonusPerAtk, EnergyBonusOnDmgTaken};
 
 public class StatModifier : Modifier
@@ -239,6 +239,16 @@ public class StatModifier : Modifier
                 else
                 {
                     Target.GetUnit().AddBonusEnergyOnDmgTaken(((StatModifierData)Modifier_Data).Amount * multiplier);
+                }
+                break;
+            case StatEnum.SpeedBonusPerc:
+                if (condition)
+                {
+                    Target.GetUnit().SubtractSpeedBonusPerc(((StatModifierData)Modifier_Data).Amount * multiplier);
+                }
+                else
+                {
+                    Target.GetUnit().AddSpeedBonusPerc(((StatModifierData)Modifier_Data).Amount * multiplier);
                 }
                 break;
         }

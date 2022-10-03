@@ -175,17 +175,17 @@ public class FightersList
 
     public void SortFightersBySpeed(Modifier m)
     {
-        if(m.GetType() == typeof(StatModifier) && ((StatModifierData)(m.Modifier_Data)).Statistic == StatEnum.Speed)
+        if(m.GetType() == typeof(StatModifier) && (((StatModifierData)(m.Modifier_Data)).Statistic == StatEnum.Speed || ((StatModifierData)(m.Modifier_Data)).Statistic == StatEnum.SpeedBonusPerc))
         {
             if (m.Target.tag == "PlayerTeam")
             {
-                playerFightersBySpeed.OrderBy(f => f.GetUnit().CurrentSpeed);
+                playerFightersBySpeed = new List<Fighter>(playerFightersBySpeed.OrderByDescending(f => f.GetUnit().SPEED));
             }
             else
             {
-                enemyFightersBySpeed.OrderBy(f => f.GetUnit().CurrentSpeed);
+                enemyFightersBySpeed = new List<Fighter>(enemyFightersBySpeed.OrderByDescending(f => f.GetUnit().SPEED));
             }
-            allFightersBySpeed.OrderBy(f => f.GetUnit().CurrentSpeed);
+            allFightersBySpeed = new List<Fighter>(allFightersBySpeed.OrderByDescending(f => f.GetUnit().SPEED));
         }
     }
 }

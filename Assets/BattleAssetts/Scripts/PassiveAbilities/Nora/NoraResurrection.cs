@@ -21,6 +21,11 @@ public class NoraResurrection : PassiveAbility
         BattleEventSystem.current.OnFighterResurrected += ApplyBuffsUponResurrection;
     }
 
+    public override void TerminateAbility()
+    {
+        BattleEventSystem.current.OnFighterResurrected -= ApplyBuffsUponResurrection;
+    }
+
     private void ApplyBuffsUponResurrection(Fighter f)
     {
         if(f == Parent)

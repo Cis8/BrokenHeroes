@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: VI
   m_EditorClassIdentifier: 
   fighterName: 0
+  faction: 0
   lvl: 1
   maxHP: 800
   initialEnergy: 0
@@ -30,7 +31,7 @@ MonoBehaviour:
   abilitySelfFormula: 3 * AD
   abilityTargetFormula: 
   numberOfTargetsAbility: 1
-  speed: 2
+  speed: 10
   armor: 0
   magicalDefense: 0
   bleedResist: 0

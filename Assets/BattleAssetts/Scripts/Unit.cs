@@ -4,12 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
 
+public enum FactionEnum { Soulless, Ancient, Human }
 public enum ScalingTypeEnum { Physical, Magical, CurrentLife, MissingLife, MaxLife }
 
 [CreateAssetMenu]
 public class Unit : ScriptableObject, ISerializationCallbackReceiver
 {
 	public FighterName fighterName;
+
+	[SerializeField]
+	private FactionEnum faction;
 
 	[SerializeField]
 	int lvl = 1;
@@ -139,6 +143,8 @@ public class Unit : ScriptableObject, ISerializationCallbackReceiver
 	[System.NonSerialized]
 	int currentSpeed;
 	[System.NonSerialized]
+	int currentSpeedBonusPerc = 0;
+	[System.NonSerialized]
 	int currentEnergy;
 	[System.NonSerialized]
 	int currentEnergyPerAtk;
@@ -210,7 +216,11 @@ public class Unit : ScriptableObject, ISerializationCallbackReceiver
 	public int AP { get => GetComplessiveMagicalAtk(); }
 	public int ARM { get => GetComplessiveArmor(); }
 	public int MDEF { get => GetComplessiveMagicDefense(); }
-	public int LostHp { get => MaxHp - CurrentHP; }
+
+	public int SPEED { get => GetComplessiveSpeed(); }
+
+
+    public int LostHp { get => MaxHp - CurrentHP; }
 	public int Hp { get => CurrentHP; }
 	public string AbilitySelfFormula { get => abilitySelfFormula; set => abilitySelfFormula = value; }
     public string AbilityTargetFormula { get => abilityTargetFormula; set => abilityTargetFormula = value; }
@@ -224,6 +234,10 @@ public class Unit : ScriptableObject, ISerializationCallbackReceiver
     public int CurrentRemainingAttacks { get => currentRemainingAttacks; set => currentRemainingAttacks = value; }
     public int CurrentBonusEnergyGainedOnDamageTaken { get { if (currentBonusEnergyGainedOnDamageTaken < -100) return -100; return currentBonusEnergyGainedOnDamageTaken; } set => currentBonusEnergyGainedOnDamageTaken = value; }
     public int CurrentBonusEnergyGainedFromAttack { get { if (currentBonusEnergyGainedFromAttack < -100) return -100; return currentBonusEnergyGainedFromAttack; }  set => currentBonusEnergyGainedFromAttack = value; }
+
+    public int CurrentSpeedBonusPerc { get { if (currentSpeedBonusPerc < -100) return -100; return currentSpeedBonusPerc; } set => currentSpeedBonusPerc = value; }
+
+    public FactionEnum Faction { get => faction; set => faction = value; }
 
     private int GetComplessiveArmor()
     {
@@ -244,6 +258,11 @@ public class Unit : ScriptableObject, ISerializationCallbackReceiver
     {
         return (int)((float)currentPhysicalAttack * GetPercMultiplier(CurrentPhysicalAttackBonusPerc));
     }
+
+	private int GetComplessiveSpeed()
+	{
+		return (int)((float)currentSpeed * GetPercMultiplier(CurrentSpeedBonusPerc));
+	}
 
 	public float GetPercMultiplier(int stat, bool addHundredPercent = true)
 	{
@@ -412,6 +431,16 @@ public class Unit : ScriptableObject, ISerializationCallbackReceiver
 	public void AddSpeed(int amount)
 	{
 		CurrentSpeed += amount;
+	}
+
+	public void SubtractSpeedBonusPerc(int amount)
+    {
+		CurrentSpeedBonusPerc -= amount;
+    }
+
+	public void AddSpeedBonusPerc(int amount)
+	{
+		CurrentSpeedBonusPerc += amount;
 	}
 
 	public int SubtractPhysicalAttack(int amount)

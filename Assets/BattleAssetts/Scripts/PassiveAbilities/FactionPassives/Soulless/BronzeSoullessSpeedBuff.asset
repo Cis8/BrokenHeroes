@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e9584a1248faa84ea75bf954d0361cb, type: 3}
-  m_Name: LifestealOnTurnStartVI
+  m_Name: BronzeSoullessSpeedBuff
   m_EditorClassIdentifier: 
   isPositive: 1
-  duration: -1
-  isStackable: 1
+  duration: 3
+  isStackable: 0
   durationStackType: 0
-  isEffectStackable: 1
-  icon: {fileID: 21300000, guid: f21b7cc238d83994db45f66e1d726df5, type: 3}
+  isEffectStackable: 0
+  icon: {fileID: 21300000, guid: 6bd4fa2fee7ed9a43bb04059b61e7297, type: 3}
   amount: 0
-  floatAmount: 0.1
-  statistic: 10
+  floatAmount: 0
+  statistic: 9

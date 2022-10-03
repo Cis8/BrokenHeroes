@@ -22,11 +22,6 @@ namespace Assets.BattleAssetts.Scripts.PassiveAbilities.Nora
             BattleEventSystem.current.OnFighterTookDamage += CheckAttackResult;
         }
 
-        ~NoraAttack()
-        {
-            Debug.Log("Passive Nora Atk removed");
-            BattleEventSystem.current.OnFighterTookDamage -= CheckAttackResult;
-        }
 
         private void CheckAttackResult(Fighter damagedFighter, DmgInfo info)
         {
@@ -48,6 +43,11 @@ namespace Assets.BattleAssetts.Scripts.PassiveAbilities.Nora
                     Parent.GetUnit().AddEnergy(100);
                 }
             }
+        }
+
+        public override void TerminateAbility()
+        {
+            BattleEventSystem.current.OnFighterTookDamage -= CheckAttackResult;
         }
     }
 }
