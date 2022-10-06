@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using System.Linq;
+using System;
 
 public enum BattleState { START, FIGHTING, WON, LOST }
 public class BattleManager : MonoBehaviour
@@ -22,12 +23,34 @@ public class BattleManager : MonoBehaviour
         BattleEventSystem.current.OnBattleEnd += EndBattle;
         BattleEventSystem.current.OnTeamPlayerDied += BattleLostByDeathOfTeamPlayer;
         BattleEventSystem.current.OnTeamEnemyDied += BattleLostByDeathOfTeamEnemy;
+        BattleEventSystem.current.OnFighterDied += CheckBattleEnd;
         //BattleEventSystem.current.On
         //+= StartBattle;
         turn = 0;
         ////////////Disabled.Log("Battle now starts");
         state = BattleState.START;
         StartCoroutine(ExecuteBattle());
+    }
+
+    private void CheckBattleEnd(Fighter f, DmgInfo info)
+    {
+        if(f.tag == "PlayerTeam")
+        {
+            if (!FightersManager.current.fighters.IsAnyoneAlive(f.tag))
+            {
+                // The enemy won
+                BattleEventSystem.current.BattleEnded(BattleState.LOST);
+            }
+        }
+        else
+        {
+            if (!FightersManager.current.fighters.IsAnyoneAlive(f.tag))
+            {
+                // The player won
+                BattleEventSystem.current.BattleEnded(BattleState.WON);
+            }
+        }
+
     }
 
     /*private void StartBattle()

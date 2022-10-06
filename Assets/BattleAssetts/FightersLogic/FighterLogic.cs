@@ -62,10 +62,23 @@ public abstract class FighterLogic
         BattleEventSystem.current.OnFighterTookDamage += HealFromLifeSteal;
         BattleEventSystem.current.OnTurnStarted += TryResurrect;
         BattleEventSystem.current.OnFighterTurnEnded += ResetCanCastAbilityAndStartedAndActionNotStarted;
-        BattleEventSystem.current.OnFighterRemoved += ClearPassivesSubscriptions;
+        //BattleEventSystem.current.OnFighterRemoved += ClearPassivesSubscriptions;
+        BattleEventSystem.current.OnFighterDied += ClearPassivesSubscriptions;
+        BattleEventSystem.current.OnFighterResurrected += RestorePassivesSubscriptions;
     }
 
-    private void ClearPassivesSubscriptions(Fighter f)
+    private void RestorePassivesSubscriptions(Fighter f)
+    {
+        if (f == Parent)
+        {
+            foreach (PassiveAbility pa in PassiveAbilities)
+            {
+                pa.InitializeAbility();
+            }
+        }
+    }
+
+    private void ClearPassivesSubscriptions(Fighter f, DmgInfo info)
     {
         if(f == Parent)
         {
@@ -128,34 +141,42 @@ public abstract class FighterLogic
 
     public virtual bool TakeDamage(DmgInfo info)
     {
-        //Debug.Log("Dmg to be taken: " + info.Amount);
-        BattleEventSystem.current.FighterAboutToTakeDamage(Parent, info);
+        if (IsAlive())
+        {
+            //Debug.Log("Dmg to be taken: " + info.Amount);
+            BattleEventSystem.current.FighterAboutToTakeDamage(Parent, info);
 
-        // Now we apply crit and dmg reductions from armor and magic resist
-        info = CalculateDamageToBeTaken(info);
-        if (Unit.CurrentThorns > 0 && info.Source.DmgSourceEnum == DmgSourceEnum.Attack)
-        {
-            info.DealerFighter.TakeDamage(new DmgInfo(
-                (int)(GetFloatMultiplier(Unit.CurrentThorns, false) * info.Amount),
-                DmgTypeEnum.True,
-                new DmgSource(DmgSourceEnum.Thorns, false),
-                Parent,
-                info.DealerFighter,
-                false,
-                Unit.CurrentCriticalMultiplier));
+            // Now we apply crit and dmg reductions from armor and magic resist
+            info = CalculateDamageToBeTaken(info);
+            if (Unit.CurrentThorns > 0 && info.Source.DmgSourceEnum == DmgSourceEnum.Attack)
+            {
+                info.DealerFighter.TakeDamage(new DmgInfo(
+                    (int)(GetFloatMultiplier(Unit.CurrentThorns, false) * info.Amount),
+                    DmgTypeEnum.True,
+                    new DmgSource(DmgSourceEnum.Thorns, false),
+                    Parent,
+                    info.DealerFighter,
+                    false,
+                    Unit.CurrentCriticalMultiplier));
+            }
+            Unit.SubtractLife(info.Amount);
+            if (info.Source.IsReactable)
+            {
+                int percentEnergyGainedFromDmg = (int)(((float)info.Amount / (float)Unit.MaxHp) * 100);
+                Unit.AddEnergy(percentEnergyGainedFromDmg);
+            }
+            alive = Unit.CurrentHP > 0;
+            BattleEventSystem.current.FighterTookDamage(Parent, info);
+            if (!alive)
+            {
+                ResetState();
+                BattleEventSystem.current.FighterDied(Parent, info);
+            }
+            //Debug.Log("Effective dmg taken: " + info.Amount);
+            return alive;
         }
-        Unit.SubtractLife(info.Amount);
-        if(info.Source.IsReactable)
-        {
-            int percentEnergyGainedFromDmg = (int)(((float)info.Amount / (float)Unit.MaxHp) * 100);
-            Unit.AddEnergy(percentEnergyGainedFromDmg);
-        }
-        alive = Unit.CurrentHP > 0;
-        BattleEventSystem.current.FighterTookDamage(Parent, info);
-        if (!alive)
-            ResetState();
-        //Debug.Log("Effective dmg taken: " + info.Amount);
-        return alive;
+        else
+            return false;
     }
 
     private DmgInfo CalculateDamageToBeTaken(DmgInfo info)

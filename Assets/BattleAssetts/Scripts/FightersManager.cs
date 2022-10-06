@@ -30,7 +30,7 @@ public class FightersManager : MonoBehaviour
     void Start()
     {
         BattleEventSystem.current.OnFighterTookDamage += CheckIfFighterIsStillAlive;
-        BattleEventSystem.current.OnTurnEnded += RemoveDeadFighters;
+        //BattleEventSystem.current.OnTurnEnded += RemoveDeadFighters;
 
         AddFightersToTheBattle(heroesToAdd.GetHeroes(), heroesBattleStations);
 
@@ -86,7 +86,7 @@ public class FightersManager : MonoBehaviour
             //////////Disabled.Log("Added " + f.name + " to the be removed list.");
             if (f.GetUnit().CurrentRemainingResurrections == 0)
             {
-                fighters.ToBeRemoved(f);
+                //fighters.ToBeRemoved(f);
             }
             if (!fighters.IsAnyoneAlive(f.tag))
             {
@@ -102,7 +102,7 @@ public class FightersManager : MonoBehaviour
         }
     }
 
-    private void RemoveDeadFighters(int t)
+    /*private void RemoveDeadFighters(int t)
     {
         List<Fighter> removedFighters = fighters.RemoveFighters();
         foreach(Fighter f in removedFighters)
@@ -112,5 +112,5 @@ public class FightersManager : MonoBehaviour
             Destroy(f.gameObject);
         }
         
-    }
+    }*/
 }

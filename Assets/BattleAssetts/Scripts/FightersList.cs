@@ -16,7 +16,7 @@ public class FightersList
     SortedList<int, Fighter> enemyFightersByPosition;
 
     // list to store the Fighters that died and will be removed at the end of the turn
-    List<Fighter> toRemove;
+    //List<Fighter> toRemove;
 
     public FightersList()
     {
@@ -29,7 +29,7 @@ public class FightersList
         playerFightersByPosition = new SortedList<int, Fighter>();
         enemyFightersByPosition = new SortedList<int, Fighter>();
 
-        toRemove = new List<Fighter>();
+        //toRemove = new List<Fighter>();
     }
 
     public void AddFighter(Fighter f)
@@ -122,14 +122,14 @@ public class FightersList
         return enemyFightersByPosition;
     }
 
-    public void ToBeRemoved(Fighter f)
+    /*public void ToBeRemoved(Fighter f)
     {
         toRemove.Add(f);
-    }
+    }*/
 
-    public List<Fighter> RemoveFighters()
+    /*public List<Fighter> RemoveFighters()
     {
-        foreach (Fighter f in toRemove)
+        /*foreach (Fighter f in toRemove)
         {
             if (f.tag == "PlayerTeam")
             {
@@ -159,7 +159,7 @@ public class FightersList
         List<Fighter> ret = toRemove;
         toRemove = new List<Fighter>();
         return ret;
-    }
+    }*/
 
     public bool IsAnyoneAlive(string teamTag)
     {

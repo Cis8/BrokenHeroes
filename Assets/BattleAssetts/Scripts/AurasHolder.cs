@@ -48,10 +48,10 @@ public class AurasHolder : MonoBehaviour
                         auraList.Add(new Assets.BattleAssetts.Scripts.PassiveAbilities.FactionPassives.BronzeSoullessPassive(tag));
                         if (factionsDictionary[fact] >= 4)
                         {
-                            //auraList.Add(new Assets.BattleAssetts.Scripts.PassiveAbilities.FactionPassives.SilverSoullessPassive(tag));
+                            auraList.Add(new Assets.BattleAssetts.Scripts.PassiveAbilities.FactionPassives.SilverSoullessPassive(tag));
                             if (factionsDictionary[fact] >= 6)
                             {
-                                //auraList.Add(new Assets.BattleAssetts.Scripts.PassiveAbilities.FactionPassives.GoldSoullessPassive(tag));
+                                auraList.Add(new Assets.BattleAssetts.Scripts.PassiveAbilities.FactionPassives.GoldSoullessPassive(tag));
                             }
                         }
                     }

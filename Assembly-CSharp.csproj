@@ -63,8 +63,9 @@
     <Compile Include="Assets\BattleAssetts\Scripts\UIscript.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\BattleEventSystem.cs" />
     <Compile Include="Assets\HomeAssets\Scripts\InventoryUI.cs" />
+    <Compile Include="Assets\BattleAssetts\Scripts\AurasHolder.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\HealthBar.cs" />
-    <Compile Include="Assets\BattleAssetts\Scripts\PassiveAbilities\FactionPassives\BronzeSoullessPassive.cs" />
+    <Compile Include="Assets\BattleAssetts\Scripts\PassiveAbilities\FactionPassives\Soulless\BronzeSoullessPassive.cs" />
     <Compile Include="Assets\HomeAssets\Scripts\ChosenHeroSlot.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\ModifierData.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\FightersList.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\DoTModifier.cs" />
     <Compile Include="Assets\HomeAssets\Scripts\ChosenTeamPanel.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\UniqueMarks\ConcreteData\DeathInFourActsData.cs" />
+    <Compile Include="Assets\BattleAssetts\Scripts\PassiveAbilities\FactionPassives\Soulless\SilverSoullessPassive.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\BattleResultText.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\UniqueMarks\ConcreteData\RisingHateData.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\PassiveAbilities\Nora\NoraAbility.cs" />
@@ -140,7 +142,7 @@
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\UniqueMarks\ConcreteClasses\HateMark.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\FighterGraphic.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\PassiveAbilities\VI\VIlifeStealOnTurnStart.cs" />
-    <Compile Include="Assets\AurasHolder.cs" />
+    <Compile Include="Assets\BattleAssetts\Scripts\PassiveAbilities\FactionPassives\Soulless\GoldSoullessPassive.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\BattleAssetts\TextMesh Pro\Shaders\TMPro.cginc" />

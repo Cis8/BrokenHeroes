@@ -24,7 +24,7 @@ namespace Assets.BattleAssetts.Scripts.PassiveAbilities.FactionPassives
 
         private void CheckSpeedBuff(Fighter f, DmgInfo info)
         {
-            if (info.DealerFighter == info.DamagedFighter)
+            if (info.DealerFighter.tag == info.DamagedFighter.tag)
             {
                 int speedAmount = (int)(100 * ((float)info.Amount / (float)info.DamagedFighter.GetUnit().MaxHp));
                 speedBuffModifierData.Amount = speedAmount;
