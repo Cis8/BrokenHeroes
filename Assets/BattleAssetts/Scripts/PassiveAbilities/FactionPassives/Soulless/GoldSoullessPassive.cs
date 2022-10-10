@@ -5,7 +5,7 @@
 
         public GoldSoullessPassive(string tag) : base(tag, "Gold Soulless")
         {
-            InitializeAbility();
+            CheckInitialize();
         }
 
         public override void InitializeAbility()

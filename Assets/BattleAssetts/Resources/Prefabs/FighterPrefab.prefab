@@ -67,6 +67,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteLibrary: {fileID: 8889143246427935809}
   spriteResolver: {fileID: 3158232094375500712}
+  spriteRenderer: {fileID: 5948431441782755297}
 --- !u!111 &-5946852100568949800
 Animation:
   m_ObjectHideFlags: 0
@@ -76,8 +77,12 @@ Animation:
   m_GameObject: {fileID: 831842895757521084}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
+  m_Animation: {fileID: 7400000, guid: 64235879a8ad88a4b8d23ca0675498b8, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 64235879a8ad88a4b8d23ca0675498b8, type: 2}
+  - {fileID: 7400000, guid: c267444d9f4b3bd4d8a321aad8495cd4, type: 2}
+  - {fileID: 7400000, guid: 09cffa75d67b9f6459eb21ab9a2bb24e, type: 2}
+  - {fileID: 7400000, guid: 767f72cd1f3d108459caae0b94555db3, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0

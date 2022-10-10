@@ -9,12 +9,13 @@ namespace Assets.BattleAssetts.Scripts.PassiveAbilities.FactionPassives
     {
         public SilverSoullessPassive(string tag) : base(tag, "Silver Soulless") 
         {
-            InitializeAbility();
+            CheckInitialize();
         }
 
         public override void InitializeAbility()
         {
             BattleEventSystem.current.OnFighterTookDamage += CheckHeal;
+
         }
 
         private void CheckHeal(Fighter f, DmgInfo info)

@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: ChosenHeroesForBattle
   m_EditorClassIdentifier: 
   heroes:
-  - VI
-  - Doombot
   - Nora
+  - Doombot

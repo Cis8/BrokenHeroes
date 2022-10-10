@@ -65,6 +65,8 @@ public abstract class FighterLogic
         //BattleEventSystem.current.OnFighterRemoved += ClearPassivesSubscriptions;
         BattleEventSystem.current.OnFighterDied += ClearPassivesSubscriptions;
         BattleEventSystem.current.OnFighterResurrected += RestorePassivesSubscriptions;
+
+        
     }
 
     private void RestorePassivesSubscriptions(Fighter f)
@@ -73,7 +75,7 @@ public abstract class FighterLogic
         {
             foreach (PassiveAbility pa in PassiveAbilities)
             {
-                pa.InitializeAbility();
+                pa.CheckInitialize();
             }
         }
     }
@@ -84,7 +86,7 @@ public abstract class FighterLogic
         {
             foreach (PassiveAbility pa in PassiveAbilities)
             {
-                pa.TerminateAbility();
+                pa.CheckTerminate();
             }
         }
     }

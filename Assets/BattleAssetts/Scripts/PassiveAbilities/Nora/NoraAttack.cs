@@ -15,7 +15,7 @@ namespace Assets.BattleAssetts.Scripts.PassiveAbilities.Nora
         {
             bonusAtk = Resources.Load<StatModifierData>("Fighters/Nora/ModifiersData/NoraMagicAtkUpOnAttack");
             baseScaling = System.Convert.ToInt32(parent.fighterLogic.DmgCalculator.Evaluate(((NoraLogic)parent.fighterLogic).Scalings.dataArray.Where(e => e.Name == "Attack Buff On Attack").FirstOrDefault().Base_Formula));
-            InitializeAbility();
+            CheckInitialize();
         }
         public override void InitializeAbility()
         {

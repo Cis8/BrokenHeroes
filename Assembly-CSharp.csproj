@@ -77,6 +77,7 @@
     <Compile Include="Assets\UISwitch.cs" />
     <Compile Include="Assets\BattleAssetts\Popups\DmgPopup.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\Modifier.cs" />
+    <Compile Include="Assets\BattleAssetts\Scripts\PassiveAbilities\FactionPassives\Soulless\GoldSoullessPassive.cs" />
     <Compile Include="Assets\HomeAssets\Scripts\AddButtonHandler.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\DoTModifierData.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\FightersUIManager.cs" />
@@ -142,7 +143,6 @@
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\UniqueMarks\ConcreteClasses\HateMark.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\FighterGraphic.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\PassiveAbilities\VI\VIlifeStealOnTurnStart.cs" />
-    <Compile Include="Assets\BattleAssetts\Scripts\PassiveAbilities\FactionPassives\Soulless\GoldSoullessPassive.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\BattleAssetts\TextMesh Pro\Shaders\TMPro.cginc" />

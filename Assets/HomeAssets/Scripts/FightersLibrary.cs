@@ -55,11 +55,13 @@ public class FightersLibrary
         else
             fighterGameObject.GetComponent<SpriteLibrary>().spriteLibraryAsset = sla;*/
         //fighterGameObject.GetComponent<SpriteResolver>().SetCategoryAndLabel("Stances", "id");
+        /*Animation anim = fighterGameObject.GetComponent<Animation>();
 
-        fighterGameObject.GetComponent<Animation>().AddClip(movingForwardAttackAnimationClip, "MovingForwardAttackAnim");
-        fighterGameObject.GetComponent<Animation>().AddClip(attackAnimationClip, "AttackAnim");
-        fighterGameObject.GetComponent<Animation>().AddClip(movingBackAttackAnimationClip, "MovingBackAttackAnim");
-        fighterGameObject.GetComponent<Animation>().AddClip(abilityAnimationClip, "AbilityAnim");
+        anim.AddClip(movingForwardAttackAnimationClip, "MovingForwardAttackAnim");
+        anim.AddClip(attackAnimationClip, "AttackAnim");
+        anim.AddClip(movingBackAttackAnimationClip, "MovingBackAttackAnim");
+        anim.AddClip(abilityAnimationClip, "AbilityAnim");*/
+        
         return fighterGameObject;
     }
 

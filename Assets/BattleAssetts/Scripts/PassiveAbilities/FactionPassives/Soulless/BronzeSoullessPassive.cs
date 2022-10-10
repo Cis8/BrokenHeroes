@@ -10,7 +10,7 @@ namespace Assets.BattleAssetts.Scripts.PassiveAbilities.FactionPassives
         StatModifierData speedBuffModifierData;
         public BronzeSoullessPassive(string tag) : base(tag, "Bronze Soulless") 
         {
-            InitializeAbility();
+            CheckInitialize();
         }
 
         public override void InitializeAbility()

@@ -12,7 +12,10 @@ public class FighterGraphic : MonoBehaviour
 {
     public SpriteLibrary spriteLibrary;
     public SpriteResolver spriteResolver;
+    public SpriteRenderer spriteRenderer;
     private HitImageSO hitImageSO;
+    private Fighter fighter;
+    private Animation ownAanimation;
 
     private string currentCategory;
 
@@ -24,6 +27,9 @@ public class FighterGraphic : MonoBehaviour
     {
         currentCategory = "Stances";
         spriteLibrary = this.gameObject.GetComponent<SpriteLibrary>();
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        fighter = gameObject.GetComponent<Fighter>();
+        ownAanimation = gameObject.GetComponent<Animation>();
 
         BattleEventSystem.current.OnFighterTookDamage += TakeDamage;
         BattleEventSystem.current.OnFighterResurrected += Resurrection;
@@ -75,12 +81,12 @@ public class FighterGraphic : MonoBehaviour
     {
         if (gameObject.tag == "EnemyTeam")
             this.transform.localPosition = new Vector3(-1 * this.transform.localPosition.x, this.transform.localPosition.y, this.transform.localPosition.z);
-        if (!gameObject.GetComponent<Fighter>().fighterLogic.IsAlive())
+        if (!fighter.fighterLogic.IsAlive())
         {
             spriteResolver.SetCategoryAndLabel(currentCategory, "dead");
 
             // disabled so that if the fighter was attacking, it stops immidiately
-            gameObject.GetComponent<Animation>().enabled = false;
+            ownAanimation.enabled = false;
         }
     }
 
@@ -142,10 +148,10 @@ public class FighterGraphic : MonoBehaviour
             string category = spriteResolver.GetCategory();
             string label = spriteResolver.GetLabel();
             DamagedStanceGraphic();
-            Color oldColor = gameObject.GetComponent<SpriteRenderer>().color;
-            gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 0.3f, 0.3f);
+            Color oldColor = spriteRenderer.color;
+            spriteRenderer.color = new Color(1f, 0.3f, 0.3f);
             yield return new WaitForSeconds(0.2f);
-            gameObject.GetComponent<SpriteRenderer>().color = oldColor;
+            spriteRenderer.color = oldColor;
             yield return new WaitForSeconds(0.3f);
             if(currentState != FighterState.ATTACKING && currentState != FighterState.ABILITYING)
             {

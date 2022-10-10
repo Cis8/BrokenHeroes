@@ -54,8 +54,8 @@ public class ModifierIcon : MonoBehaviour
             drop_timer -= Time.deltaTime;
             if (drop_timer > 0)
             {
-                gameObject.transform.position -= new Vector3(0, drop_ySpeed * Time.deltaTime, 0);
-                drop_ySpeed -= (Time.deltaTime / drop_duration) * drop_initialYSpeed;
+                //gameObject.transform.position -= new Vector3(0, drop_ySpeed * Time.deltaTime, 0);
+                //drop_ySpeed -= (Time.deltaTime / drop_duration) * drop_initialYSpeed;
                 Color c = image.color;
                 c.a = (drop_timer / drop_duration);
                 image.color = c;

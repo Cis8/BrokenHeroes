@@ -8,7 +8,7 @@ public class VIlifeStealOnTurnStart : PassiveAbility
     public VIlifeStealOnTurnStart(Fighter parent, string passiveName) : base(parent, passiveName)
     {
         lifestealOnTurnStart = Resources.Load<StatModifierData>("Fighters/VI/ModifiersData/LifestealOnTurnStartVI");
-        InitializeAbility();
+        CheckInitialize();
     }
 
     public override void InitializeAbility()

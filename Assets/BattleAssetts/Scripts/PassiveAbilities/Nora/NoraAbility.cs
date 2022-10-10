@@ -16,7 +16,7 @@ namespace Assets.BattleAssetts.Scripts.PassiveAbilities.Nora
             healFormula = ((NoraLogic)parent.fighterLogic).Scalings.dataArray.Where(e => e.Name == "Must Die Gained Life").FirstOrDefault().Self_Formula;
             damageFormula = ((NoraLogic)parent.fighterLogic).Scalings.dataArray.Where(e => e.Name == "Must Die Lost Life").FirstOrDefault().Self_Formula;
             energyGainedUponKillFormula = ((NoraLogic)parent.fighterLogic).Scalings.dataArray.Where(e => e.Name == "Must Die Gained Energy").FirstOrDefault().Base_Formula;
-            InitializeAbility();
+            CheckInitialize();
         }
         public override void InitializeAbility()
         {

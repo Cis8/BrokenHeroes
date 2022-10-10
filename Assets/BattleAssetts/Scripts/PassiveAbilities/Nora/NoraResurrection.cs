@@ -13,7 +13,7 @@ public class NoraResurrection : PassiveAbility
     {
         hateMark = GameObject.Instantiate(Resources.Load<HateMarkData>("Fighters/Nora/ModifiersData/NoraHateMark"));
         risingHate = GameObject.Instantiate(Resources.Load<RisingHateData>("Fighters/Nora/ModifiersData/RisingHate"));
-        InitializeAbility();
+        CheckInitialize();
     }
     public override void InitializeAbility()
     {
