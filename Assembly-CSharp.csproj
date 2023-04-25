@@ -89,6 +89,7 @@
     <Compile Include="Assets\BattleAssetts\Scripts\Unit.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\ModifiersIconLibrary.cs" />
     <Compile Include="Assets\SpeedUpButton.cs" />
+    <Compile Include="Assets\Scripts\ObjectPool.cs" />
     <Compile Include="Assets\BattleAssetts\Popups\HitImageSO.cs" />
     <Compile Include="Assets\Scripts\GameAssets.cs" />
     <Compile Include="Assets\Data\Runtime\DoombotScalingsData.cs" />

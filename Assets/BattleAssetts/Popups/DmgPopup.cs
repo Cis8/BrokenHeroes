@@ -2,9 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 public class DmgPopup : MonoBehaviour
 {
+    //STATIC FIELDS
+    [SerializeField]
+    static GameObject hpDmgPopupPrefab;
+    /*[SerializeField]
+    static ObjectPool pool;*/
+
+    // CLASS INSTANCE FIELDS
     private TextMeshPro textMesh;
     private Color textColor;
     private Fighter boundFighter;
@@ -14,7 +22,11 @@ public class DmgPopup : MonoBehaviour
     private float randomSpeedReductionX;
     private float randomSpeedReductionY;
 
-    [SerializeField]  private float yspeed = 6f;
+    private float currentXSpeed;
+    private float currentYSpeed;
+    private float currentLifespan;
+
+    [SerializeField] private float yspeed = 6f;
     [SerializeField] private float xspeed = 2f;
     [SerializeField] private float lifeSpan = 1f;
     [SerializeField] private float disappearSpeed = 3f;
@@ -22,28 +34,46 @@ public class DmgPopup : MonoBehaviour
     [SerializeField] private float xDisappearSpeed = 3f;
 
 
+
     public static DmgPopup CreateHpDmgPopup(Fighter f, DmgInfo info)
     {
-        DmgPopup dmgPopup = GetDmgPopupComponent(f);
+        //DmgPopup dmgPopup = CreatePopupAndGetDmgPopupComponent(f);
+        DmgPopup dmgPopup = GetPooledDmgPopup(f).GetComponent<DmgPopup>();
         dmgPopup.SetupDmg(info);
         return SetupPopup(f, dmgPopup);
     }
 
     public static DmgPopup CreateHpHealPopup(Fighter f, HealInfo info)
     {
-        DmgPopup dmgPopup = GetDmgPopupComponent(f);
+        //DmgPopup dmgPopup = CreatePopupAndGetDmgPopupComponent(f);
+        DmgPopup dmgPopup = GetPooledDmgPopup(f).GetComponent<DmgPopup>();
         dmgPopup.SetupHeal(info);
         return SetupPopup(f, dmgPopup);
     }
 
-    private static DmgPopup GetDmgPopupComponent(Fighter f)
+    private static DmgPopup CreatePopupAndGetDmgPopupComponent(Fighter f)
     {
-        Transform damagePopupTransform = Instantiate(GameAssets.current.hpDmgPopup, f.transform.position - new Vector3(0f, 1f, 0f), Quaternion.identity);
+        Transform damagePopupTransform = Instantiate(hpDmgPopupPrefab.transform, f.transform.position - new Vector3(0f, 1f, 0f), Quaternion.identity);
         return damagePopupTransform.GetComponent<DmgPopup>();
+    }
+
+    private static GameObject GetPooledDmgPopup(Fighter f)
+    {
+        GameObject popup = ObjectPool.SharedInstance.GetPooledObject();
+        if (popup != null)
+        {
+            popup.transform.position = f.transform.position - new Vector3(0f, 1f, 0f);
+            popup.SetActive(true);
+        }
+        return popup;
     }
 
     public static DmgPopup SetupPopup(Fighter f, DmgPopup dmgPopup)
     {
+        dmgPopup.textColor.a = 1;
+        dmgPopup.currentLifespan = dmgPopup.lifeSpan;
+        dmgPopup.currentXSpeed = dmgPopup.xspeed;
+        dmgPopup.currentYSpeed = dmgPopup.yspeed;
         dmgPopup.boundFighter = f;
         dmgPopup.fighterTag = dmgPopup.boundFighter.tag;
         dmgPopup.randomOffsetX = Random.Range(0f, 1f);
@@ -56,7 +86,8 @@ public class DmgPopup : MonoBehaviour
 
     private void Awake()
     {
-        textMesh = transform.GetComponent<TextMeshPro>();   
+        textMesh = transform.GetComponent<TextMeshPro>();
+        Addressables.LoadAssetAsync<GameObject>("HpPopup").Completed += handle => { hpDmgPopupPrefab = handle.Result; };
     }
     public void SetupDmg(DmgInfo info)
     {
@@ -99,6 +130,8 @@ public class DmgPopup : MonoBehaviour
         textMesh.color = textColor;
     }
 
+
+
     private void Update()
     {
         int direction;
@@ -106,15 +139,16 @@ public class DmgPopup : MonoBehaviour
             direction = -1;
         else
             direction = 1;
-        transform.position += new Vector3(direction * (xspeed - randomSpeedReductionX), yspeed - randomSpeedReductionY) * Time.deltaTime;
-        yspeed -= yDisappearSpeed * Time.deltaTime;
-        xspeed -= xDisappearSpeed * Time.deltaTime;
-        lifeSpan -= Time.deltaTime;
-        if(lifeSpan <= 0)
+        transform.position += new Vector3(direction * (currentXSpeed - randomSpeedReductionX), currentYSpeed - randomSpeedReductionY) * Time.deltaTime;
+        currentYSpeed -= yDisappearSpeed * Time.deltaTime;
+        currentXSpeed -= xDisappearSpeed * Time.deltaTime;
+        currentLifespan -= Time.deltaTime;
+        if(currentLifespan <= 0)
         {
             textColor.a -= disappearSpeed * Time.deltaTime;
             textMesh.color = textColor;
-            if (textColor.a <= 0) Destroy(gameObject);
+            //if (textColor.a <= 0) Destroy(gameObject);
+            if (textColor.a <= 0) gameObject.SetActive(false);
         }
     }
 }
