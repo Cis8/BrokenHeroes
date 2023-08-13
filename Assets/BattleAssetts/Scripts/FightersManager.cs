@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class FightersManager : MonoBehaviour
 {
@@ -32,7 +33,7 @@ public class FightersManager : MonoBehaviour
         BattleEventSystem.current.OnFighterTookDamage += CheckIfFighterIsStillAlive;
         //BattleEventSystem.current.OnTurnEnded += RemoveDeadFighters;
 
-        AddFightersToTheBattle(heroesToAdd.GetHeroes(), heroesBattleStations);
+        AddFightersToTheBattle(new List<string>(heroesToAdd.GetHeroes().Select<HeroState, string>(h => h.Name)), heroesBattleStations);
 
         GameObject enemyFromLibrary = FightersLibrary.current.GetBattleFighter("VI", enemy1BattleStation);
         Fighter e = enemyFromLibrary.GetComponent<Fighter>();

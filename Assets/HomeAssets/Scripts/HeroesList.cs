@@ -6,24 +6,29 @@ using UnityEngine;
 public class HeroesList : ScriptableObject
 {
     [SerializeField]
-    List<string> heroes;
+    List<HeroState> heroes;
 
-    public void AddHero(string name)
+    public void AddHero(string hero)
     {
-        heroes.Add(name);
+        heroes.Add(GameAssets.current.GetHeroState(hero));
     }
 
-    public void RemoveHero(string name)
+    public void RemoveHero(string heroToRemove)
     {
-        heroes.Remove(name);
+        heroes.Remove(heroes.Find(h => h.Name == heroToRemove));
     }
 
     public void EraseHeroes()
     {
-        heroes = new List<string>();
+        heroes = new List<HeroState>();
     }
 
-    public List<string> GetHeroes()
+    public HeroState GetHero(string name)
+    {
+        return heroes.Find(h => h.Name == name);
+    }
+
+    public List<HeroState> GetHeroes()
     {
         return heroes;
     }

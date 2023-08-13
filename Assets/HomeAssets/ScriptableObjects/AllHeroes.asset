@@ -13,6 +13,12 @@ MonoBehaviour:
   m_Name: AllHeroes
   m_EditorClassIdentifier: 
   heroes:
-  - Doombot
-  - VI
-  - Nora
+  - Name: Nora
+    Level: 42
+    Class: mage
+  - Name: Doombot
+    Level: 12
+    Class: tank
+  - Name: VI
+    Level: 35
+    Class: warrior

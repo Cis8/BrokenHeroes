@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: ChosenHeroesForBattle
   m_EditorClassIdentifier: 
   heroes:
-  - Nora
-  - Doombot
+  - Name: VI
+    Level: 42
+    Class: warrior
+  - Name: Nora
+    Level: 37
+    Class: mage

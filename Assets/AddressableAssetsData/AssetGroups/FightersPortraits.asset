@@ -30,7 +30,7 @@ MonoBehaviour:
     - Portrait
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1a666b53a4a47f84182aa9a6da52a01e
-    m_Address: Assets/PortraitAndSpritesLibraryOfFighters/Fighters/Nora/Nora.png
+    m_Address: NoraPortrait
     m_ReadOnly: 0
     m_SerializedLabels:
     - Portrait

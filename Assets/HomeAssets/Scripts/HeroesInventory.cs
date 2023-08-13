@@ -45,7 +45,7 @@ public class HeroesInventory : MonoBehaviour
                 //////Disabled.Log("Sprite: " + s.name);
                 portraits.spriteLibraryAsset.AddCategoryLabel(s, "Portraits", s.name);
             }
-        gameObject.transform.parent.Find("InventoryPanel").GetComponent<InventoryPanel>().LoadPortraits();
+        gameObject.transform.GetComponent<HeroSelection>().LoadPortraits();
         
 
         

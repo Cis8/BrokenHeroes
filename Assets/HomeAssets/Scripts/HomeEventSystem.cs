@@ -35,19 +35,18 @@ public class HomeEventSystem : MonoBehaviour
     }
 
     // HERO FROM INVENTORY ADDED TO CHOSEN ONES
-    public delegate void HeroToAdd(string name);
+    public delegate void HeroToAdd(string hero);
     public event HeroToAdd OnHeroChosenToAdd;
-    public void ChosenHeroToAdd(string name)
+    public void ChosenHeroToAdd(string hero)
     {
-        OnHeroChosenToAdd?.Invoke(name);
+        OnHeroChosenToAdd?.Invoke(hero);
     }
 
     // HERO TO BE REMOVED FROM the CHOSEN HEROES
-    public delegate void HeroToRemove(string name);
+    public delegate void HeroToRemove(string hero);
     public event HeroToRemove OnHeroChosenToRemove;
-    public void ChosenHeroToRemove(string name)
+    public void ChosenHeroToRemove(string hero)
     {
-        OnHeroChosenToRemove?.Invoke(name);
-        ////////Disabled.Log();
+        OnHeroChosenToRemove?.Invoke(hero);
     }
 }

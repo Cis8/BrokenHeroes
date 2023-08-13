@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: ClassesIcons
+  m_EditorClassIdentifier: 
+  m_GroupName: ClassesIcons
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 9672cdb170073944cb87bf61c946c70d
+  m_SerializeEntries:
+  - m_GUID: 2cdbcc2c7a8f4fd44b6a9e2d6a1b2e9e
+    m_Address: supportIcon
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a7722fcb90de319408b6dcec66cb401e
+    m_Address: tankIcon
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c7d1fc2478ccaba46bf2ef9f6258ef3c
+    m_Address: warriorIcon
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 77216bfe45cc88b46bf5b2ecdb507093
+    m_Address: assassinIcon
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 21f2d4f59be33d04b9b286b45bd5121b
+    m_Address: mageIcon
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 14f9d276f137c914199301af2dc1dec6
+    m_Address: rangerIcon
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 004e967950dbfda4ca9c83b255375171, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: fe7d02135bd27294e892bc799c6f9a02, type: 2}
+    - {fileID: 11400000, guid: 742c32d26360c9a4991e9ff88a5d4fae, type: 2}

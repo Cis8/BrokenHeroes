@@ -44,4 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46f3486c40fa583419287f6f3a9888ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _ownedHeroes: {fileID: 11400000, guid: 1b18991bf404f644894bb48520b4156f, type: 2}
   hpDmgPopup: {fileID: 2469925948642154566, guid: 902433929c59f0d44aa6c4219b0c404d, type: 3}
+  heroPortraits: {fileID: 0}
