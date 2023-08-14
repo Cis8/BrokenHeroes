@@ -27,9 +27,9 @@ public class GameAssets : MonoBehaviour
         return Addressables.LoadAssetAsync<Sprite>(heroName + "Portrait");
     }
 
-    public static AsyncOperationHandle<Sprite> GetClassIcon(string className)
+    public static AsyncOperationHandle<Sprite> GetClassIcon(ClassEnum className)
     {
-        return Addressables.LoadAssetAsync<Sprite>(className + "Icon");
+        return Addressables.LoadAssetAsync<Sprite>(className.ToString() + "Icon");
     }
 
     public HeroState GetHeroState(string name)

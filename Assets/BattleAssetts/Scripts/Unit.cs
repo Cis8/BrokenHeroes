@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
 
-public enum FactionEnum { Soulless, Ancient, Human }
-public enum ScalingTypeEnum { Physical, Magical, CurrentLife, MissingLife, MaxLife }
+/*public enum FactionEnum { Soulless, Ancient, Human }
+public enum ScalingTypeEnum { Physical, Magical, CurrentLife, MissingLife, MaxLife }*/
 
 [CreateAssetMenu]
 public class Unit : ScriptableObject, ISerializationCallbackReceiver
@@ -177,6 +177,30 @@ public class Unit : ScriptableObject, ISerializationCallbackReceiver
 	[System.NonSerialized]
 	int currentRemainingResurrections = 0;
 
+	public Unit(
+		FighterName name,
+		FactionEnum faction,
+		int level,
+		int maxHp,
+		int initialEnergy,
+		int attacksPerAction,
+		int physicalAtk,
+		int magicalAtk,
+		int armorPen,
+		int magicDefPen,
+		AtkAbilTargetSpecification atkSpecification,
+		AtkAbilTargetSpecification abilSpecification,
+		int bleedResist,
+		int burnResist,
+		int poisonResist,
+		int thorns,
+		int lifesteal,
+		int remainingResurrections,
+		float criticalChance,
+		float criticalMultiplier)
+    {
+
+    }
 
 	public int MaxHp { get => maxHP; }
 

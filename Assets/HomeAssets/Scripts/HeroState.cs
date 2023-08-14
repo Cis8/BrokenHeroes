@@ -11,5 +11,5 @@ public class HeroState
     [SerializeField]
     public int Level;
     [SerializeField]
-    public string Class;
+    public ClassEnum Class;
 }
