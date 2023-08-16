@@ -35,7 +35,7 @@ namespace Assets.BattleAssetts.Scripts.PassiveAbilities.Nora
                 if (damagedFighter.fighterLogic.IsAlive())
                 {
                     // take damage
-                    int dmgAmount = CalcEngineUtil.Int32Calculator(Parent.fighterLogic.DmgCalculator, "",damageFormula, "", Parent.GetUnit());
+                    int dmgAmount = CalcEngineUtil.Int32DamageCalculator("", damageFormula, "", Parent.GetUnit());
                     Debug.Log("Dmg to be taken: " + dmgAmount);
                     Parent.fighterLogic.TakeDamage(new DmgInfo(
                         dmgAmount,

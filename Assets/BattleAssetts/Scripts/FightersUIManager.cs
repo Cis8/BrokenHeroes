@@ -170,7 +170,7 @@ public class FightersUIManager : MonoBehaviour
         //hpBar.transform.SetParent(f.transform);
         //hpBar.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f);
         hpBar.SetColor(f.transform.tag);
-        hpBar.Initialize(f.GetUnit().MaxHp, f);
+        hpBar.Initialize(f.GetUnit().MaxHP, f);
         energyBar.SetColor();
         energyBar.Initialize(f);
     }

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 [CreateAssetMenu(menuName = "Modifiers/DoT")]
 public class DoTModifierData : ModifierData
 {
-    public enum DoT_Type { BURN, BLEED, POISON }
+    public enum DoT_Type { Burn, Bleed, Poison }
 
     // ON_APPLICATION: the damage deald by each tick and each stack is fixed at the value calculated once the mark is applied for the first time
     // ON_TICK: the damage is calculated every time Tick() called

@@ -5,7 +5,20 @@ namespace Assets.BattleAssetts.Scripts
 {
     public static class CalcEngineUtil
     {
-        public static int Int32Calculator(CalcEngine.CalcEngine calculator, string baseFormula = "", string selfFormula = "", string targetFormula = "", Object selfContext = null, Object targetContext = null)
+        static CalcEngine.CalcEngine calculator = new CalcEngine.CalcEngine();
+
+        public static int Int32StatScalingCalculator(string formula, Object context)
+        {
+            calculator.DataContext = context;
+            return System.Convert.ToInt32(calculator.Evaluate(formula));
+        }
+        public static float FloatStatScalingCalculator(string formula, Object context)
+        {
+            calculator.DataContext = context;
+            return System.Convert.ToSingle(calculator.Evaluate(formula));
+        }
+
+        public static int Int32DamageCalculator(string baseFormula = "", string selfFormula = "", string targetFormula = "", Object selfContext = null, Object targetContext = null)
         {
             int result = 0;
             if(baseFormula != "")
@@ -20,14 +33,14 @@ namespace Assets.BattleAssetts.Scripts
             if (targetFormula != "")
             {
                 if (targetContext == null)
-                    throw new System.Exception("Target context can't be null for self formula evalutaion.");
+                    throw new System.Exception("Target context can't be null for target formula evalutaion.");
                 calculator.DataContext = targetContext;
                 result += System.Convert.ToInt32(calculator.Evaluate(targetFormula));
             }
             return result;
         }
 
-        public static float FloatCalculator(CalcEngine.CalcEngine calculator, string baseFormula = "", string selfFormula = "", string targetFormula = "", Object selfContext = null, Object targetContext = null)
+        public static float FloatDamageCalculator(string baseFormula = "", string selfFormula = "", string targetFormula = "", Object selfContext = null, Object targetContext = null)
         {
             float result = 0f;
             if (baseFormula != "")
@@ -42,7 +55,7 @@ namespace Assets.BattleAssetts.Scripts
             if (targetFormula != "")
             {
                 if (targetContext == null)
-                    throw new System.Exception("Target context can't be null for self formula evalutaion.");
+                    throw new System.Exception("Target context can't be null for target formula evalutaion.");
                 calculator.DataContext = targetContext;
                 result += System.Convert.ToSingle(calculator.Evaluate(targetFormula));
             }

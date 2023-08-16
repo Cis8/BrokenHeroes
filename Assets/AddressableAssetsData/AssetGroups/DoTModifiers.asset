@@ -18,7 +18,17 @@ MonoBehaviour:
   m_GUID: 341a652c179d239488e80cf3f4849b4c
   m_SerializeEntries:
   - m_GUID: 1bce67d0b7619164e9ebd037a7f7cb67
-    m_Address: POISONIcon
+    m_Address: PoisonIcon
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d49d6b21531aa294fb1edc0adb90bbff
+    m_Address: BurnIcon
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7efde5a85dd17174f9cf45d6e5b7409f
+    m_Address: BleedIcon
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

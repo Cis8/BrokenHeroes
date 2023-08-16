@@ -72,6 +72,7 @@
     <Compile Include="Assets\Layer Lab\GUI PRO Kit - Fantasy RPG\Scripts\PanelFantasyRPG.cs" />
     <Compile Include="Assets\Data\Runtime\VIScalingsData.cs" />
     <Compile Include="Assets\HomeAssets\Scripts\HeroesList.cs" />
+    <Compile Include="Assets\Scalings.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\DmgInfo.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\UniqueMarks\ConcreteClasses\RisingHate.cs" />
     <Compile Include="Assets\UISwitch.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="Assets\HomeAssets\Scripts\FightersLibrary.cs" />
     <Compile Include="Assets\HomeAssets\Scripts\UnitSpec.cs" />
     <Compile Include="Assets\PauseButton.cs" />
+    <Compile Include="Assets\BattleAssetts\Scripts\AtkAbilTargetSpecification.cs" />
     <Compile Include="Assets\BattleAssetts\Gameplay\AttackStrategies\AttackStrategy.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\EnergyBar.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\DoTModifier.cs" />
@@ -119,6 +121,7 @@
     <Compile Include="Assets\HomeAssets\Scripts\HeroesInventory.cs" />
     <Compile Include="Assets\QuickSheet\Runtime\Util\ConvertExt.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\UniqueMarks\ConcreteData\HateMarkData.cs" />
+    <Compile Include="Assets\Scripts\UnitConverter.cs" />
     <Compile Include="Assets\Data\Runtime\NoraScalingsData.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\PassiveAbilities\Nora\NoraResurrection.cs" />
     <Compile Include="Assets\BattleAssetts\FightersLogic\FighterLogicFactory.cs" />
@@ -131,6 +134,7 @@
     <Compile Include="Assets\Data\Runtime\DoombotScalings.cs" />
     <Compile Include="Assets\ModifierIcon.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\TurnDisplayer.cs" />
+    <Compile Include="Assets\ScalingsData.cs" />
     <Compile Include="Assets\QuickSheet\Example\Data\Runtime\ExcelExample.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\StatModifier.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\PassiveAbilities\FactionPassives\FactionPassiveAbility.cs" />
@@ -143,8 +147,6 @@
     <Compile Include="Assets\HomeAssets\Scripts\SlotCharacterSelect.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\FighterGraphic.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\PassiveAbilities\VI\VIlifeStealOnTurnStart.cs" />
-    <Compile Include="Assets\Scripts\UnitConverter.cs" />
-    <Compile Include="Assets\BattleAssetts\Scripts\AtkAbilTargetSpecification.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\BattleAssetts\TextMesh Pro\Shaders\TMPro.cginc" />

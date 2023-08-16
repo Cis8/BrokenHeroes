@@ -18,32 +18,32 @@ MonoBehaviour:
   m_GUID: 9672cdb170073944cb87bf61c946c70d
   m_SerializeEntries:
   - m_GUID: 2cdbcc2c7a8f4fd44b6a9e2d6a1b2e9e
-    m_Address: supportIcon
+    m_Address: SupportIcon
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a7722fcb90de319408b6dcec66cb401e
-    m_Address: tankIcon
+    m_Address: TankIcon
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c7d1fc2478ccaba46bf2ef9f6258ef3c
-    m_Address: warriorIcon
+    m_Address: WarriorIcon
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 77216bfe45cc88b46bf5b2ecdb507093
-    m_Address: assassinIcon
+    m_Address: AssassinIcon
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 21f2d4f59be33d04b9b286b45bd5121b
-    m_Address: mageIcon
+    m_Address: MageIcon
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 14f9d276f137c914199301af2dc1dec6
-    m_Address: rangerIcon
+    m_Address: RangerIcon
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

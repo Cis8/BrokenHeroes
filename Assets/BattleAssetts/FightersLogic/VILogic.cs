@@ -43,7 +43,7 @@ public class VILogic : FighterLogic
     {
         if(info.Source.DmgSourceEnum == DmgSourceEnum.Attack && info.DealerFighter == Parent)
         {
-            atkOnDmgDealt.Amount = (int)(((float)info.Amount / (float)info.DamagedFighter.GetUnit().MaxHp) * 100.0f);
+            atkOnDmgDealt.Amount = (int)(((float)info.Amount / (float)info.DamagedFighter.GetUnit().MaxHP) * 100.0f);
             atkOnDmgDealt.InitializeModifier(Parent, Parent).Apply();
         }
     }

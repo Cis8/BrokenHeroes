@@ -14,17 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fighterName: 2
   faction: 0
-  lvl: 1
+  class: 0
+  lvl: 25
   energyPerAttack: 50
   attacksPerAction: 1
-  attackDamageType: 1
-  attackSelfFormula: 1.75* AP
-  attackTargetFormula: 
-  numberOfTargetsBaseAttack: 0
-  abilityDamageType: 1
-  abilitySelfFormula: 3 * AP
-  abilityTargetFormula: 
-  numberOfTargetsAbility: 1
+  attackSpecification:
+    numberOfTargets: 1
+    scalingFormulaAttacker: 2 * AP
+    scalingFormulaTarget: 
+    damageType: 1
+    strategy: 0
+  abilitySpecification:
+    numberOfTargets: 1
+    scalingFormulaAttacker: 3 * AP
+    scalingFormulaTarget: 
+    damageType: 1
+    strategy: 0
   bleedResist: 0
   burnResist: 0
   poisonResist: 0
@@ -33,5 +38,3 @@ MonoBehaviour:
   remainingResurrections: 1
   criticalChance: 0.1
   criticalMultiplier: 2
-  baseAttackStrategy: 1
-  abilityStrategyEnum: 1

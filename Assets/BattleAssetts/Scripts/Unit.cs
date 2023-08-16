@@ -7,207 +7,123 @@ using UnityEngine.Animations;
 /*public enum FactionEnum { Soulless, Ancient, Human }
 public enum ScalingTypeEnum { Physical, Magical, CurrentLife, MissingLife, MaxLife }*/
 
-[CreateAssetMenu]
-public class Unit : ScriptableObject, ISerializationCallbackReceiver
+public class Unit : MonoBehaviour
 {
 	public FighterName fighterName;
-
-	[SerializeField]
 	private FactionEnum faction;
-
-	[SerializeField]
-	int lvl = 1;
-
-	[SerializeField]
+	int level = 1;
 	int maxHP;
-
-	[SerializeField]
 	int initialEnergy = 0;
-
-	[SerializeField]
 	int energyPerAttack = 50;
-
-	[SerializeField]
 	int attacksPerAction = 1;
-
-	[SerializeField]
 	int physicalAttack;
-
-	[SerializeField]
 	int magicalAttack;
-
-	[SerializeField]
 	int armorPenetration;
-
-	[SerializeField]
 	int magicDefensePenetration;
-
-	[SerializeField]
-	DmgTypeEnum attackDamageType;
-
-	[SerializeField]
-	string attackSelfFormula;
-
-	[SerializeField]
-	string attackTargetFormula;
-
-	//[SerializeField]
-	//List<ScalingTypeEnum> attackScaleTypes;
-
-	//[SerializeField]
-	//List<float> attackScalingRates;
-
-	[SerializeField]
-	int numberOfTargetsBaseAttack;
-
-	[SerializeField]
-	DmgTypeEnum abilityDamageType;
-
-	[SerializeField]
-	string abilitySelfFormula;
-
-	[SerializeField]
-	string abilityTargetFormula;
-
-	//[SerializeField]
-	//List<ScalingTypeEnum> abilityScaleTypes;
-
-	//[SerializeField]
-	//List<float> abilityScalingRates;
-
-	[SerializeField]
-	int numberOfTargetsAbility;
-
-	[SerializeField]
+	AtkAbilTargetSpecification atkSpec;
+	AtkAbilTargetSpecification abilSpec;
 	int speed;
-
-	[SerializeField]
 	int armor;
-
-	[SerializeField]
 	int magicalDefense;
-
-	[SerializeField]
 	int bleedResist;
-
-	[SerializeField]
 	int burnResist;
-
-	[SerializeField]
 	int poisonResist;
-
-	[SerializeField]
 	int thorns;
-
-	[SerializeField]
 	float lifesteal;
-
-	[SerializeField]
 	int remainingResurrections;
-
 	// ranges from 0 to 1. 1 means that every attack is critical.
-	[SerializeField]
 	float criticalChance;
-
-	[SerializeField]
 	float criticalMultiplier;
-
-	public AttackStrategyEnum baseAttackStrategy;
-
-	public AttackStrategyEnum abilityStrategyEnum;
-
-	[System.NonSerialized] int position;
+	int position;
 
 
 	//runtime vars
-	[System.NonSerialized]
     int currentHP;
-	[System.NonSerialized]
 	int currentAttacksPerAction;
-	[System.NonSerialized]
 	int currentRemainingAttacks;
-	[System.NonSerialized]
 	int currentPhysicalAttack;
-	[System.NonSerialized]
 	int currentMagicalAttack;
-	[System.NonSerialized]
 	int currentArmorPenetration;
-	[System.NonSerialized]
 	int currentMagicDefensePenetration;
-	[System.NonSerialized]
 	int currentMagicalAttackBonusPerc = 0;
-	[System.NonSerialized]
 	int currentPhysicalAttackBonusPerc = 0;
-	[System.NonSerialized]
 	int currentHealBonusPerc = 0;
-	[System.NonSerialized]
 	int currentSpeed;
-	[System.NonSerialized]
 	int currentSpeedBonusPerc = 0;
-	[System.NonSerialized]
 	int currentEnergy;
-	[System.NonSerialized]
 	int currentEnergyPerAtk;
-	[System.NonSerialized]
 	int currentBonusEnergyGainedOnDamageTaken = 0;
-	[System.NonSerialized]
 	int currentBonusEnergyGainedFromAttack = 0;
-	[System.NonSerialized]
 	int currentArmor;
-	[System.NonSerialized]
 	int currentMagicalDefense;
-	[System.NonSerialized]
 	int currentBleedResist;
-	[System.NonSerialized]
 	int currentBurnResist;
-	[System.NonSerialized]
 	int currentPoisonResist;
-	[System.NonSerialized]
 	int currentMagicalDefenseBonusPerc = 0;
-	[System.NonSerialized]
 	int currentArmorBonusPerc = 0;
-	[System.NonSerialized]
 	float currentCriticalChance;
-	[System.NonSerialized]
 	float currentCriticalMultiplier;
-	[System.NonSerialized]
 	int currentThorns;
-	[System.NonSerialized]
 	float currentLifesteal;
-	[System.NonSerialized]
 	int currentRemainingResurrections = 0;
 
-	public Unit(
+	public void Init(
 		FighterName name,
 		FactionEnum faction,
 		int level,
-		int maxHp,
+		int maxHP,
 		int initialEnergy,
 		int attacksPerAction,
+		int energyPerAttack,
 		int physicalAtk,
 		int magicalAtk,
+		int armor,
+		int magicalDef,
 		int armorPen,
 		int magicDefPen,
 		AtkAbilTargetSpecification atkSpecification,
 		AtkAbilTargetSpecification abilSpecification,
+		int speed,
 		int bleedResist,
 		int burnResist,
 		int poisonResist,
 		int thorns,
-		int lifesteal,
+		float lifesteal,
 		int remainingResurrections,
 		float criticalChance,
 		float criticalMultiplier)
-    {
-
+	{
+		// TODO set all the current values
+		fighterName = name;
+		this.faction = faction;
+		this.level = level;
+		this.MaxHP = maxHP;
+		this.initialEnergy = initialEnergy;
+        this.AttacksPerAction = attacksPerAction;
+		this.EnergyPerAttack = energyPerAttack;
+		this.PhysicalAttack = physicalAtk;
+		this.MagicalAttack = magicalAtk;
+		this.Armor = armor;
+		this.MagicalDefense = magicalDef;
+		this.ArmorPenetration = armorPen;
+		this.MagicDefensePenetration = magicDefPen;
+		this.AtkSpec = atkSpecification;
+		this.AbilSpec = abilSpecification;
+		this.Speed = speed;
+		this.BleedResist = bleedResist;
+		this.BurnResist = burnResist;
+		this.PoisonResist = poisonResist;
+		this.Thorns = thorns;
+		this.Lifesteal = lifesteal;
+		this.RemainingResurrections = remainingResurrections;
+		this.CriticalChance = criticalChance;
+		this.CriticalMultiplier = criticalMultiplier;
     }
 
-	public int MaxHp { get => maxHP; }
+	public int MaxHP { get => maxHP; private set { maxHP = value; CurrentHP = value; } }
 
 	public int CurrentEnergy { get => currentEnergy; }
-	public int CurrentHP { get => currentHP; }
-    public int NumberOfTargetsAbility { get => numberOfTargetsAbility; }
-    public int NumberOfTargetsBaseAttack { get => numberOfTargetsBaseAttack;}
+	public int CurrentHP { get => currentHP; private set => currentHP = value; }
     public int CurrentMagicalAttackBonusPerc { get => currentMagicalAttackBonusPerc; }
     public int CurrentPhysicalAttackBonusPerc { get => currentPhysicalAttackBonusPerc; }
     public float CurrentLifesteal { get { if (currentLifesteal < 0f) return 0f; return currentLifesteal; } set => currentLifesteal = value; }
@@ -215,13 +131,6 @@ public class Unit : ScriptableObject, ISerializationCallbackReceiver
     public int CurrentArmorBonusPerc { get { if (currentArmorBonusPerc < -100) return -100; return currentArmorBonusPerc; } set => currentArmorBonusPerc = value; }
     public int CurrentEnergyPerAtk { get { if (currentEnergyPerAtk < 0) return 0; return currentEnergyPerAtk; } set => currentEnergyPerAtk = value; }
     public int CurrentHealBonusPerc { get { if (currentHealBonusPerc < -100) return -100; return currentHealBonusPerc; } set => currentHealBonusPerc = value; }
-
-    //public List<float> AttackScalingRate { get => attackScalingRates; set => attackScalingRates = value; }
-    //public List<ScalingTypeEnum> AttackScaleType { get => attackScaleTypes; set => attackScaleTypes = value; }
-    //public List<ScalingTypeEnum> AbilityScaleTypes { get => abilityScaleTypes; set => abilityScaleTypes = value; }
-    //public List<float> AbilityScalingRates { get => abilityScalingRates; set => abilityScalingRates = value; }
-    public DmgTypeEnum AttackDamageType { get => attackDamageType; set => attackDamageType = value; }
-    public DmgTypeEnum AbilityDamageType { get => abilityDamageType; set => abilityDamageType = value; }
     public int CurrentArmorPenetration { get { if (currentArmorPenetration < 0) return 0; return currentArmorPenetration; } set => currentArmorPenetration = value; }
     public int CurrentMagicDefensePenetration { get { if (currentMagicDefensePenetration < 0) return 0; return currentMagicDefensePenetration; } set => currentMagicDefensePenetration = value; }
     public int CurrentThorns { get { if (currentThorns < 0) return 0; return currentThorns; } set => currentThorns = value; }
@@ -244,16 +153,12 @@ public class Unit : ScriptableObject, ISerializationCallbackReceiver
 	public int SPEED { get => GetComplessiveSpeed(); }
 
 
-    public int LostHp { get => MaxHp - CurrentHP; }
+    public int LostHP { get => MaxHP - CurrentHP; }
 	public int Hp { get => CurrentHP; }
-	public string AbilitySelfFormula { get => abilitySelfFormula; set => abilitySelfFormula = value; }
-    public string AbilityTargetFormula { get => abilityTargetFormula; set => abilityTargetFormula = value; }
-    public string AttackSelfFormula { get => attackSelfFormula; set => attackSelfFormula = value; }
-    public string AttackTargetFormula { get => attackTargetFormula; set => attackTargetFormula = value; }
     public int CurrentBleedResist { get => currentBleedResist; set => currentBleedResist = value; }
     public int CurrentBurnResist { get => currentBurnResist; set => currentBurnResist = value; }
     public int CurrentPoisonResist { get => currentPoisonResist; set => currentPoisonResist = value; }
-    public int AttacksPerAction { get => attacksPerAction; set => attacksPerAction = value; }
+    public int AttacksPerAction { get => attacksPerAction; set { attacksPerAction = value; CurrentAttacksPerAction = value; CurrentRemainingAttacks = value; } }
     public int CurrentAttacksPerAction { get => currentAttacksPerAction; set => currentAttacksPerAction = value; }
     public int CurrentRemainingAttacks { get => currentRemainingAttacks; set => currentRemainingAttacks = value; }
     public int CurrentBonusEnergyGainedOnDamageTaken { get { if (currentBonusEnergyGainedOnDamageTaken < -100) return -100; return currentBonusEnergyGainedOnDamageTaken; } set => currentBonusEnergyGainedOnDamageTaken = value; }
@@ -262,6 +167,35 @@ public class Unit : ScriptableObject, ISerializationCallbackReceiver
     public int CurrentSpeedBonusPerc { get { if (currentSpeedBonusPerc < -100) return -100; return currentSpeedBonusPerc; } set => currentSpeedBonusPerc = value; }
 
     public FactionEnum Faction { get => faction; set => faction = value; }
+    public AtkAbilTargetSpecification AtkSpec { get => atkSpec; set => atkSpec = value; }
+    public AtkAbilTargetSpecification AbilSpec { get => abilSpec; set => abilSpec = value; }
+    public int PhysicalAttack { get => physicalAttack; set { physicalAttack = value; CurrentPhysicalAttack = value; } }
+
+    private int MagicalAttack { get => magicalAttack; set { magicalAttack = value; CurrentMagicalAttack = value; } }
+
+    private int Armor { get => armor; set { armor = value; CurrentArmor = value; } }
+    private int MagicalDefense { get => magicalDefense; set { magicalDefense = value; CurrentMagicalDefense = value; } }
+
+    private int ArmorPenetration { get => armorPenetration; set { armorPenetration = value; CurrentArmorPenetration = value; } }
+
+    private int MagicDefensePenetration { get => magicDefensePenetration; set { magicDefensePenetration = value; CurrentMagicDefensePenetration = value; } }
+
+    private int Speed { get => speed; set { speed = value; CurrentSpeed = value; } }
+
+    private int BleedResist { get => bleedResist; set { bleedResist = value; CurrentBleedResist = value; } }
+    private int BurnResist { get => burnResist; set { burnResist = value; CurrentBurnResist = value; } }
+    private int PoisonResist { get => poisonResist; set { poisonResist = value; CurrentPoisonResist = value; } }
+
+    private int Thorns { get => thorns; set { thorns = value; CurrentThorns = value; } }
+
+    private float Lifesteal { get => lifesteal; set { lifesteal = value; CurrentLifesteal = value; } }
+
+    private int RemainingResurrections { get => remainingResurrections; set { remainingResurrections = value; CurrentRemainingResurrections = value; } }
+
+    private float CriticalChance { get => criticalChance; set { criticalChance = value; CurrentCriticalChance = value; } }
+    private float CriticalMultiplier { get => criticalMultiplier; set { criticalMultiplier = value; CurrentCriticalMultiplier = value; } }
+
+	private int EnergyPerAttack { get => energyPerAttack; set { energyPerAttack = value; CurrentEnergyPerAtk = value; } }
 
     private int GetComplessiveArmor()
     {
@@ -306,23 +240,23 @@ public class Unit : ScriptableObject, ISerializationCallbackReceiver
 		currentHP = maxHP;
 		CurrentAttacksPerAction = AttacksPerAction;
 		currentRemainingAttacks = AttacksPerAction;
-		CurrentPhysicalAttack = physicalAttack;
-		CurrentMagicalAttack = magicalAttack;
-		CurrentArmorPenetration = armorPenetration;
-		CurrentMagicDefensePenetration = magicDefensePenetration;
-		CurrentSpeed = speed;
+		CurrentPhysicalAttack = PhysicalAttack;
+		CurrentMagicalAttack = MagicalAttack;
+		CurrentArmorPenetration = ArmorPenetration;
+		CurrentMagicDefensePenetration = MagicDefensePenetration;
+		CurrentSpeed = Speed;
 		currentEnergy = initialEnergy;
-		currentEnergyPerAtk = energyPerAttack;
-		CurrentArmor = armor;
-		CurrentMagicalDefense = magicalDefense;
-		CurrentBleedResist = bleedResist;
-		CurrentBurnResist = burnResist;
-		CurrentPoisonResist = poisonResist;
-		CurrentCriticalChance = criticalChance;
-		CurrentCriticalMultiplier = criticalMultiplier;
-		CurrentLifesteal = lifesteal;
-		CurrentThorns = thorns;
-		CurrentRemainingResurrections = remainingResurrections;
+		currentEnergyPerAtk = EnergyPerAttack;
+		CurrentArmor = Armor;
+		CurrentMagicalDefense = MagicalDefense;
+		CurrentBleedResist = BleedResist;
+		CurrentBurnResist = BurnResist;
+		CurrentPoisonResist = PoisonResist;
+		CurrentCriticalChance = CriticalChance;
+		CurrentCriticalMultiplier = CriticalMultiplier;
+		CurrentLifesteal = Lifesteal;
+		CurrentThorns = Thorns;
+		CurrentRemainingResurrections = RemainingResurrections;
 	}
 
 	public void OnBeforeSerialize() { }

@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heroes:
   - Name: Nora
-    Level: 42
-    Class: mage
+    Level: 25
+    Class: 3
   - Name: Doombot
-    Level: 15
-    Class: tank
+    Level: 25
+    Class: 1
   - Name: VI
-    Level: 36
-    Class: warrior
+    Level: 25
+    Class: 0

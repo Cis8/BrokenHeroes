@@ -67,13 +67,13 @@ public class DoTModifier : Modifier
         DmgSourceEnum type = DmgSourceEnum.Bleed;
         switch (((DoTModifierData)Modifier_Data).DotType)
         {
-            case DoTModifierData.DoT_Type.BURN:
+            case DoTModifierData.DoT_Type.Burn:
                 type = DmgSourceEnum.Burn;
                 break;
-            case DoTModifierData.DoT_Type.BLEED:
+            case DoTModifierData.DoT_Type.Bleed:
                 type = DmgSourceEnum.Bleed;
                 break;
-            case DoTModifierData.DoT_Type.POISON:
+            case DoTModifierData.DoT_Type.Poison:
                 type = DmgSourceEnum.Poison;
                 break;
         }

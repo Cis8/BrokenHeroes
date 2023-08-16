@@ -10,28 +10,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca5eb5f9da65fa74a8f2fc47bc4da12f, type: 3}
-  m_Name: VI
+  m_Name: Doombot
   m_EditorClassIdentifier: 
-  fighterName: 0
-  faction: 2
-  lvl: 1
+  fighterName: 1
+  faction: 1
+  class: 0
+  lvl: 25
   energyPerAttack: 50
   attacksPerAction: 1
-  attackDamageType: 0
-  attackSelfFormula: 0.8 * AD
-  attackTargetFormula: 
-  numberOfTargetsBaseAttack: 2
-  abilityDamageType: 0
-  abilitySelfFormula: 3 * AD
-  abilityTargetFormula: 
-  numberOfTargetsAbility: 1
+  attackSpecification:
+    numberOfTargets: 2
+    scalingFormulaAttacker: AP
+    scalingFormulaTarget: 
+    damageType: 1
+    strategy: 0
+  abilitySpecification:
+    numberOfTargets: 1
+    scalingFormulaAttacker: AP + LostHP * 0.1
+    scalingFormulaTarget: 
+    damageType: 1
+    strategy: 0
   bleedResist: 0
   burnResist: 0
   poisonResist: 0
   thorns: 0
   lifesteal: 0
   remainingResurrections: 0
-  criticalChance: 0.35
-  criticalMultiplier: 2
-  baseAttackStrategy: 0
-  abilityStrategyEnum: 0
+  criticalChance: 0.05
+  criticalMultiplier: 1.75

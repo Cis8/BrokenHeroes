@@ -33,8 +33,9 @@ public class Fighter : MonoBehaviour
     public void SetupNameAndLogic(string name)
     {
         fighterName = name;
-        string fighterHeader = "Fighters/" + name + "/";
-        Unit u = Instantiate(Resources.Load<Unit>(fighterHeader + name));
+        string fighterHeader = "Heroes/";
+        UnitSpec us = Resources.Load<UnitSpec>(fighterHeader + name);
+        Unit u = UnitConverter.Convert(us, this.transform);
         var type = Type.GetType(name + "Logic");
         fighterLogic = (FighterLogic)Activator.CreateInstance(type, u, this, this.tag);
         //fighterLogic = FighterLogicFactory.GetFighterLogic(name, gameObject.GetComponent<Fighter>());

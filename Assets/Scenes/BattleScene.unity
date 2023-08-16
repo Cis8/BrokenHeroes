@@ -2774,8 +2774,8 @@ MonoBehaviour:
   stunSprite: {fileID: 21300000, guid: 18b43c780b3214542b04967782339eb2, type: 3}
   silenceSprite: {fileID: 21300000, guid: 309fe1e799c49e24087a035b3f0a23c2, type: 3}
   terrorSprite: {fileID: 21300000, guid: eedb36cdc9daf8245bc871f5af40990c, type: 3}
-  bleedSprite: {fileID: 0}
-  burnSprite: {fileID: 0}
+  bleedSprite: {fileID: 21300000, guid: 7efde5a85dd17174f9cf45d6e5b7409f, type: 3}
+  burnSprite: {fileID: 21300000, guid: d49d6b21531aa294fb1edc0adb90bbff, type: 3}
   poisonSprite: {fileID: 21300000, guid: 1bce67d0b7619164e9ebd037a7f7cb67, type: 3}
 --- !u!222 &1790185943
 CanvasRenderer:

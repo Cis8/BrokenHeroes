@@ -26,7 +26,7 @@ namespace Assets.BattleAssetts.Scripts.PassiveAbilities.FactionPassives
         {
             if (info.DealerFighter.tag == info.DamagedFighter.tag)
             {
-                int speedAmount = (int)(100 * ((float)info.Amount / (float)info.DamagedFighter.GetUnit().MaxHp));
+                int speedAmount = (int)(100 * ((float)info.Amount / (float)info.DamagedFighter.GetUnit().MaxHP));
                 speedBuffModifierData.Amount = speedAmount;
                 speedBuffModifierData.InitializeModifier(f, f).Apply();
                 Debug.Log("New speed is: " + f.GetUnit().SPEED);

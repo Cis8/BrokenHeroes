@@ -60,6 +60,7 @@
     <Compile Include="Assets\QuickSheet\Editor\Util\Cloner.cs" />
     <Compile Include="Assets\QuickSheet\Editor\ScriptPrescription.cs" />
     <Compile Include="Assets\Data\Editor\VIScalingsAssetPostProcessor.cs" />
+    <Compile Include="Assets\Data\Editor\ScalingsEditor.cs" />
     <Compile Include="Assets\QuickSheet\Editor\Util\CsvParser.cs" />
     <Compile Include="Assets\QuickSheet\Example\Data\Editor\ExcelExampleEditor.cs" />
     <Compile Include="Assets\QuickSheet\ExcelPlugin\Editor\BaseExcelEditor.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Assets\QuickSheet\ExcelPlugin\Editor\ExcelMachineEditor.cs" />
     <Compile Include="Assets\QuickSheet\Editor\BaseMachine.cs" />
     <Compile Include="Assets\QuickSheet\Editor\CustomAssetUtility.cs" />
+    <Compile Include="Assets\Data\Editor\ScalingsAssetPostProcessor.cs" />
     <Compile Include="Assets\QuickSheet\ExcelPlugin\Editor\ExcelQuery.cs" />
     <Compile Include="Assets\Data\Editor\NoraScalingsEditor.cs" />
     <Compile Include="Assets\QuickSheet\Example\Data\Editor\ExcelExampleAssetPostProcessor.cs" />

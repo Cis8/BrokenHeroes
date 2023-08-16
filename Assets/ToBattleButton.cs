@@ -41,15 +41,9 @@ public class ToBattleButton : MonoBehaviour
     public void LaunchBattle()
     {
         SelectedParty.SelectedHeroes.ForEach(hero => {
-            if (hero.Name != null)
+            if (hero.Name != null && hero.Name != "")
                 AddHero(hero.Name);
         });
         SceneManager.LoadScene("BattleScene");
-    }
-
-    private void OnDestroy()
-    {
-        HomeEventSystem.current.OnHeroChosenToAdd -= AddHero;
-        HomeEventSystem.current.OnHeroChosenToRemove -= RemoveHero;
     }
 }

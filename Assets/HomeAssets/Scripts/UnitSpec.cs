@@ -19,6 +19,9 @@ public class UnitSpec : ScriptableObject
 	private FactionEnum faction;
 
 	[SerializeField]
+	private ClassEnum @class;
+
+	[SerializeField]
 	int lvl = 1;
 
 	[SerializeField]
@@ -75,4 +78,5 @@ public class UnitSpec : ScriptableObject
     public float CriticalMultiplier { get => criticalMultiplier; set => criticalMultiplier = value; }
     public AtkAbilTargetSpecification AttackSpecification { get => attackSpecification; set => attackSpecification = value; }
     public AtkAbilTargetSpecification AbilitySpecification { get => abilitySpecification; set => abilitySpecification = value; }
+    public ClassEnum Class { get => @class; set => @class = value; }
 }

@@ -13,7 +13,7 @@ public class HateMark : Modifier
     {
         modifierName = "HateMark";
         //scaling = System.Convert.ToSingle(ScalingCalc.Evaluate(((HateMarkData)modifierData).NoraScalings.dataArray.Where(s => s.Name == "Immortal Hate").FirstOrDefault().Base_Formula));
-        scaling = CalcEngineUtil.FloatCalculator(ScalingCalc, ((HateMarkData)modifierData).NoraScalings.dataArray.Where(s => s.Name == "Immortal Hate").FirstOrDefault().Base_Formula);
+        scaling = CalcEngineUtil.FloatDamageCalculator(((HateMarkData)modifierData).NoraScalings.dataArray.Where(s => s.Name == "Immortal Hate").FirstOrDefault().Base_Formula);
         Debug.Log("scaling hate mark is: " + scaling);
     }
 

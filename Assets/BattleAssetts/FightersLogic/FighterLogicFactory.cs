@@ -22,12 +22,12 @@ public class FighterLogicFactory : MonoBehaviour
         }
     }*/
 
-    public static FighterLogic GetFighterLogic(string name, Fighter parent)
+    /*public static FighterLogic GetFighterLogic(string name, Fighter parent)
     {
         string fighterHeader = "Fighters/" + name + "/";
         ////
         ///("Trying to get " + name + "'s unit.");
-        Unit u = Instantiate(Resources.Load<Unit>(fighterHeader + name));
+        Unit u = UnitConverter.Convert(Resources.Load<UnitSpec>(fighterHeader + name));
         switch (name)
         {
             case "VI":
@@ -41,5 +41,5 @@ public class FighterLogicFactory : MonoBehaviour
             default:
                 return new DoombotLogic(u, parent, parent.tag);
         }
-    }
+    }*/
 }

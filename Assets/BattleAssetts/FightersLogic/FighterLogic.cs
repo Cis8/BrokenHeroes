@@ -55,8 +55,8 @@ public abstract class FighterLogic
         //scalingType = Type.GetType(parent.fighterName + "Scalings");
         DmgCalculator = new CalcEngine.CalcEngine();
 
-        InitializeStrategy(true, Unit.baseAttackStrategy);
-        InitializeStrategy(false, Unit.baseAttackStrategy);
+        InitializeStrategy(true, Unit.AtkSpec.Strategy);
+        InitializeStrategy(false, Unit.AbilSpec.Strategy);
 
         
         BattleEventSystem.current.OnFighterTookDamage += HealFromLifeSteal;
@@ -129,14 +129,14 @@ public abstract class FighterLogic
 
     public void ExecuteAttack()
     {
-        List<Fighter> enemiesToAttack = baseAtkStrategy.ChooseTargets(Unit.NumberOfTargetsBaseAttack, team);
+        List<Fighter> enemiesToAttack = baseAtkStrategy.ChooseTargets(Unit.AtkSpec.NumberOfTargets, team);
         AttackLogic(enemiesToAttack);
         unit.AddEnergy((int)((float)unit.CurrentEnergyPerAtk * GetFloatMultiplier(Unit.CurrentBonusEnergyGainedFromAttack)));
     }
 
     public void ExecuteAbility()
     {
-        List<Fighter> enemiesToAttack = abilityAtkStrategy.ChooseTargets(Unit.NumberOfTargetsAbility, team);
+        List<Fighter> enemiesToAttack = abilityAtkStrategy.ChooseTargets(Unit.AbilSpec.NumberOfTargets, team);
         unit.ZeroEnergy();
         AbilityLogic(enemiesToAttack);
     }
@@ -164,7 +164,7 @@ public abstract class FighterLogic
             Unit.SubtractLife(info.Amount);
             if (info.Source.IsReactable)
             {
-                int percentEnergyGainedFromDmg = (int)(((float)info.Amount / (float)Unit.MaxHp) * 100);
+                int percentEnergyGainedFromDmg = (int)(((float)info.Amount / (float)Unit.MaxHP) * 100);
                 Unit.AddEnergy(percentEnergyGainedFromDmg);
             }
             alive = Unit.CurrentHP > 0;
@@ -270,7 +270,7 @@ public abstract class FighterLogic
 
         f.TakeDamage(new DmgInfo(
                     totalBaseAmount,
-                    Unit.AttackDamageType,
+                    Unit.AtkSpec.DamageType,
                     new DmgSource(DmgSourceEnum.Attack),
                     parent,
                     f,
@@ -320,13 +320,13 @@ public abstract class FighterLogic
         string toUseTargetFormula;
         if (action == "Attack")
         {
-            toUseSelfFormula = Unit.AttackSelfFormula;
-            toUseTargetFormula = Unit.AttackTargetFormula;
+            toUseSelfFormula = Unit.AtkSpec.ScalingFormulaAttacker;
+            toUseTargetFormula = Unit.AtkSpec.ScalingFormulaTarget;
         }
         else if (action == "Ability")
         {
-            toUseSelfFormula = Unit.AbilitySelfFormula;
-            toUseTargetFormula = Unit.AbilityTargetFormula;
+            toUseSelfFormula = Unit.AbilSpec.ScalingFormulaAttacker;
+            toUseTargetFormula = Unit.AbilSpec.ScalingFormulaTarget;
         }
         else
             throw new System.Exception("Action not supported");
@@ -369,7 +369,7 @@ public abstract class FighterLogic
 
         f.TakeDamage(new DmgInfo(
                     totalBaseAmount,
-                    Unit.AbilityDamageType,
+                    Unit.AbilSpec.DamageType,
                     new DmgSource(DmgSourceEnum.Ability),
                     parent,
                     f,
@@ -464,7 +464,7 @@ public abstract class FighterLogic
             Unit.DecrementRemainingResurrections();
             HealFlat(
                 new HealInfo(
-                Unit.MaxHp,
+                Unit.MaxHP,
                 new HealSource(HealSourceEnum.Resurrection, true),
                 Parent,
                 Parent));

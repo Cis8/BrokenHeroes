@@ -15,10 +15,10 @@ MonoBehaviour:
   heroes:
   - Name: Nora
     Level: 42
-    Class: mage
+    Class: 3
   - Name: Doombot
     Level: 12
-    Class: tank
+    Class: 1
   - Name: VI
     Level: 35
-    Class: warrior
+    Class: 0
