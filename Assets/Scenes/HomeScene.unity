@@ -145,7 +145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1347337423233848647, guid: 3c43b738adecc49448bd9357c283f926, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 522.66003
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1572939249272314650, guid: 3c43b738adecc49448bd9357c283f926, type: 3}
       propertyPath: m_IsActive
@@ -321,7 +321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5219368501695858567, guid: 3c43b738adecc49448bd9357c283f926, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 272
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5325370453193530758, guid: 3c43b738adecc49448bd9357c283f926, type: 3}
       propertyPath: m_AnchorMax.y
@@ -549,7 +549,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8458374992185109655, guid: 3c43b738adecc49448bd9357c283f926, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 858.66003
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8841034000292910691, guid: 3c43b738adecc49448bd9357c283f926, type: 3}
       propertyPath: m_AnchorMax.y
@@ -861,8 +861,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b45c3851b2994349bc724384a21f9ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ownedHeroes: {fileID: 11400000, guid: 1b18991bf404f644894bb48520b4156f, type: 2}
-  _allHeroes: {fileID: 11400000, guid: 634ac5132e3346b47a2cfe909d9448ac, type: 2}
 --- !u!1 &1785321214
 GameObject:
   m_ObjectHideFlags: 0
@@ -1373,7 +1371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b5c61cdfac9801438bcff9ebf3f9ffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _chosenHeroesSO: {fileID: 11400000, guid: e2e58fadde8029a429ba2a544133b833, type: 2}
+  _chosenHeroes: {fileID: 11400000, guid: ccabd270d2d37ce4ca86be2e29670776, type: 2}
   _selectedParty: {fileID: 1939887004}
 --- !u!1 &2142512464
 GameObject:

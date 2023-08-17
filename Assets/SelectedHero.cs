@@ -7,13 +7,13 @@ public class SelectedHero : MonoBehaviour
 {
     [SerializeField]
     Image _portrait;
-    string _name;
+    FighterName _name;
     bool _isEmpty = true;
 
-    public string Name { get => _name; private set => _name = value; }
+    public FighterName Name { get => _name; private set => _name = value; }
     public bool IsEmpty { get => _isEmpty; private set => _isEmpty = value; }
 
-    public void Init(string name)
+    public void Init(FighterName name)
     {
         Name = name;
         _portrait.enabled = true;
@@ -23,7 +23,7 @@ public class SelectedHero : MonoBehaviour
 
     public void Free()
     {
-        Name = "";
+        Name = FighterName.None;
         _portrait.enabled = false;
         _portrait.sprite = null;
         IsEmpty = true;

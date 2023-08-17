@@ -71,7 +71,6 @@
     <Compile Include="Assets\BattleAssetts\FightersLogic\VILogic.cs" />
     <Compile Include="Assets\Layer Lab\GUI PRO Kit - Fantasy RPG\Scripts\PanelFantasyRPG.cs" />
     <Compile Include="Assets\Data\Runtime\VIScalingsData.cs" />
-    <Compile Include="Assets\HomeAssets\Scripts\HeroesList.cs" />
     <Compile Include="Assets\Scalings.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\DmgInfo.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\UniqueMarks\ConcreteClasses\RisingHate.cs" />
@@ -104,6 +103,7 @@
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\DoTModifier.cs" />
     <Compile Include="Assets\Layer Lab\GUI PRO Kit - Fantasy RPG\Scripts\PanelControlFantasyRPG.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\UniqueMarks\ConcreteData\DeathInFourActsData.cs" />
+    <Compile Include="Assets\HomeAssets\Scripts\ChosenHeroes.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\PassiveAbilities\FactionPassives\Soulless\SilverSoullessPassive.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\BattleResultText.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\UniqueMarks\ConcreteData\RisingHateData.cs" />
@@ -142,7 +142,6 @@
     <Compile Include="Assets\BattleAssetts\FightersLogic\NoraLogic.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\PassiveAbilities\PassiveAbility.cs" />
     <Compile Include="Assets\BattleAssetts\Gameplay\AttackStrategies\StandardStrategy.cs" />
-    <Compile Include="Assets\HomeAssets\Scripts\HeroState.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\UniqueMarks\ConcreteClasses\HateMark.cs" />
     <Compile Include="Assets\HomeAssets\Scripts\SlotCharacterSelect.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\FighterGraphic.cs" />

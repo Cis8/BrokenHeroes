@@ -10,15 +10,16 @@ public class SlotCharacterSelect : MonoBehaviour
 {
     [SerializeField]
     GameObject checkMark;
-    HeroState _heroState;
+    FighterName _hero;
 
-    public HeroState Hero { get => _heroState; set => _heroState = value; }
+    public FighterName Hero { get => _hero; set => _hero = value; }
 
-    public void Initialize(HeroState heroState)
+    public void Initialize(FighterName hero)
     {
-        _heroState = heroState;
-        gameObject.transform.Find("Character").Find("HeroPortrait").GetComponent<Image>().sprite = GameAssets.GetHeroPortrait(_heroState.Name).Result;
-        GameAssets.GetClassIcon(_heroState.Class).Completed += handle =>
+        _hero = hero;
+        gameObject.transform.Find("Character").Find("HeroPortrait").GetComponent<Image>().sprite = GameAssets.GetHeroPortrait(_hero).Result;
+        UnitSpec heroSpec = GameAssets.current.GetHeroUnitSpec(hero);
+        GameAssets.GetClassIcon(heroSpec.Class).Completed += handle =>
         {
             gameObject.transform.Find("CharacterInfo").Find("RoleIcon").GetComponent<Image>().sprite = handle.Result;
         };
@@ -26,22 +27,22 @@ public class SlotCharacterSelect : MonoBehaviour
         {
             gameObject.transform.Find("CharacterInfo").Find("RoleIcon").GetComponent<Image>().sprite = handle.Result;
         };*/
-        gameObject.transform.Find("CharacterInfo").Find("NameTxt").GetComponent<TextMeshProUGUI>().text = _heroState.Name;
-        gameObject.transform.Find("CharacterInfo").Find("LvlTxt").GetComponent<TextMeshProUGUI>().text = _heroState.Level.ToString();
+        gameObject.transform.Find("CharacterInfo").Find("NameTxt").GetComponent<TextMeshProUGUI>().text = _hero.ToString();
+        gameObject.transform.Find("CharacterInfo").Find("LvlTxt").GetComponent<TextMeshProUGUI>().text = heroSpec.Lvl.ToString();
 
     }
 
     public void AddOrRemoveHero()
     {
         if (!checkMark.activeSelf)
-            HomeEventSystem.current.ChosenHeroToAdd(Hero.Name);
+            HomeEventSystem.current.ChosenHeroToAdd(Hero);
         else
-            HomeEventSystem.current.ChosenHeroToRemove(Hero.Name);
+            HomeEventSystem.current.ChosenHeroToRemove(Hero);
     }
 
-    private void ToggleCheckMark(string hero)
+    private void ToggleCheckMark(FighterName hero)
     {
-        if(hero == Hero.Name)
+        if(hero == Hero)
         {
             if (checkMark.activeSelf)
                 checkMark.SetActive(false);

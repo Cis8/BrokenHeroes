@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.U2D.Animation;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using System;
 
 public class GameAssets : MonoBehaviour
 {
-    [SerializeField]
-    private HeroesList _ownedHeroes;
+    private UnitSpec[] _ownedHeroes;
 
-    public HeroesList OwnedHeroes { get => _ownedHeroes; set => _ownedHeroes = value; }
+    public UnitSpec[] OwnedHeroes { get => _ownedHeroes; set => _ownedHeroes = value; }
 
     private static GameAssets _current;
 
@@ -22,7 +22,12 @@ public class GameAssets : MonoBehaviour
         }
     }
 
-    public static AsyncOperationHandle<Sprite> GetHeroPortrait(string heroName)
+    private void Awake()
+    {
+        _ownedHeroes = Resources.LoadAll<UnitSpec>("Heroes");
+    }
+
+    public static AsyncOperationHandle<Sprite> GetHeroPortrait(FighterName heroName)
     {
         return Addressables.LoadAssetAsync<Sprite>(heroName + "Portrait");
     }
@@ -32,9 +37,9 @@ public class GameAssets : MonoBehaviour
         return Addressables.LoadAssetAsync<Sprite>(className.ToString() + "Icon");
     }
 
-    public HeroState GetHeroState(string name)
+    public UnitSpec GetHeroUnitSpec(FighterName name)
     {
-        return OwnedHeroes.GetHero(name);
+        return Array.Find<UnitSpec>(OwnedHeroes, us => us.FighterName == name);
     }
 
     public Transform hpDmgPopup;

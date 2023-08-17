@@ -7,29 +7,33 @@ using UnityEngine.SceneManagement;
 public class ToBattleButton : MonoBehaviour
 {
     [SerializeField]
-    HeroesList _chosenHeroesSO;
+    ChosenHeroes _chosenHeroes;
     [SerializeField]
     SelectedParty _selectedParty;
 
-    public HeroesList ChosenHeroesSO { get => _chosenHeroesSO; private set => _chosenHeroesSO = value; }
+    public ChosenHeroes ChosenHeroes { get => _chosenHeroes; private set => _chosenHeroes = value; }
     public SelectedParty SelectedParty { get => _selectedParty; private set => _selectedParty = value; }
+
+    private void Awake()
+    {
+        _chosenHeroes.ChosenHeroesForTheBattle = new List<FighterName>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        ChosenHeroesSO.EraseHeroes();
         //HomeEventSystem.current.OnHeroChosenToAdd += AddHero;
         //HomeEventSystem.current.OnHeroChosenToRemove += RemoveHero;
     }
 
-    private void AddHero(string hero)
+    private void AddHero(FighterName hero)
     {
-        ChosenHeroesSO.AddHero(hero);
+        ChosenHeroes.ChosenHeroesForTheBattle.Add(hero);
     }
 
-    private void RemoveHero(string name)
+    private void RemoveHero(FighterName name)
     {
-        ChosenHeroesSO.RemoveHero(name);
+        ChosenHeroes.ChosenHeroesForTheBattle.Remove(name);
     }
 
     // Update is called once per frame
@@ -40,10 +44,15 @@ public class ToBattleButton : MonoBehaviour
 
     public void LaunchBattle()
     {
+        bool atLeastOneAdded = false;
         SelectedParty.SelectedHeroes.ForEach(hero => {
-            if (hero.Name != null && hero.Name != "")
+            if (hero.Name != FighterName.None)
+            {
                 AddHero(hero.Name);
+                atLeastOneAdded = true;
+            }
         });
-        SceneManager.LoadScene("BattleScene");
+        if(atLeastOneAdded)
+            SceneManager.LoadScene("BattleScene");
     }
 }

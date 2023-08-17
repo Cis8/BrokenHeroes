@@ -5,6 +5,7 @@ using UnityEngine;
 
 
 public enum FighterName { 
+    None, // Represents none hero
     VI,
     Doombot,
     Nora

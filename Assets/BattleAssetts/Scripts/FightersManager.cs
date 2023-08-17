@@ -9,7 +9,7 @@ public class FightersManager : MonoBehaviour
 
     public FightersList fighters;
 
-    public HeroesList heroesToAdd;
+    public ChosenHeroes heroesToAdd;
 
 
     // TODO: replace the battle stations with the definitive array of n*2 battle stations' transform (n = team size)
@@ -33,7 +33,7 @@ public class FightersManager : MonoBehaviour
         BattleEventSystem.current.OnFighterTookDamage += CheckIfFighterIsStillAlive;
         //BattleEventSystem.current.OnTurnEnded += RemoveDeadFighters;
 
-        AddFightersToTheBattle(new List<string>(heroesToAdd.GetHeroes().Select<HeroState, string>(h => h.Name)), heroesBattleStations);
+        AddFightersToTheBattle(heroesToAdd.ChosenHeroesForTheBattle, heroesBattleStations);
 
         GameObject enemyFromLibrary = FightersLibrary.current.GetBattleFighter("VI", enemy1BattleStation);
         Fighter e = enemyFromLibrary.GetComponent<Fighter>();
@@ -69,12 +69,12 @@ public class FightersManager : MonoBehaviour
         fighters.AddFighter(f);
         BattleEventSystem.current.FighterHasBeenInstantiated(f);
     }
-    public void AddFightersToTheBattle(List<string> names, List<Transform> parents)
+    public void AddFightersToTheBattle(List<FighterName> names, List<Transform> parents)
     {
         if (names.Count > parents.Count)
             throw new System.Exception("More fighters than platforms.");
         for (int i = 0; i < parents.Count && i < names.Count; i++) {
-            AddFighterToTheBattle(names[i], parents[i], i);
+            AddFighterToTheBattle(names[i].ToString(), parents[i], i);
         }
         BattleEventSystem.current.AllFighterInstantiated();
     }

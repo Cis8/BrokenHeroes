@@ -31,7 +31,7 @@ public class SelectedParty : MonoBehaviour
         
     }
 
-    public void AddHeroSlot(string hero)
+    public void AddHeroSlot(FighterName hero)
     {
         int index = SelectedHeroes.FindIndex(h => h.IsEmpty);
         if(index != -1)
@@ -41,7 +41,7 @@ public class SelectedParty : MonoBehaviour
         }
     }
 
-    public void RemoveHeroSlot(string hero)
+    public void RemoveHeroSlot(FighterName hero)
     {
         int index = SelectedHeroes.FindIndex(h => h.Name == hero);
         if (index != -1)

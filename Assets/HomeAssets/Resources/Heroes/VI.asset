@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5eb5f9da65fa74a8f2fc47bc4da12f, type: 3}
   m_Name: VI
   m_EditorClassIdentifier: 
-  fighterName: 0
+  fighterName: 1
   faction: 2
   class: 0
-  lvl: 25
+  lvl: 20
   energyPerAttack: 50
   attacksPerAction: 1
   attackSpecification:

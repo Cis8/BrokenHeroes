@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.U2D.Animation;
 using TMPro;
+using System.Linq;
 
 public class HeroSelection : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class HeroSelection : MonoBehaviour
         //GameObject heroesInventoryGO = gameObject.transform.parent.Find("Heroes").gameObject;
         gameObject.GetComponent<HeroesInventory>().opHandle.Completed += handle => {
             ////Disabled.Log("3) Starting sprites reading.");
-            foreach (HeroState h in gameObject.GetComponent<HeroesInventory>().OwnedHeroes.GetHeroes())
+            foreach (FighterName h in GameAssets.current.OwnedHeroes.Select(us => us.FighterName))
             {
                 GameObject hs = GameObject.Instantiate(heroSlotPrefab, transform);
                 hs.GetComponent<SlotCharacterSelect>().Hero = h;

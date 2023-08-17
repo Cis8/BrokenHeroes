@@ -8,16 +8,8 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class HeroesInventory : MonoBehaviour
 {
-    [SerializeField]
-    private HeroesList _ownedHeroes;
-
-    [SerializeField]
-    private HeroesList _allHeroes;
 
     private SpriteLibrary portraits;
-
-    public HeroesList OwnedHeroes { get => _ownedHeroes; set => _ownedHeroes = value; }
-    public HeroesList AllHeroes { get => _allHeroes; set => _allHeroes = value; }
 
     public AsyncOperationHandle<IList<Sprite>> opHandle;
 
@@ -46,9 +38,8 @@ public class HeroesInventory : MonoBehaviour
                 portraits.spriteLibraryAsset.AddCategoryLabel(s, "Portraits", s.name);
             }
         gameObject.transform.GetComponent<HeroSelection>().LoadPortraits();
-        
 
-        
+
 
         /*if(opHandle.Status == AsyncOperationStatus.Succeeded)
         {
@@ -61,7 +52,7 @@ public class HeroesInventory : MonoBehaviour
         {
             throw new System.Exception("Failed in loading portraits' sprites.");
         }*/
-        
+
 
     }
 

@@ -3489,7 +3489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e0ace14e432b804b98b5960fa685d47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heroesToAdd: {fileID: 11400000, guid: e2e58fadde8029a429ba2a544133b833, type: 2}
+  heroesToAdd: {fileID: 11400000, guid: ccabd270d2d37ce4ca86be2e29670776, type: 2}
   heroesBattleStations:
   - {fileID: 1919667287}
   - {fileID: 1425234405}
