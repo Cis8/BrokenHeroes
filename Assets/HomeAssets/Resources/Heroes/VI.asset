@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: VI
   m_EditorClassIdentifier: 
   fighterName: 1
+  unlocked: 1
   faction: 2
   class: 0
-  lvl: 20
+  lvl: 15
+  exp: 0
   energyPerAttack: 50
   attacksPerAction: 1
   attackSpecification:
@@ -36,5 +38,10 @@ MonoBehaviour:
   thorns: 0
   lifesteal: 0
   remainingResurrections: 0
-  criticalChance: 0.2
+  criticalChance: 1
   criticalMultiplier: 2
+  weapon: 
+  helmet: 
+  chestplate: 
+  gloves: 
+  boots: 

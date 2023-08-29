@@ -15,7 +15,12 @@ public class UnitSpec : ScriptableObject
 	[SerializeField]
     private FighterName fighterName;
 
-    [SerializeField]
+	[SerializeField]
+	private bool unlocked =  false;
+	[NonSerialized]
+	private bool runtimeUnlocked = false;
+
+	[SerializeField]
 	private FactionEnum faction;
 
 	[SerializeField]
@@ -23,6 +28,11 @@ public class UnitSpec : ScriptableObject
 
 	[SerializeField]
 	int lvl = 1;
+
+	[SerializeField]
+	int exp = 0;
+	[NonSerialized]
+	private int runtimeExp;
 
 	[SerializeField]
 	int energyPerAttack = 50;
@@ -61,12 +71,88 @@ public class UnitSpec : ScriptableObject
 	[SerializeField]
 	float criticalMultiplier = 2.0f;
 
+	// EQUIPMENT
+	[SerializeField]
+	string weapon;
+	[SerializeField]
+	string helmet;
+	[SerializeField]
+	string chestplate;
+	[SerializeField]
+	string gloves;
+	[SerializeField]
+	string boots;
+
+	public int CurrentLvlRequiredExp()
+    {
+		return 100 + 20 * Lvl;
+	}
+
+	// returns the hero's level after the addition of the exp
+	public int AddExp(int amount)
+    {
+		Exp += amount;
+		while (Exp >= CurrentLvlRequiredExp())
+        {
+			Exp -= CurrentLvlRequiredExp();
+			Lvl++;
+			HomeEventSystem.current.HeroHasLevelledUp(fighterName);
+        }
+		return Lvl;
+    }
+
+	public void EquipItem(EquipmentPieceEnum kind, string name)
+    {
+        switch (kind)
+        {
+            case EquipmentPieceEnum.Weapon:
+				weapon = name;
+                break;
+            case EquipmentPieceEnum.Helmet:
+				helmet = name;
+				break;
+            case EquipmentPieceEnum.Chestplate:
+				chestplate = name;
+				break;
+            case EquipmentPieceEnum.Gloves:
+				gloves = name;
+				break;
+            case EquipmentPieceEnum.Boots:
+				boots = name;
+				break;
+        }
+    }
+
+    public void UnequipItem(EquipmentPieceEnum kind)
+    {
+		switch (kind)
+		{
+			case EquipmentPieceEnum.Weapon:
+				weapon = "";
+				break;
+			case EquipmentPieceEnum.Helmet:
+				helmet = "";
+				break;
+			case EquipmentPieceEnum.Chestplate:
+				chestplate = "";
+				break;
+			case EquipmentPieceEnum.Gloves:
+				gloves = "";
+				break;
+			case EquipmentPieceEnum.Boots:
+				boots = "";
+				break;
+		}
+	}
+
+
 
 	// Getters and Setters
 	public FactionEnum Faction { get => faction; set => faction = value; }
     public FighterName FighterName { get => fighterName; set => fighterName = value; }
     public int Lvl { get => lvl; set => lvl = value; }
-    public int EnergyPerAttack { get => energyPerAttack; set => energyPerAttack = value; }
+	public int Exp { get => runtimeExp; private set => runtimeExp = value; }
+	public int EnergyPerAttack { get => energyPerAttack; set => energyPerAttack = value; }
     public int AttacksPerAction { get => attacksPerAction; set => attacksPerAction = value; }
     public int BleedResist { get => bleedResist; set => bleedResist = value; }
     public int BurnResist { get => burnResist; set => burnResist = value; }
@@ -79,4 +165,10 @@ public class UnitSpec : ScriptableObject
     public AtkAbilTargetSpecification AttackSpecification { get => attackSpecification; set => attackSpecification = value; }
     public AtkAbilTargetSpecification AbilitySpecification { get => abilitySpecification; set => abilitySpecification = value; }
     public ClassEnum Class { get => @class; set => @class = value; }
+    public bool Unlocked { get => runtimeUnlocked; set => runtimeUnlocked = value; }
+    public string Weapon { get => weapon; set => weapon = value; }
+    public string Helmet { get => helmet; set => helmet = value; }
+    public string Chestplate { get => chestplate; set => chestplate = value; }
+    public string Gloves { get => gloves; set => gloves = value; }
+    public string Boots { get => boots; set => boots = value; }
 }

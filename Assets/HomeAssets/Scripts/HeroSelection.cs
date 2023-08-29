@@ -8,18 +8,18 @@ using System.Linq;
 
 public class HeroSelection : MonoBehaviour
 {
+    [SerializeField]
     GameObject heroSlotPrefab;
 
     private void Awake()
     {
-        heroSlotPrefab = Resources.Load<GameObject>("Prefabs/HeroSelection/SlotCharacterSelect");
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
-
+        //heroSlotPrefab = Resources.Load<SlotCharacterSelect>("Prefabs/HeroSelection/SlotCharacterSelect");
     }
 
     public void LoadPortraits()
@@ -29,13 +29,9 @@ public class HeroSelection : MonoBehaviour
             ////Disabled.Log("3) Starting sprites reading.");
             foreach (FighterName h in GameAssets.current.OwnedHeroes.Select(us => us.FighterName))
             {
-                GameObject hs = GameObject.Instantiate(heroSlotPrefab, transform);
-                hs.GetComponent<SlotCharacterSelect>().Hero = h;
-                /*Sprite portraitSprite = gameObject.GetComponent<SpriteLibrary>().spriteLibraryAsset.GetSprite("Portraits", h.Name);
-                hs.transform.Find("Character").Find("HeroPortrait").GetComponent<Image>().sprite = portraitSprite;
-                hs.transform.Find("CharacterInfo").Find("NameTxt").GetComponent<TextMeshProUGUI>().text= portraitSprite.name;
-                hs.GetComponent<SlotCharacterSelect>().Hero = h;*/
-                hs.GetComponent<SlotCharacterSelect>().Initialize(h);
+                GameObject hs = Instantiate(heroSlotPrefab, transform);
+                hs.GetComponent<SlotCharacter>().Hero = h;
+                hs.GetComponent<SlotCharacter>().Init(h);
             }
         };
     }

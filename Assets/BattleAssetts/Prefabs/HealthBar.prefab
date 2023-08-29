@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4436499249356087930}
   - component: {fileID: 3756704089495861539}
   - component: {fileID: 2156359857469007848}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 3733792814023854776}
   - component: {fileID: 3506619931038923582}
   - component: {fileID: 7937556459602278227}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: LostFill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 4831049615559868309}
   - component: {fileID: 4831049615559868311}
   - component: {fileID: 4831049615559868310}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 4831049615925444132}
   - component: {fileID: 4831049615925444134}
   - component: {fileID: 4831049615925444133}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 4831049616847823482}
   - component: {fileID: 4831049616847823484}
   - component: {fileID: 4831049616847823483}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -440,7 +440,7 @@ GameObject:
   - component: {fileID: 4138189134217621349}
   - component: {fileID: 3221417406416260867}
   - component: {fileID: 1176415944745988886}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: EmptyBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -582,7 +582,7 @@ GameObject:
   - component: {fileID: 828483592586178014}
   - component: {fileID: 2901866407556010319}
   - component: {fileID: 4089474913412627486}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: FillChild
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -723,7 +723,7 @@ GameObject:
   - component: {fileID: 3563664830413242702}
   - component: {fileID: 8267982953775075207}
   - component: {fileID: 8513511725808441135}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: HealthBarBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -9,12 +9,18 @@ public class DmgPopup : MonoBehaviour
     //STATIC FIELDS
     [SerializeField]
     static GameObject hpDmgPopupPrefab;
-    /*[SerializeField]
-    static ObjectPool pool;*/
+    [SerializeField]
+    TMP_Text _amount;
+    [SerializeField]
+    Sprite _physicalCritSprite;
+    [SerializeField]
+    Sprite _magicalCritSprite;
+    [SerializeField]
+    SpriteRenderer _critSpriteRenderer;
 
     // CLASS INSTANCE FIELDS
-    private TextMeshPro textMesh;
     private Color textColor;
+    private Color critColor;
     private Fighter boundFighter;
     private string fighterTag;
     private float randomOffsetX;
@@ -71,6 +77,7 @@ public class DmgPopup : MonoBehaviour
     public static DmgPopup SetupPopup(Fighter f, DmgPopup dmgPopup)
     {
         dmgPopup.textColor.a = 1;
+        dmgPopup.critColor.a = 1;
         dmgPopup.currentLifespan = dmgPopup.lifeSpan;
         dmgPopup.currentXSpeed = dmgPopup.xspeed;
         dmgPopup.currentYSpeed = dmgPopup.yspeed;
@@ -86,24 +93,26 @@ public class DmgPopup : MonoBehaviour
 
     private void Awake()
     {
-        textMesh = transform.GetComponent<TextMeshPro>();
         Addressables.LoadAssetAsync<GameObject>("HpPopup").Completed += handle => { hpDmgPopupPrefab = handle.Result; };
     }
     public void SetupDmg(DmgInfo info)
     {
         if (info.IsCritical)
         {
-            textMesh.SetText("-" + info.Amount.ToString() + " !");
-            //SpriteRenderer critImage = gameObject.transform.Find("Critical").GetComponent<SpriteRenderer>();
-            //critImage.enabled = true;
+            critColor = new Color(1f, 1f, 1f);
+            _amount.SetText("-" + info.Amount.ToString() + " !");
             if (info.Type == DmgTypeEnum.Physical)
             {
                 //critImage.color = new Color(0.85f, 0f, 0f);
+                _critSpriteRenderer.enabled = true;
+                _critSpriteRenderer.sprite = _physicalCritSprite;
                 textColor = new Color(0.85f, 0f, 0f);
             }
             else if (info.Type == DmgTypeEnum.Magical)
             {
                 //critImage.color = new Color(1f, 0f, 1f);
+                _critSpriteRenderer.enabled = true;
+                _critSpriteRenderer.sprite = _magicalCritSprite;
                 textColor = new Color(1f, 0f, 1f);
             }  
             else
@@ -111,23 +120,25 @@ public class DmgPopup : MonoBehaviour
         }
         else
         {
-            textMesh.SetText("-" + info.Amount.ToString());
+            _critSpriteRenderer.enabled = false;
+            _amount.SetText("-" + info.Amount.ToString());
             if (info.Type == DmgTypeEnum.Physical)
                 textColor = new Color(0.75f, 0.4f, 0f);
             else if (info.Type == DmgTypeEnum.Magical)
-                textColor = new Color(0.23f, 0.23f, 0.73f);
+                textColor = new Color(0.4f, 0.4f, 0.87f);
             else
                 textColor = new Color(1f, 1f, 1f);
         }
         //textMesh.SetText("-" + textMesh.text);
-        textMesh.color = textColor;
+        _amount.color = textColor;
+        _critSpriteRenderer.color = critColor;
     }
 
     public void SetupHeal(HealInfo info)
     {
-        textMesh.SetText("+" + info.Amount.ToString());
+        _amount.SetText("+" + info.Amount.ToString());
         textColor = new Color(0.1f, 0.9f, 0f);
-        textMesh.color = textColor;
+        _amount.color = textColor;
     }
 
 
@@ -145,8 +156,11 @@ public class DmgPopup : MonoBehaviour
         currentLifespan -= Time.deltaTime;
         if(currentLifespan <= 0)
         {
-            textColor.a -= disappearSpeed * Time.deltaTime;
-            textMesh.color = textColor;
+            float deltaAlpha = disappearSpeed * Time.deltaTime;
+            critColor.a -= deltaAlpha;
+            textColor.a -= deltaAlpha;
+            _critSpriteRenderer.color = critColor;
+            _amount.color = textColor;
             //if (textColor.a <= 0) Destroy(gameObject);
             if (textColor.a <= 0) gameObject.SetActive(false);
         }

@@ -35,7 +35,7 @@ public class Fighter : MonoBehaviour
         fighterName = name;
         string fighterHeader = "Heroes/";
         UnitSpec us = Resources.Load<UnitSpec>(fighterHeader + name);
-        Unit u = UnitConverter.Convert(us, this.transform);
+        Unit u = UnitConverter.ConvertUnit(us, this.transform);
         var type = Type.GetType(name + "Logic");
         fighterLogic = (FighterLogic)Activator.CreateInstance(type, u, this, this.tag);
         //fighterLogic = FighterLogicFactory.GetFighterLogic(name, gameObject.GetComponent<Fighter>());

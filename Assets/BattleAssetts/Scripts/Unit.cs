@@ -13,6 +13,7 @@ public class Unit : MonoBehaviour
 	private FactionEnum faction;
 	int level = 1;
 	int maxHP;
+	int bonusHealPerc = 0;
 	int initialEnergy = 0;
 	int energyPerAttack = 50;
 	int attacksPerAction = 1;
@@ -72,6 +73,7 @@ public class Unit : MonoBehaviour
 		FactionEnum faction,
 		int level,
 		int maxHP,
+		int bonusHealPerc,
 		int initialEnergy,
 		int attacksPerAction,
 		int energyPerAttack,
@@ -98,6 +100,7 @@ public class Unit : MonoBehaviour
 		this.faction = faction;
 		this.level = level;
 		this.MaxHP = maxHP;
+		CurrentHealBonusPerc = bonusHealPerc;
 		this.initialEnergy = initialEnergy;
         this.AttacksPerAction = attacksPerAction;
 		this.EnergyPerAttack = energyPerAttack;
@@ -197,6 +200,8 @@ public class Unit : MonoBehaviour
 
 	private int EnergyPerAttack { get => energyPerAttack; set { energyPerAttack = value; CurrentEnergyPerAtk = value; } }
 
+    private int BonusHealPerc { get => bonusHealPerc; set { bonusHealPerc = value; CurrentHealBonusPerc = value; } }
+
     private int GetComplessiveArmor()
     {
 		return (int)((float)CurrentArmor * GetPercMultiplier(CurrentArmorBonusPerc));
@@ -222,7 +227,7 @@ public class Unit : MonoBehaviour
 		return (int)((float)currentSpeed * GetPercMultiplier(CurrentSpeedBonusPerc));
 	}
 
-	public float GetPercMultiplier(int stat, bool addHundredPercent = true)
+	static public float GetPercMultiplier(int stat, bool addHundredPercent = true)
 	{
 		int statistic = stat;
 		if (addHundredPercent)
@@ -233,33 +238,6 @@ public class Unit : MonoBehaviour
 		else
 			return ret;
 	}
-
-	public void OnAfterDeserialize()
-	{
-		Debug.Log("Unit Deserialized");
-		currentHP = maxHP;
-		CurrentAttacksPerAction = AttacksPerAction;
-		currentRemainingAttacks = AttacksPerAction;
-		CurrentPhysicalAttack = PhysicalAttack;
-		CurrentMagicalAttack = MagicalAttack;
-		CurrentArmorPenetration = ArmorPenetration;
-		CurrentMagicDefensePenetration = MagicDefensePenetration;
-		CurrentSpeed = Speed;
-		currentEnergy = initialEnergy;
-		currentEnergyPerAtk = EnergyPerAttack;
-		CurrentArmor = Armor;
-		CurrentMagicalDefense = MagicalDefense;
-		CurrentBleedResist = BleedResist;
-		CurrentBurnResist = BurnResist;
-		CurrentPoisonResist = PoisonResist;
-		CurrentCriticalChance = CriticalChance;
-		CurrentCriticalMultiplier = CriticalMultiplier;
-		CurrentLifesteal = Lifesteal;
-		CurrentThorns = Thorns;
-		CurrentRemainingResurrections = RemainingResurrections;
-	}
-
-	public void OnBeforeSerialize() { }
 
 	public int SubtractLife(int amount)
     {

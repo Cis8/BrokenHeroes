@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Doombot
   m_EditorClassIdentifier: 
   fighterName: 2
+  unlocked: 1
   faction: 1
-  class: 0
-  lvl: 20
+  class: 1
+  lvl: 15
+  exp: 0
   energyPerAttack: 50
   attacksPerAction: 1
   attackSpecification:
@@ -38,3 +40,8 @@ MonoBehaviour:
   remainingResurrections: 0
   criticalChance: 0.05
   criticalMultiplier: 1.75
+  weapon: 
+  helmet: 
+  chestplate: 
+  gloves: 
+  boots: 

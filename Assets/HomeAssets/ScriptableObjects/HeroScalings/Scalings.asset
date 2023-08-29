@@ -16,9 +16,9 @@ MonoBehaviour:
   WorksheetName: Scalings
   dataArray:
   - class_name: Warrior
-    max_hp: 100 * Lvl
-    phy_atk: 10 * Lvl
-    mag_atk: 10 * Lvl
+    max_hp: 90 * Lvl
+    phy_atk: 8 * Lvl
+    mag_atk: 8 * Lvl
     arm: 5 * Lvl
     mdef: 5 * Lvl
     armor_pen: 0 * Lvl

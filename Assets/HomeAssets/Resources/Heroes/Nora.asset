@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Nora
   m_EditorClassIdentifier: 
   fighterName: 3
+  unlocked: 1
   faction: 0
-  class: 0
-  lvl: 20
+  class: 3
+  lvl: 18
+  exp: 40
   energyPerAttack: 50
   attacksPerAction: 1
   attackSpecification:
@@ -36,5 +38,10 @@ MonoBehaviour:
   thorns: 0
   lifesteal: 0
   remainingResurrections: 1
-  criticalChance: 0.1
+  criticalChance: 1
   criticalMultiplier: 2
+  weapon: 
+  helmet: 
+  chestplate: 
+  gloves: 
+  boots: 

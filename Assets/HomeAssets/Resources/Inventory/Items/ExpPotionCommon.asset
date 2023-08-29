@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54a60a88a042db6419b4bdb9252be39e, type: 3}
+  m_Name: ExpPotionCommon
+  m_EditorClassIdentifier: 
+  _name: Common Exp Potion
+  _amount: 24
+  _sprite: {fileID: 21300000, guid: 9db35248940f15d418b83e3f1da62fb9, type: 3}
+  _rarity: 0
+  _category: 0
+  _sellValue: 10
+  _grantedExp: 60

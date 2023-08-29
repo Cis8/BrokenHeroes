@@ -10,6 +10,8 @@ public class GameAssets : MonoBehaviour
 {
     private UnitSpec[] _ownedHeroes;
 
+    private Dictionary<string, Item> _items;
+
     public UnitSpec[] OwnedHeroes { get => _ownedHeroes; set => _ownedHeroes = value; }
 
     private static GameAssets _current;
@@ -22,9 +24,21 @@ public class GameAssets : MonoBehaviour
         }
     }
 
+    public Dictionary<string, Item> Items { get => _items; set => _items = value; }
+
     private void Awake()
     {
         _ownedHeroes = Resources.LoadAll<UnitSpec>("Heroes");
+        Items = new Dictionary<string, Item>();
+        foreach (Item i in Resources.LoadAll<Item>("Inventory/Items"))
+        {
+            Items.Add(i.Name, i);
+        }
+    }
+
+    private void Start()
+    {
+
     }
 
     public static AsyncOperationHandle<Sprite> GetHeroPortrait(FighterName heroName)

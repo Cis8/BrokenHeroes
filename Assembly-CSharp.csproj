@@ -59,23 +59,32 @@
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\HealInfo.cs" />
     <Compile Include="Assets\Data\Runtime\NoraScalings.cs" />
     <Compile Include="Assets\BattleAssetts\FightersLogic\FighterLogic.cs" />
+    <Compile Include="Assets\HomeAssets\Scripts\Inventory\AmountFramelessItem.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\UIscript.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\BattleEventSystem.cs" />
+    <Compile Include="Assets\HeroStatsDisplay.cs" />
     <Compile Include="Assets\HomeAssets\Scripts\HeroSelection.cs" />
+    <Compile Include="Assets\PanelBase.cs" />
     <Compile Include="Assets\ToBattleButton.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\AurasHolder.cs" />
+    <Compile Include="Assets\HomeAssets\Scripts\Inventory\SquaredItem.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\HealthBar.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\PassiveAbilities\FactionPassives\Soulless\BronzeSoullessPassive.cs" />
+    <Compile Include="Assets\SlotCharacterEquip.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\ModifierData.cs" />
+    <Compile Include="Assets\HomeAssets\Scripts\Equipment\RemoveEquippedItemButton.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\FightersList.cs" />
     <Compile Include="Assets\BattleAssetts\FightersLogic\VILogic.cs" />
     <Compile Include="Assets\Layer Lab\GUI PRO Kit - Fantasy RPG\Scripts\PanelFantasyRPG.cs" />
     <Compile Include="Assets\Data\Runtime\VIScalingsData.cs" />
+    <Compile Include="Assets\HomeAssets\Scripts\Inventory\AbstractController.cs" />
     <Compile Include="Assets\Scalings.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\DmgInfo.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\UniqueMarks\ConcreteClasses\RisingHate.cs" />
     <Compile Include="Assets\UISwitch.cs" />
     <Compile Include="Assets\BattleAssetts\Popups\DmgPopup.cs" />
+    <Compile Include="Assets\PanelToggler.cs" />
+    <Compile Include="Assets\EquipUnequipItemButton.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\Modifier.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\PassiveAbilities\FactionPassives\Soulless\GoldSoullessPassive.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\DoTModifierData.cs" />
@@ -85,11 +94,15 @@
     <Compile Include="Assets\BattleAssetts\FightersLogic\DoombotLogic.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\ModifiersBarPanel.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\BattleManager.cs" />
+    <Compile Include="Assets\HomeAssets\Scripts\Equipment\EquipmentStatisticModification.cs" />
+    <Compile Include="Assets\HomeAssets\Scripts\Equipment\FramelessEquippedItem.cs" />
+    <Compile Include="Assets\HomeAssets\Scripts\Inventory\PotionsController.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\Unit.cs" />
     <Compile Include="Assets\SelectedParty.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\ModifiersIconLibrary.cs" />
     <Compile Include="Assets\SpeedUpButton.cs" />
     <Compile Include="Assets\Layer Lab\GUI PRO Kit - Fantasy RPG\Extensions\UIParticle\UIParticleSystem.cs" />
+    <Compile Include="Assets\HomeAssets\Scripts\Inventory\ExpPotion.cs" />
     <Compile Include="Assets\Scripts\ObjectPool.cs" />
     <Compile Include="Assets\BattleAssetts\Popups\HitImageSO.cs" />
     <Compile Include="Assets\Scripts\GameAssets.cs" />
@@ -102,6 +115,7 @@
     <Compile Include="Assets\BattleAssetts\Scripts\EnergyBar.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\DoTModifier.cs" />
     <Compile Include="Assets\Layer Lab\GUI PRO Kit - Fantasy RPG\Scripts\PanelControlFantasyRPG.cs" />
+    <Compile Include="Assets\HomeAssets\Scripts\Inventory\AddExpButton.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\UniqueMarks\ConcreteData\DeathInFourActsData.cs" />
     <Compile Include="Assets\HomeAssets\Scripts\ChosenHeroes.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\PassiveAbilities\FactionPassives\Soulless\SilverSoullessPassive.cs" />
@@ -111,23 +125,32 @@
     <Compile Include="Assets\BattleAssetts\Scripts\PassiveAbilities\Nora\NoraAttack.cs" />
     <Compile Include="Assets\HomeAssets\Scripts\HomeEventSystem.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\LostFillScript.cs" />
+    <Compile Include="Assets\HomeAssets\Scripts\Inventory\HeroInventoryController.cs" />
+    <Compile Include="Assets\HomeAssets\Scripts\Inventory\EquippedItemsController.cs" />
     <Compile Include="Assets\PreciseImageColliderButtons.cs" />
     <Compile Include="Assets\QuickSheet\Example\Data\Runtime\ExcelExampleData.cs" />
+    <Compile Include="Assets\HomeAssets\Scripts\Inventory\Item.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\HpBarColorSetter.cs" />
     <Compile Include="Assets\Data\Runtime\VIScalings.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\StatModifierData.cs" />
+    <Compile Include="Assets\HomeAssets\Scripts\Inventory\Inventory.cs" />
     <Compile Include="Assets\QuickSheet\Example\Difficulty.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\CalcEngineUtil.cs" />
     <Compile Include="Assets\HomeAssets\Scripts\HeroesInventory.cs" />
+    <Compile Include="Assets\BackButton.cs" />
     <Compile Include="Assets\QuickSheet\Runtime\Util\ConvertExt.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\UniqueMarks\ConcreteData\HateMarkData.cs" />
     <Compile Include="Assets\Scripts\UnitConverter.cs" />
+    <Compile Include="Assets\InventoryUI.cs" />
     <Compile Include="Assets\Data\Runtime\NoraScalingsData.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\PassiveAbilities\Nora\NoraResurrection.cs" />
     <Compile Include="Assets\BattleAssetts\FightersLogic\FighterLogicFactory.cs" />
+    <Compile Include="Assets\Character.cs" />
+    <Compile Include="Assets\EquipFrameEmpty.cs" />
     <Compile Include="Assets\BattleAssetts\Gameplay\AttackStrategies\LessLifeStrategy.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\Fighter.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\FightersManager.cs" />
+    <Compile Include="Assets\HomeAssets\Scripts\SlotCharacter.cs" />
     <Compile Include="Assets\BattleAssetts\Popups\TestingScript.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\UniqueMarks\ConcreteClasses\DeathInFourActs.cs" />
     <Compile Include="Assets\StateModifierIcon.cs" />
@@ -135,13 +158,18 @@
     <Compile Include="Assets\ModifierIcon.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\TurnDisplayer.cs" />
     <Compile Include="Assets\ScalingsData.cs" />
+    <Compile Include="Assets\HomeAssets\Scripts\HeroPanelName.cs" />
+    <Compile Include="Assets\HomeAssets\Scripts\HomeMenuButton.cs" />
+    <Compile Include="Assets\HomeAssets\Scripts\Inventory\FramelessItem.cs" />
     <Compile Include="Assets\QuickSheet\Example\Data\Runtime\ExcelExample.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\StatModifier.cs" />
+    <Compile Include="Assets\HomeAssets\Scripts\Inventory\Equipment.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\PassiveAbilities\FactionPassives\FactionPassiveAbility.cs" />
     <Compile Include="Assets\QuickSheet\Runtime\ExposePropertyAttribute.cs" />
     <Compile Include="Assets\BattleAssetts\FightersLogic\NoraLogic.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\PassiveAbilities\PassiveAbility.cs" />
     <Compile Include="Assets\BattleAssetts\Gameplay\AttackStrategies\StandardStrategy.cs" />
+    <Compile Include="Assets\HomeAssets\Scripts\Inventory\PotionSquaredItem.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\UniqueMarks\ConcreteClasses\HateMark.cs" />
     <Compile Include="Assets\HomeAssets\Scripts\SlotCharacterSelect.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\FighterGraphic.cs" />
@@ -896,6 +924,9 @@
     <Reference Include="Unity.2D.Tilemap.Extras">
       <HintPath>Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.dll</HintPath>
     </Reference>
+    <Reference Include="Coffee.SoftMaskForUGUI.Editor">
+      <HintPath>Library\ScriptAssemblies\Coffee.SoftMaskForUGUI.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.2D.Animation.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.2D.Animation.Editor.dll</HintPath>
     </Reference>
@@ -946,6 +977,9 @@
     </Reference>
     <Reference Include="Unity.Mathematics">
       <HintPath>Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
+    </Reference>
+    <Reference Include="Coffee.SoftMaskForUGUI">
+      <HintPath>Library\ScriptAssemblies\Coffee.SoftMaskForUGUI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Services.Core.Analytics">
       <HintPath>Library\ScriptAssemblies\Unity.Services.Core.Analytics.dll</HintPath>

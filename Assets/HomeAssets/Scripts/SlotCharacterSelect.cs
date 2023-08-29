@@ -1,40 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.U2D.Animation;
-using TMPro;
-using UnityEngine.AddressableAssets;
 
-public class SlotCharacterSelect : MonoBehaviour
+
+public class SlotCharacterSelect : SlotCharacter
 {
     [SerializeField]
     GameObject checkMark;
-    FighterName _hero;
 
-    public FighterName Hero { get => _hero; set => _hero = value; }
-
-    public void Initialize(FighterName hero)
-    {
-        _hero = hero;
-        gameObject.transform.Find("Character").Find("HeroPortrait").GetComponent<Image>().sprite = GameAssets.GetHeroPortrait(_hero).Result;
-        UnitSpec heroSpec = GameAssets.current.GetHeroUnitSpec(hero);
-        GameAssets.GetClassIcon(heroSpec.Class).Completed += handle =>
-        {
-            gameObject.transform.Find("CharacterInfo").Find("RoleIcon").GetComponent<Image>().sprite = handle.Result;
-        };
-        /*Addressables.LoadAssetAsync<Sprite>(_heroState.Class + "Icon").Completed += handle =>
-        {
-            gameObject.transform.Find("CharacterInfo").Find("RoleIcon").GetComponent<Image>().sprite = handle.Result;
-        };*/
-        gameObject.transform.Find("CharacterInfo").Find("NameTxt").GetComponent<TextMeshProUGUI>().text = _hero.ToString();
-        gameObject.transform.Find("CharacterInfo").Find("LvlTxt").GetComponent<TextMeshProUGUI>().text = heroSpec.Lvl.ToString();
-
-    }
-
+    public GameObject CheckMark { get => checkMark; protected set => checkMark = value; }
     public void AddOrRemoveHero()
     {
-        if (!checkMark.activeSelf)
+        if (!CheckMark.activeSelf)
             HomeEventSystem.current.ChosenHeroToAdd(Hero);
         else
             HomeEventSystem.current.ChosenHeroToRemove(Hero);
@@ -44,10 +21,10 @@ public class SlotCharacterSelect : MonoBehaviour
     {
         if(hero == Hero)
         {
-            if (checkMark.activeSelf)
-                checkMark.SetActive(false);
+            if (CheckMark.activeSelf)
+                CheckMark.SetActive(false);
             else
-                checkMark.SetActive(true);
+                CheckMark.SetActive(true);
         }
     }
 
