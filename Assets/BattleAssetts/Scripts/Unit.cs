@@ -7,6 +7,14 @@ using UnityEngine.Animations;
 /*public enum FactionEnum { Soulless, Ancient, Human }
 public enum ScalingTypeEnum { Physical, Magical, CurrentLife, MissingLife, MaxLife }*/
 
+public enum FighterName
+{
+	None, // Represents none hero
+	VI,
+	Doombot,
+	Nora,
+	Gorath
+}
 public class Unit : MonoBehaviour
 {
 	public FighterName fighterName;

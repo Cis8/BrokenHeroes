@@ -107,7 +107,7 @@ public class DoTModifier : Modifier
 
     }
 
-    protected override void ApplyEffect()
+    protected override void ApplyEffect(bool firstApplication)
     {
 
     }

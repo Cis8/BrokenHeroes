@@ -7,11 +7,11 @@ using System;
 public class HeroInventoryController : AbstractController
 {
     [SerializeField]
-    InventoryUI _inventoryUI;
+    HeroInventoryUI _inventoryUI;
     [SerializeField]
     Character _hero;
 
-    public InventoryUI InventoryUI { get => _inventoryUI; set => _inventoryUI = value; }
+    public HeroInventoryUI InventoryUI { get => _inventoryUI; set => _inventoryUI = value; }
     public Dictionary<string, Item> Inventory { get => _inventory; set => _inventory = value; }
 
     // Start is called before the first frame update
@@ -66,15 +66,5 @@ public class HeroInventoryController : AbstractController
     void Update()
     {
         
-    }
-
-    public void AddItemAmount(Item item, int amount)
-    {
-        Inventory[item.Name].AddAmount(amount);
-    }
-
-    public void RemoveItemAmount(Item item, int amount)
-    {
-        Inventory[item.Name].DecreaseAmount(amount);
     }
 }

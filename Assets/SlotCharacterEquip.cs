@@ -19,6 +19,6 @@ public class SlotCharacterEquip : SlotCharacter
     public void SelectedHero()
     {
         HomeEventSystem.current.PanelMustBeToggled("HeroEquipmentPanel");
-        HomeEventSystem.current.HeroSelectedHeroFromInventory(Hero);
+        HomeEventSystem.current.HeroSelectedHeroFromInventory(Name);
     }
 }

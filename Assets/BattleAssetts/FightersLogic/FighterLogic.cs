@@ -127,11 +127,19 @@ public abstract class FighterLogic
         BattleEventSystem.current.OnFighterTurnEnded -= ResetCanCastAbilityAndStartedAndActionNotStarted;
     }
 
+    public bool HasModifierWithName(string modifierName)
+    {
+        if (Modifiers == null || Modifiers.Count == 0)
+            return false;
+        bool res = Modifiers.Find(m => m.ModifierName == modifierName) != null;
+        return res;
+    }
     public void ExecuteAttack()
     {
         List<Fighter> enemiesToAttack = baseAtkStrategy.ChooseTargets(Unit.AtkSpec.NumberOfTargets, team);
         AttackLogic(enemiesToAttack);
         unit.AddEnergy((int)((float)unit.CurrentEnergyPerAtk * GetFloatMultiplier(Unit.CurrentBonusEnergyGainedFromAttack)));
+        BattleEventSystem.current.AttackHasFinished(Parent);
     }
 
     public void ExecuteAbility()
@@ -171,8 +179,8 @@ public abstract class FighterLogic
             BattleEventSystem.current.FighterTookDamage(Parent, info);
             if (!alive)
             {
-                ResetState();
                 BattleEventSystem.current.FighterDied(Parent, info);
+                ResetState();
             }
             //Debug.Log("Effective dmg taken: " + info.Amount);
             return alive;
@@ -443,7 +451,6 @@ public abstract class FighterLogic
         
         if ((info.Source.DmgSourceEnum == DmgSourceEnum.Ability || info.Source.DmgSourceEnum == DmgSourceEnum.Attack) && info.DealerFighter == Parent && Unit.CurrentLifesteal > 0)
         {
-            Debug.Log("HealingFromLifesteal, it is: " + Unit.CurrentLifesteal);
             //Disabled.Log("LS: " + Unit.CurrentLifesteal + ", DMG: " + info.Amount + ", MULT: " + (Unit.CurrentLifesteal * (float)info.Amount));
             HealInfo recover = new HealInfo((int)(Unit.CurrentLifesteal * (float)info.Amount), new HealSource(HealSourceEnum.Lifesteal, true), Parent, Parent);
             HealFlat(recover);

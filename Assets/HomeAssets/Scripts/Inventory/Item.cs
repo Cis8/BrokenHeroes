@@ -18,7 +18,7 @@ public class Item : ScriptableObject
     [SerializeField]
     private RarityEnum _rarity;
     [SerializeField]
-    private ItemCategoryEnum _category;
+    private List<ItemCategoryEnum> _categories;
     [SerializeField]
     private int _sellValue;
 
@@ -26,7 +26,7 @@ public class Item : ScriptableObject
     public int Amount { get => _amount; private set => _amount = value; }
     public Sprite Sprite { get => _sprite; set => _sprite = value; }
     public RarityEnum Rarity { get => _rarity; set => _rarity = value; }
-    public ItemCategoryEnum Category { get => _category; set => _category = value; }
+    public List<ItemCategoryEnum> Categories { get => _categories; set => _categories = value; }
     public int SellValue { get => _sellValue; set => _sellValue = value; }
 
     public void DecreaseAmount(int amount)

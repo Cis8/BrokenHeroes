@@ -227,3 +227,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d693e3b7bfe6ec4eb9eaffd33909853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heroSlotPrefab: {fileID: 0}

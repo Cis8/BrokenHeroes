@@ -9,8 +9,8 @@ using UnityQuickSheet;
 ///
 public class NoraScalingsAssetPostprocessor : AssetPostprocessor 
 {
-    private static readonly string filePath = "Assets/BattleAssetts/FightersLogic/Scalings/NoraScalings/NoraScalings.xlsx";
-    private static readonly string assetFilePath = "Assets/BattleAssetts/FightersLogic/Scalings/NoraScalings/NoraScalings.asset";
+    private static readonly string filePath = "Assets/BattleAssetts/FightersLogic/Scalings/GorathScalings/GorathScalings.xlsx";
+    private static readonly string assetFilePath = "Assets/BattleAssetts/FightersLogic/Scalings/GorathScalings/NoraScalings.asset";
     private static readonly string sheetName = "NoraScalings";
     
     static void OnPostprocessAllAssets (string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)

@@ -17,7 +17,7 @@ public class StatModifier : Modifier
         ApplyStatisticModification(Modifier_Data.IsPositive, false);
     }
 
-    protected override void ApplyEffect()
+    protected override void ApplyEffect(bool firstApplication)
     {
         ApplyStatisticModification(!Modifier_Data.IsPositive, true);
     }

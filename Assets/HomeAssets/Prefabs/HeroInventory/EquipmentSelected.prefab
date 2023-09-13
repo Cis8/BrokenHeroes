@@ -162,6 +162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8885228908361538962}
   - component: {fileID: 3526029811914009042}
+  - component: {fileID: 2760164630444665909}
   m_Layer: 5
   m_Name: EquipmentSelected
   m_TagString: Untagged
@@ -198,6 +199,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3020765202281029449}
   m_CullTransparentMesh: 0
+--- !u!223 &2760164630444665909
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3020765202281029449}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &3726878602351391136
 GameObject:
   m_ObjectHideFlags: 0

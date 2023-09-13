@@ -70,6 +70,14 @@ public class BattleEventSystem : MonoBehaviour
         OnModifierApplied?.Invoke(m);
     }
 
+    // ATTACK FINISHED
+    public delegate void AttackFinished(Fighter F);
+    public event AttackFinished OnAttackFinished;
+    public void AttackHasFinished(Fighter f)
+    {
+        OnAttackFinished?.Invoke(f);
+    }
+
     // MODIFIER REMOVED
     public delegate void ModifierRemoved(Modifier m);
     public event ModifierRemoved OnModifierRemoved;

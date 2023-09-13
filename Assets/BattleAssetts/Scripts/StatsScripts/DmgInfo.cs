@@ -10,15 +10,26 @@ public class DmgSource
     // if it is reactable, means that passives and status that react to dmgTaken are activated by this dmgSource. Otherwise, not
     bool _isReactable;
 
+    string _sourceName; // used for ad hoc controls
+
     DmgSourceEnum _dmgSource;
 
     public DmgSource(DmgSourceEnum dmgSource, bool isReactable = true)
     {
         _isReactable = isReactable;
+        _sourceName = "";
         _dmgSource = dmgSource;
     }
+    public DmgSource(DmgSourceEnum dmgSource, string sourceName, bool isReactable = true)
+    {
+        _isReactable = isReactable;
+        SourceName = sourceName;
+        _dmgSource = dmgSource;
+    }
+
     public bool IsReactable { get => _isReactable; set => _isReactable = value; }
     public DmgSourceEnum DmgSourceEnum { get => _dmgSource; set => _dmgSource = value; }
+    public string SourceName { get => _sourceName; set => _sourceName = value; }
 }
 
 public class DmgInfo

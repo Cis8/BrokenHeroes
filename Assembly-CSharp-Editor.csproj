@@ -74,6 +74,7 @@
     <Compile Include="Assets\QuickSheet\ExcelPlugin\Editor\ExcelQuery.cs" />
     <Compile Include="Assets\Data\Editor\NoraScalingsEditor.cs" />
     <Compile Include="Assets\QuickSheet\Example\Data\Editor\ExcelExampleAssetPostProcessor.cs" />
+    <Compile Include="Assets\Data\Editor\GorathScalingsAssetPostProcessor.cs" />
     <Compile Include="Assets\QuickSheet\Editor\BaseEditor.cs" />
     <Compile Include="Assets\QuickSheet\Editor\Util\Singleton.cs" />
     <Compile Include="Assets\QuickSheet\Editor\Util\SingletonScriptableObject.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Assets\QuickSheet\Editor\Util\Util.cs" />
     <Compile Include="Assets\Data\Editor\DoombotScalingsAssetPostProcessor.cs" />
     <Compile Include="Assets\Data\Editor\DoombotScalingsEditor.cs" />
+    <Compile Include="Assets\Data\Editor\GorathScalingsEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

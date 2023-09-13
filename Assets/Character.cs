@@ -51,7 +51,7 @@ public class Character : MonoBehaviour
         Hero = GameAssets.current.GetHeroUnitSpec(hero);
         _expSlider.maxValue = Hero.CurrentLvlRequiredExp();
         _expSlider.value = Hero.Exp;
-        Addressables.LoadAssetAsync<SpriteLibraryAsset>(hero + "/SpritesLibrary").Completed += handle => { _heroImage.sprite = handle.Result.GetSprite("Stances", "idle"); };
+        Addressables.LoadAssetAsync<SpriteLibraryAsset>(hero + "SpritesLibrary").Completed += handle => { _heroImage.sprite = handle.Result.GetSprite("Stances", "idle"); };
         HomeEventSystem.current.HeroEquipPanelHasBeenInitialized();
     }
 

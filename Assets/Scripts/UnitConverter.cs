@@ -10,7 +10,7 @@ public class UnitConverter
 {
     static Unit unitPrefab = Resources.Load<Unit>("Unit");
 
-    static Scalings statsScalings = Resources.Load<Scalings>("Scalings");
+    static Scalings statsScalings = Resources.Load<Scalings>("ScriptableObjects/heroScalings/Scalings");
 
     // Perc modifiers
     [SerializeField]
@@ -82,8 +82,8 @@ public class UnitConverter
         ConvertEquipment(unitSpec);
 
         // Initialize converted values
-        int finalMaxHp = ConvertMaxHp(unitSpec);
-        Convert.ToInt32(CalcEngineUtil.FloatStatScalingCalculator(statsScalings.dataArray.Where(elem => elem.Class_Name == unitSpec.Class.ToString()).FirstOrDefault().Max_Hp, unitSpec));
+        //int finalMaxHp = ConvertMaxHp(unitSpec);
+        //Convert.ToInt32(CalcEngineUtil.FloatStatScalingCalculator(statsScalings.dataArray.Where(elem => elem.Class_Name == unitSpec.Class.ToString()).FirstOrDefault().Max_Hp, unitSpec));
 
         Unit u = GameObject.Instantiate<Unit>(unitPrefab, parent);
         u.Init(unitSpec.FighterName,

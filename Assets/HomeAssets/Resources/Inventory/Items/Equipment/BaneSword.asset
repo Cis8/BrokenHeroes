@@ -16,10 +16,10 @@ MonoBehaviour:
   _amount: 2
   _sprite: {fileID: 21300000, guid: a6aef4dd26962b74990cc40bcb634d33, type: 3}
   _rarity: 4
-  _category: 1
+  _categories: 01000000
   _sellValue: 150000
   _pieceKind: 0
-  _heroesEquippedWithThisItem: 0200000001000000
+  _heroesEquippedWithThisItem: 
   _statisticsModifications:
     extraPercMaxHP: 0
     extraPercPhysicalAttack: 0

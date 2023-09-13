@@ -35,6 +35,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Portrait
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f3ab19ffeb1363349b1beac997e4a6a0
+    m_Address: GorathPortrait
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Portrait
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 004e967950dbfda4ca9c83b255375171, type: 2}
   m_SchemaSet:

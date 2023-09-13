@@ -16,7 +16,7 @@ MonoBehaviour:
   unlocked: 1
   faction: 2
   class: 0
-  lvl: 15
+  lvl: 1
   exp: 0
   energyPerAttack: 50
   attacksPerAction: 1
@@ -38,7 +38,7 @@ MonoBehaviour:
   thorns: 0
   lifesteal: 0
   remainingResurrections: 0
-  criticalChance: 1
+  criticalChance: 0
   criticalMultiplier: 2
   weapon: 
   helmet: 

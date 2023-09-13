@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2367acea284c48e44958155142efd8f3, type: 3}
+  m_Name: KingsMarkData
+  m_EditorClassIdentifier: 
+  _modifierName: KingsMark
+  isPositive: 0
+  duration: -1
+  isStackable: 0
+  durationStackType: 0
+  isEffectStackable: 0
+  icon: {fileID: 21300000, guid: edfe0f9c96bdcca49a3413afa901286a, type: 3}
+  gorathScalings: {fileID: 11400000, guid: a6b7fedd649d99c4a95e9df0080791c0, type: 2}

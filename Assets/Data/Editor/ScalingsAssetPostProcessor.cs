@@ -9,8 +9,8 @@ using UnityQuickSheet;
 ///
 public class ScalingsAssetPostprocessor : AssetPostprocessor 
 {
-    private static readonly string filePath = "Assets/HomeAssets/ScriptableObjects/HeroScalings/ClassScalings.xlsx";
-    private static readonly string assetFilePath = "Assets/HomeAssets/ScriptableObjects/HeroScalings/Scalings.asset";
+    private static readonly string filePath = "Assets/HomeAssets/Resources/ScriptableObjects/HeroScalings/ClassScalings.xlsx";
+    private static readonly string assetFilePath = "Assets/HomeAssets/Resources/ScriptableObjects/HeroScalings/Scalings.asset";
     private static readonly string sheetName = "Scalings";
     
     static void OnPostprocessAllAssets (string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)

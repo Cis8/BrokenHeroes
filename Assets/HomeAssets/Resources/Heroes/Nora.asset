@@ -16,7 +16,7 @@ MonoBehaviour:
   unlocked: 1
   faction: 0
   class: 3
-  lvl: 18
+  lvl: 20
   exp: 40
   energyPerAttack: 50
   attacksPerAction: 1
@@ -38,7 +38,7 @@ MonoBehaviour:
   thorns: 0
   lifesteal: 0
   remainingResurrections: 1
-  criticalChance: 1
+  criticalChance: 0.15
   criticalMultiplier: 2
   weapon: 
   helmet: 

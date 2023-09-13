@@ -8,27 +8,36 @@ using UnityEngine.U2D.Animation;
 
 public class SlotCharacter : MonoBehaviour
 {
+    [SerializeField]
+    Image _heroPortrait;
+    [SerializeField]
+    Image _heroRoleIcon;
+    [SerializeField]
+    TextMeshProUGUI _heroNameText;
+    [SerializeField]
+    TextMeshProUGUI _heroLvlText;
+    UnitSpec _hero;
+    FighterName _heroName;
 
-    FighterName _hero;
-
-    public FighterName Hero { get => _hero; set => _hero = value; }
+    public FighterName Name { get => _heroName; set => _heroName = value; }
 
     public void Init(FighterName hero)
     {
-        Hero = hero;
-        gameObject.transform.Find("Character").Find("HeroPortrait").GetComponent<Image>().sprite = GameAssets.GetHeroPortrait(Hero).Result;
-        UnitSpec heroSpec = GameAssets.current.GetHeroUnitSpec(hero);
-        GameAssets.GetClassIcon(heroSpec.Class).Completed += handle =>
+        Name = hero;
+        _heroPortrait.sprite = GameAssets.GetHeroPortrait(Name).Result;
+        _hero = GameAssets.current.GetHeroUnitSpec(hero);
+        GameAssets.GetClassIcon(_hero.Class).Completed += handle =>
         {
-            gameObject.transform.Find("CharacterInfo").Find("RoleIcon").GetComponent<Image>().sprite = handle.Result;
+            _heroRoleIcon.sprite = handle.Result;
         };
-        /*Addressables.LoadAssetAsync<Sprite>(_heroState.Class + "Icon").Completed += handle =>
-        {
-            gameObject.transform.Find("CharacterInfo").Find("RoleIcon").GetComponent<Image>().sprite = handle.Result;
-        };*/
-        gameObject.transform.Find("CharacterInfo").Find("NameTxt").GetComponent<TextMeshProUGUI>().text = Hero.ToString();
-        gameObject.transform.Find("CharacterInfo").Find("LvlTxt").GetComponent<TextMeshProUGUI>().text = heroSpec.Lvl.ToString();
+        _heroNameText.text = Name.ToString();
+        UpdateLevel();
+    }
 
+    // called to refresh the level when the roster of heroes is enabled again
+    public void UpdateLevel()
+    {
+        _heroLvlText.text = _hero.Lvl.ToString();
     }
 
     // Start is called before the first frame update

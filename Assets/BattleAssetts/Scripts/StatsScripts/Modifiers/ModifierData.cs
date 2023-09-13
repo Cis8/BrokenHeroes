@@ -10,6 +10,8 @@ public abstract class ModifierData : ScriptableObject
     //public enum StackingMethodology { ADD, MULTIPLY, RESET }
 
     [SerializeField]
+    string _modifierName;
+    [SerializeField]
     bool isPositive;
     [SerializeField]
     int duration;
@@ -33,6 +35,7 @@ public abstract class ModifierData : ScriptableObject
     public bool IsStackable { get => isStackable; }
     public Sprite Icon { get => icon; set => icon = value; }
     public int Duration { get => duration; set => duration = value; }
+    public string ModifierName { get => _modifierName; set => _modifierName = value; }
 
     public abstract Modifier InitializeModifier(Fighter target, Fighter appliedBy);
 }

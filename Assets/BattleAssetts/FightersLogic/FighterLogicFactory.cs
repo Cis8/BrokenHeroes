@@ -3,13 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public enum FighterName { 
-    None, // Represents none hero
-    VI,
-    Doombot,
-    Nora
-}
 public class FighterLogicFactory : MonoBehaviour
 {
     /*private static FighterLogicFactory _current;

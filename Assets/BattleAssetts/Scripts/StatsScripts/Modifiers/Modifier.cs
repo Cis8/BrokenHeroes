@@ -19,7 +19,7 @@ public abstract class Modifier
     protected Modifier(int duration, int stacks, ModifierData modifierData, Fighter target, Fighter appliedBy)
     {
         //Disabled.Log("The modifier name is " + ModifierName);
-        ModifierName = modifierData.name;
+        ModifierName = modifierData.ModifierName;
         Duration = duration;
         this.stacks = stacks;
         this.Modifier_Data = modifierData;
@@ -48,7 +48,7 @@ public abstract class Modifier
             {
                 modifiers.Add(this);
                 SubscribeTick();
-                ApplyEffect();
+                ApplyEffect(true);
                 BattleEventSystem.current.ModifierHasBeenApplied(this);
             }
             else
@@ -59,7 +59,7 @@ public abstract class Modifier
                 {
                     // Adding stacks
                     m.stacks++;
-                    ApplyEffect();
+                    ApplyEffect(false);
                     BattleEventSystem.current.ModifierHasBeenApplied(m);
                     modifiedSomething = true;
                 }
@@ -91,7 +91,7 @@ public abstract class Modifier
         {
             modifiers.Add(this);
             SubscribeTick();
-            ApplyEffect();
+            ApplyEffect(true);
             BattleEventSystem.current.ModifierHasBeenApplied(this);
         }
     }
@@ -104,7 +104,6 @@ public abstract class Modifier
             duration--;
             if (duration == 0)
             {
-                End();
                 Remove();
             }
         }
@@ -116,7 +115,6 @@ public abstract class Modifier
         duration--;
         if (duration == 0)
         {
-            End();
             Remove();
         }
     }
@@ -128,6 +126,7 @@ public abstract class Modifier
 
     public void Remove()
     {
+        End();
         UnsubscribeTick();
         Target.fighterLogic.Modifiers.Remove(this);
         BattleEventSystem.current.ModifierHasBeenRemoved(this);
@@ -138,7 +137,7 @@ public abstract class Modifier
         BattleEventSystem.current.OnFighterTurnEnded -= Tick;
     }
 
-    protected abstract void ApplyEffect();
+    protected abstract void ApplyEffect(bool firstApplication);
     public abstract void End();
 
     protected void SubtractDuration(int amount)

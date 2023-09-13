@@ -12,12 +12,12 @@ public class Equipment : Item
     [SerializeField]
     List<FighterName> _heroesEquippedWithThisItem = new List<FighterName>();
     [SerializeField]
-    private EquipmentStatisticModification _statisticsModifications;
+    private EquipmentStatisticModifications _statisticsModifications;
     [SerializeField]
     private List<string> _passiveAbilitiesNames; // with reflection?
 
 
-    public EquipmentStatisticModification StatisticsModifications { get => _statisticsModifications; private set => _statisticsModifications = value; }
+    public EquipmentStatisticModifications StatisticsModifications { get => _statisticsModifications; private set => _statisticsModifications = value; }
     public List<string> PassiveAbilitiesNames { get => _passiveAbilitiesNames; private set => _passiveAbilitiesNames = value; }
     public EquipmentPieceEnum PieceKind { get => _pieceKind; private set => _pieceKind = value; }
     //[SerializeField] TODO Add Reciepe
@@ -25,7 +25,8 @@ public class Equipment : Item
 
     void Reset()
     {
-        Category = ItemCategoryEnum.Equipment;
+        Categories = new List<ItemCategoryEnum>();
+        Categories.Add(ItemCategoryEnum.Equipment);
     }
 
     private bool IsEquippable()
@@ -35,7 +36,7 @@ public class Equipment : Item
 
     public void EquipTo(UnitSpec hero)
     {
-        if (IsEquippable())
+        if (IsEquippable() && !_heroesEquippedWithThisItem.Contains(hero.FighterName))
         {
             _heroesEquippedWithThisItem.Add(hero.FighterName);
             hero.EquipItem(PieceKind, Name);

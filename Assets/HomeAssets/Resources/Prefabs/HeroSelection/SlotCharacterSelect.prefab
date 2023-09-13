@@ -481,6 +481,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 558ce5f94915ec54ebbd3e427aa322cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _heroPortrait: {fileID: 8286307860504979286}
+  _heroRoleIcon: {fileID: 4925278298215231459}
+  _heroNameText: {fileID: 4925278298539571027}
+  _heroLvlText: {fileID: 4925278297204553685}
   checkMark: {fileID: 8065401966191093771}
 --- !u!114 &4718184408414177825
 MonoBehaviour:

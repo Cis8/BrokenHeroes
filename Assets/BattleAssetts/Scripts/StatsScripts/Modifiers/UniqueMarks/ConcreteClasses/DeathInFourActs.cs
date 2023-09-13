@@ -14,7 +14,7 @@ public class DeathInFourActs : Modifier
         
     }
 
-    protected override void ApplyEffect()
+    protected override void ApplyEffect(bool firstApplication)
     {
         
     }

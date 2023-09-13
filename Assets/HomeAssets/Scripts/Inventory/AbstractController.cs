@@ -22,4 +22,14 @@ public class AbstractController : MonoBehaviour
     {
         _inventory = GameAssets.current.Items;
     }
+
+    public void AddItemAmount(Item item, int amount)
+    {
+        _inventory[item.Name].AddAmount(amount);
+    }
+
+    public void RemoveItemAmount(Item item, int amount)
+    {
+        _inventory[item.Name].DecreaseAmount(amount);
+    }
 }

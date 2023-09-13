@@ -6,7 +6,7 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.U2D.Animation;
 
-public enum FighterState { IDLE, ATTACKING, ABILITYING, DAMAGED, DEAD};
+public enum FighterState { IDLE, ATTACKING, ABILITING, DAMAGED, DEAD};
 
 public class FighterGraphic : MonoBehaviour
 {
@@ -26,7 +26,7 @@ public class FighterGraphic : MonoBehaviour
     private void Start()
     {
         currentCategory = "Stances";
-        spriteLibrary = this.gameObject.GetComponent<SpriteLibrary>();
+        spriteLibrary = gameObject.GetComponent<SpriteLibrary>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         fighter = gameObject.GetComponent<Fighter>();
         ownAanimation = gameObject.GetComponent<Animation>();
@@ -37,7 +37,7 @@ public class FighterGraphic : MonoBehaviour
         //Resources.LoadAll<Sprite>();
         //Resources.LoadAsync<SpriteLibrary>("Fighters/" + gameObject.GetComponent<Fighter>().fighterName + "SpritesLibrary").completed += (AsyncOperation op) => { op. };
         // needs to be loaded from addressables so that animations have the correct sprite hashes
-        Addressables.LoadAssetAsync<SpriteLibraryAsset>(gameObject.GetComponent<Fighter>().fighterName + "/SpritesLibrary").Completed += handle =>
+        Addressables.LoadAssetAsync<SpriteLibraryAsset>(gameObject.GetComponent<Fighter>().fighterName + "SpritesLibrary").Completed += handle =>
         {
             spriteLibrary.spriteLibraryAsset = handle.Result;
             spriteResolver.SetCategoryAndLabel(currentCategory, "idle");
@@ -153,7 +153,7 @@ public class FighterGraphic : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
             spriteRenderer.color = oldColor;
             yield return new WaitForSeconds(0.3f);
-            if(currentState != FighterState.ATTACKING && currentState != FighterState.ABILITYING)
+            if(currentState != FighterState.ATTACKING && currentState != FighterState.ABILITING)
             {
                 spriteResolver.SetCategoryAndLabel(category, label);
                 SetStateCategory(label);
@@ -178,10 +178,10 @@ public class FighterGraphic : MonoBehaviour
                 currentState = FighterState.ATTACKING;
                 break;
             case "loadingAbility":
-                currentState = FighterState.ABILITYING;
+                currentState = FighterState.ABILITING;
                 break;
             case "slashingAbility":
-                currentState = FighterState.ABILITYING;
+                currentState = FighterState.ABILITING;
                 break;
             case "damaged":
                 currentState = FighterState.DAMAGED;
@@ -215,6 +215,12 @@ public class FighterGraphic : MonoBehaviour
 
 
 
+    public void SetStancesCategory(string category)
+    {
+        string currentLabel = spriteResolver.GetLabel();
+        currentCategory = category;
+        spriteResolver.SetCategoryAndLabel(currentCategory, currentLabel);
+    }
 
     private void Resurrection(Fighter f)
     {

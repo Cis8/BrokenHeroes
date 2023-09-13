@@ -18,17 +18,22 @@ MonoBehaviour:
   m_GUID: e11400e2f81f7c34facc80074c2d265c
   m_SerializeEntries:
   - m_GUID: 5270d62cae54f1541a136d00b86ee67a
-    m_Address: VI/SpritesLibrary
+    m_Address: VISpritesLibrary
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 99a8e3e4962c2bd49a9970836e783178
-    m_Address: Doombot/SpritesLibrary
+    m_Address: DoombotSpritesLibrary
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c818c76f03ee82048b1bd4270ff84e8e
-    m_Address: Nora/SpritesLibrary
+    m_Address: NoraSpritesLibrary
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae34a0a8d039ec64693b34487e98371c
+    m_Address: GorathSpritesLibrary
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

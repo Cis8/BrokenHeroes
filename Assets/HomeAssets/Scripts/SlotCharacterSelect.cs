@@ -12,14 +12,14 @@ public class SlotCharacterSelect : SlotCharacter
     public void AddOrRemoveHero()
     {
         if (!CheckMark.activeSelf)
-            HomeEventSystem.current.ChosenHeroToAdd(Hero);
+            HomeEventSystem.current.ChosenHeroToAdd(Name);
         else
-            HomeEventSystem.current.ChosenHeroToRemove(Hero);
+            HomeEventSystem.current.ChosenHeroToRemove(Name);
     }
 
     private void ToggleCheckMark(FighterName hero)
     {
-        if(hero == Hero)
+        if(hero == Name)
         {
             if (CheckMark.activeSelf)
                 CheckMark.SetActive(false);
