@@ -94,6 +94,7 @@
     <Compile Include="Assets\BattleAssetts\Scripts\StatsScripts\Modifiers\DoTModifierData.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\FightersUIManager.cs" />
     <Compile Include="Assets\SelectedHero.cs" />
+    <Compile Include="Assets\BattleAssetts\Gameplay\AttackStrategies\CustomStrategies\GorathAttackStrategy.cs" />
     <Compile Include="Assets\HitImage.cs" />
     <Compile Include="Assets\BattleAssetts\FightersLogic\HeroesLogics\DoombotLogic.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\ModifiersBarPanel.cs" />
@@ -191,7 +192,6 @@
     <Compile Include="Assets\HomeAssets\Scripts\Inventory\FramelessIcon.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\FighterGraphic.cs" />
     <Compile Include="Assets\BattleAssetts\Scripts\PassiveAbilities\VI\VIlifeStealOnTurnStart.cs" />
-    <Compile Include="Assets\BattleAssetts\Gameplay\AttackStrategies\CustomStrategies\GorathAttackStrategy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\BattleAssetts\TextMesh Pro\Shaders\TMPro.cginc" />
